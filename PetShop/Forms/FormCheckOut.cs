@@ -369,7 +369,6 @@ namespace PetShop.Forms
             lblGiven.Font = new Font(lblGiven.Font.FontFamily, lblGiven.Font.Size, FontStyle.Regular);
         }
         static int i = 1;
-        static double dang2;
         private static double gia;
         private void txtSurcharge_TextChanged(object sender, EventArgs e)
         {
@@ -572,7 +571,6 @@ namespace PetShop.Forms
             if (lblSerialKey.Text != "")
             {
                 clsSql sql = new clsSql();
-                bool kiemtra_thanh_toan;
                 if (cbxSurcharge.Checked)
                 {
                     phuthu = txtSurcharge.Text;

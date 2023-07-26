@@ -236,6 +236,7 @@
   <ItemGroup>
     <Compile Include="clsConnect.cs" />
     <Compile Include="clsSql.cs" />
+    <Compile Include="CS\Log_Print_Label.cs" />
     <Compile Include="FormMenu .cs">
       <SubType>Form</SubType>
     </Compile>

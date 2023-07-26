@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.OleDb;
 using System.Drawing.Printing;
 using BarcodeLib;
+using PetShop.CS;
 
 namespace PetShop.Forms
 {
@@ -50,8 +51,7 @@ namespace PetShop.Forms
         }
         enum dgvenum : int
         {
-            //Check,
-            //STT,
+            Check,
             Product_Serial_Key,
             Product_Id,
             Product_Name,
@@ -171,7 +171,6 @@ namespace PetShop.Forms
                 clsSql sql = new clsSql();
                 sql.Get_product(dgvProduct);
             }
-
         }
         private void txtFindProduct_OnTextChange(object sender, EventArgs e)
         {
@@ -262,16 +261,13 @@ namespace PetShop.Forms
                             reader["Note"].ToString()
                         });
                 t++;
-
             }
-
         }
 
         private void dgvProduct_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvProduct.CurrentRow.DefaultCellStyle.ForeColor == Color.Gray && dgvProduct.CurrentRow.Cells[(int)dgvenum.Product_Type_Name].Value.ToString() != "Dịch Vụ")
             {
-
                 MessageBox.Show("Lô hàng đã hết hạn sử dụng");
             }
             else
@@ -308,11 +304,6 @@ namespace PetShop.Forms
             MaskedDialog.ShowDialog(this, f2);
             f2.Dispose();
             f2 = null;
-        }
-
-        private void guna2GradientPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void cbxGroup_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -408,38 +399,83 @@ namespace PetShop.Forms
             }
         }
 
-        private void guna2TileButton1_Click(object sender, EventArgs e)
+        private void printReview_PrintPage(object sender, PrintPageEventArgs e)
         {
-
+            string Material_Name = "";
+            string Expire_Date = "";
+            string Sale_Price = "";
+            string Barcode = "";
+            BarcodeLib.Barcode code128;
+            code128 = new Barcode();
+            //Create a font Arial with size 16  
+            Font font = new Font("Arial", 15, FontStyle.Bold);
+            Font font2 = new Font("Arial", 9, FontStyle.Regular);
+            Font font3 = new Font("Arial", 9, FontStyle.Bold);
+            Font font4 = new Font("Arial", 11, FontStyle.Italic);
+            Font font5 = new Font("Arial", 9, FontStyle.Italic);
+            Font font6 = new Font("Arial", 11, FontStyle.Bold);
+            //Create a solid brush with black color  
+            SolidBrush brush = new SolidBrush(Color.Black);
+            Pen pen = new Pen(Color.Blue, 1);
+            for (int i = 0; i <= 4; i++)
+            {
+                Material_Name = QRCode[i].Material_Name.ToString();
+                Expire_Date = QRCode[i].Expire_Date.ToString("dd/MM/yyyy");
+                Sale_Price = QRCode[i].Sale_Price.ToString();
+                Barcode = QRCode[i].Barcode.ToString();
+                Graphics g = e.Graphics;                
+                //Material Name 
+                g.DrawString(Material_Name, font2, brush, new Rectangle(0, 0, 144, 55));
+                //g.DrawRectangle(pen, new Rectangle(1, 92, 302, 40));                
+                g.DrawString("HSD: " + Expire_Date, font2, brush, new Rectangle(0, 50, 144, 30));
+                //g.DrawRectangle(pen, new Rectangle(1, 122, 302, 40));
+                g.DrawString("Giá bán: " + Sale_Price, font2, brush, new Rectangle(0, 65, 144, 30));
+                //Địa chỉ Shop
+                Color forecolor = Color.Black;
+                Color backcolor = Color.Transparent;
+                string a = "893684456314";
+                if (Barcode != "") //|| dgvProduct.Rows[dang1].Cells[14].Value?.ToString() != null
+                {
+                    a = Barcode;
+                    Image barcode = code128.Encode(BarcodeLib.TYPE.CODE128, a, forecolor, backcolor, 144, 40);
+                    g.DrawImage(barcode, new System.Drawing.PointF(0, 80));
+                }
+                else
+                {
+                    MessageBox.Show("Barcode rỗng");
+                }
+                e.HasMorePages = false;
+            }
         }
-
-        private void guna2TileButton2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void printReview_PrintPage(object sender , PrintPageEventArgs e)
-        {
-            pd_PrintPage(sender,e);
-        }
-
         static int dang1;
+        List<Log_Print_Label> QRCode = new List<Log_Print_Label>();
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            //for (int i = 0; i < dgvProduct.RowCount; i++)
+            //{
+            //    dang1 = i;
+            //    PrintDocument pd = new PrintDocument();
+            //    pd.PrintPage += new PrintPageEventHandler(pd_PrintPage);
+            //    pd.Print();
+            //}
+            //MessageBox.Show("In hoàn thành!");
+            Log_Print_Label log = new Log_Print_Label();
             for (int i = 0; i < dgvProduct.RowCount; i++)
             {
-                dang1 = i;
-                PrintDocument pd = new PrintDocument();
-                pd.PrintPage += new PrintPageEventHandler(pd_PrintPage);
-                pd.Print();
-                //pvdCORPrint.Document = printReview;
-                //string a = ((ToolStrip)(pvdCORPrint.Controls[1])).Items.Count.ToString();
-                //((ToolStrip)(pvdCORPrint.Controls[1])).Items.RemoveByKey("printToolStripButton");
-                //pvdCORPrint.ShowDialog();
+                if (dgvProduct.Rows[i].Cells[0].Value.ToString() == "True")
+                {
+                    log.Material_Name = dgvProduct.Rows[i].Cells["Product_Name"].Value.ToString().Trim();
+                    log.Expire_Date = Convert.ToDateTime(dgvProduct.Rows[i].Cells["Date_Expired"].Value.ToString().Trim());
+                    log.Sale_Price = dgvProduct.Rows[i].Cells["Product_Sale_Price"].Value.ToString().Trim();
+                    log.Barcode = dgvProduct.Rows[i].Cells["Product_Barcode"].Value.ToString().Trim();
+                    QRCode.Add(log);
+                }
             }
-            MessageBox.Show("In hoàn thành!");
-        }
-        
+            pvdCORPrint.Document = printReview;
+            string a = ((ToolStrip)(pvdCORPrint.Controls[1])).Items.Count.ToString();
+            ((ToolStrip)(pvdCORPrint.Controls[1])).Items.RemoveByKey("printToolStripButton");
+            pvdCORPrint.ShowDialog();
+        }        
         public void pd_PrintPage(object sender, PrintPageEventArgs ev)
         {
             PrintDocument pd = new PrintDocument();
@@ -449,7 +485,6 @@ namespace PetShop.Forms
             //code128.LabelFont = new Font("Times New Roman", 4f);
             //Get the Graphics object  
             Graphics g = ev.Graphics;
-            //son xau quat    dang moi dep trai
             //Create a font Arial with size 16  
             Font font = new Font("Arial", 15, FontStyle.Bold);
             Font font2 = new Font("Arial", 9, FontStyle.Regular);
@@ -457,38 +492,30 @@ namespace PetShop.Forms
             Font font4 = new Font("Arial", 11, FontStyle.Italic);
             Font font5 = new Font("Arial", 9, FontStyle.Italic);
             Font font6 = new Font("Arial", 11, FontStyle.Bold);
-
             //Create a solid brush with black color  
             SolidBrush brush = new SolidBrush(Color.Black);
             Pen pen = new Pen(Color.Blue, 1);
-                ////Tên SHop 
-                g.DrawString(dgvProduct.Rows[dang1].Cells[3].Value?.ToString(), font2, brush, new Rectangle(0, 0, 144, 55));
-                //g.DrawRectangle(pen, new Rectangle(1, 92, 302, 40));
-                ////Tên Shop /////for(int i = 150 ; i <302 ; i+=20)
-                ////Địa chỉ Shop
-                g.DrawString("HSD: " + dgvProduct.Rows[dang1].Cells[8].Value?.ToString(), font2, brush, new Rectangle(0, 50, 144, 30));
-                //g.DrawRectangle(pen, new Rectangle(1, 122, 302, 40));
-                g.DrawString("Giá bán: " + dgvProduct.Rows[dang1].Cells[6].Value?.ToString(), font2, brush, new Rectangle(0, 65, 144, 30));
-                //////Địa chỉ Shop
-
-                Color forecolor = Color.Black;
-                Color backcolor = Color.Transparent;
-                string a = "893684456314";
-                
-                if (dgvProduct.Rows[dang1].Cells[14].Value?.ToString() != "" || dgvProduct.Rows[dang1].Cells[14].Value?.ToString() != null)
-                { 
-                    a = dgvProduct.Rows[dang1].Cells[14].Value.ToString();
-                    
-                    Image barcode = code128.Encode(BarcodeLib.TYPE.CODE128, a, forecolor, backcolor, 144,40);
-                    g.DrawImage(barcode, new System.Drawing.PointF(0, 80));
-                }
-                else
-                {
-                //a = "123456789";
+            ////Tên Shop 
+            g.DrawString(dgvProduct.Rows[dang1].Cells[3].Value?.ToString(), font2, brush, new Rectangle(0, 0, 144, 55));
+            //g.DrawRectangle(pen, new Rectangle(1, 92, 302, 40));                
+            g.DrawString("HSD: " + dgvProduct.Rows[dang1].Cells[8].Value?.ToString(), font2, brush, new Rectangle(0, 50, 144, 30));
+            //g.DrawRectangle(pen, new Rectangle(1, 122, 302, 40));
+            g.DrawString("Giá bán: " + dgvProduct.Rows[dang1].Cells[6].Value?.ToString(), font2, brush, new Rectangle(0, 65, 144, 30));
+            //Địa chỉ Shop
+            Color forecolor = Color.Black;
+            Color backcolor = Color.Transparent;
+            string a = "893684456314";                
+            if (dgvProduct.Rows[dang1].Cells[14].Value?.ToString() != "" || dgvProduct.Rows[dang1].Cells[14].Value?.ToString() != null)
+            { 
+                a = dgvProduct.Rows[dang1].Cells[14].Value.ToString();
+                Image barcode = code128.Encode(BarcodeLib.TYPE.CODE128, a, forecolor, backcolor, 144,40);
+                g.DrawImage(barcode, new System.Drawing.PointF(0, 80));
+            }
+            else
+            {
                 MessageBox.Show("Barcode rỗng");
-                }
+            }
             ev.HasMorePages = false;
-
         }
         enum dgv_enum : int
         {
@@ -574,27 +601,38 @@ namespace PetShop.Forms
                     }
                 }
                 dgvProduct.Rows.Add(new object[] {
-                            true,
-                            reader["Product_Serial_Key"].ToString(),
-                            reader["Product_Id"].ToString(),
-                            reader["Product_Name"].ToString(),
-                            reader["Product_Quantity"].ToString(),
-                            String.Format("{0:#,0 VNĐ}", reader["Product_Cost_Price"]),
-                            String.Format("{0:#,0 VNĐ}", reader["Product_Sale_Price"]),
-                            reader["Date_Product"].ToString(),
-                            reader["Date_Expired"].ToString(),
-                            reader["Consignment_ID"].ToString(),
-                            reader["Product_Group_Name"].ToString(),
-                            reader["Product_Type_Name"].ToString(),
-                            reader["Sup_Name"].ToString(),
-                            reader["Address_Sup"].ToString(),
-                            reader["Product_Unit"].ToString(),
-                            reader["Product_Barcode"].ToString(),
-                            reader["Note"].ToString()
-                        });
+                        true,
+                        reader["Product_Serial_Key"].ToString(),
+                        reader["Product_Id"].ToString(),
+                        reader["Product_Name"].ToString(),
+                        reader["Product_Quantity"].ToString(),
+                        String.Format("{0:#,0 VNĐ}", reader["Product_Cost_Price"]),
+                        String.Format("{0:#,0 VNĐ}", reader["Product_Sale_Price"]),
+                        reader["Date_Product"].ToString(),
+                        reader["Date_Expired"].ToString(),
+                        reader["Consignment_ID"].ToString(),
+                        reader["Product_Group_Name"].ToString(),
+                        reader["Product_Type_Name"].ToString(),
+                        reader["Sup_Name"].ToString(),
+                        reader["Address_Sup"].ToString(),
+                        reader["Product_Unit"].ToString(),
+                        reader["Product_Barcode"].ToString(),
+                        reader["Note"].ToString()
+                });
                 t++;
-
             }
+        }
+
+        private bool IsCheckAll;
+        private void dgvProduct_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            for (int i = 0; i < this.dgvProduct.Rows.Count; i++)
+            {
+                this.dgvProduct.Rows[i].Cells[0].Value = this.IsCheckAll;
+            }
+            this.IsCheckAll = !this.IsCheckAll;
+            this.dgvProduct.CurrentRow.Cells[0].Selected = !this.IsCheckAll;
+            dgvProduct.RefreshEdit();
         }
     }
 }
