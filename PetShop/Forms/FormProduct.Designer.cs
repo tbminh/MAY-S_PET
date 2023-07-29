@@ -37,6 +37,23 @@ namespace PetShop.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProduct));
             this.dgvProduct = new Guna.UI.WinForms.GunaDataGridView();
+            this.dcpChoose = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Product_Serial_Key = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product_Cost_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product_Sale_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date_Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date_Expired = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Consighment_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product_Group_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product_Type_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sup_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address_Sup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product_Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product_Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -69,23 +86,6 @@ namespace PetShop.Forms
             this.printReview = new System.Drawing.Printing.PrintDocument();
             this.pvdCORPrint = new System.Windows.Forms.PrintPreviewDialog();
             this.pdlgCORPrint = new System.Windows.Forms.PrintDialog();
-            this.dcpChoose = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Product_Serial_Key = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_Cost_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_Sale_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date_Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date_Expired = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Consighment_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_Group_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_Type_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sup_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address_Sup = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             this.guna2GradientPanel1.SuspendLayout();
             this.guna2GradientPanel2.SuspendLayout();
@@ -112,12 +112,12 @@ namespace PetShop.Forms
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvProduct.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dgvProduct.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(15)))));
+            this.dgvProduct.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.dgvProduct.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvProduct.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvProduct.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(84)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -168,9 +168,9 @@ namespace PetShop.Forms
             this.dgvProduct.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.dgvProduct.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.dgvProduct.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvProduct.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(15)))));
+            this.dgvProduct.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.dgvProduct.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.dgvProduct.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgvProduct.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(84)))), ((int)(((byte)(0)))));
             this.dgvProduct.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvProduct.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.dgvProduct.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
@@ -184,8 +184,130 @@ namespace PetShop.Forms
             this.dgvProduct.ThemeStyle.RowsStyle.Height = 22;
             this.dgvProduct.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvProduct.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellContentClick);
             this.dgvProduct.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellContentDoubleClick);
             this.dgvProduct.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProduct_ColumnHeaderMouseClick);
+            // 
+            // dcpChoose
+            // 
+            this.dcpChoose.HeaderText = "Chọn";
+            this.dcpChoose.Name = "dcpChoose";
+            this.dcpChoose.Width = 46;
+            // 
+            // Product_Serial_Key
+            // 
+            this.Product_Serial_Key.HeaderText = "Key Sản Phẩm ";
+            this.Product_Serial_Key.MinimumWidth = 6;
+            this.Product_Serial_Key.Name = "Product_Serial_Key";
+            this.Product_Serial_Key.Visible = false;
+            this.Product_Serial_Key.Width = 112;
+            // 
+            // Product_Id
+            // 
+            this.Product_Id.HeaderText = "Mã Sản Phẩm";
+            this.Product_Id.MinimumWidth = 6;
+            this.Product_Id.Name = "Product_Id";
+            this.Product_Id.Width = 107;
+            // 
+            // Product_Name
+            // 
+            this.Product_Name.HeaderText = "Tên Sản Phẩm";
+            this.Product_Name.MinimumWidth = 6;
+            this.Product_Name.Name = "Product_Name";
+            this.Product_Name.Width = 108;
+            // 
+            // Product_Quantity
+            // 
+            this.Product_Quantity.HeaderText = "Tồn Kho";
+            this.Product_Quantity.MinimumWidth = 6;
+            this.Product_Quantity.Name = "Product_Quantity";
+            this.Product_Quantity.Width = 76;
+            // 
+            // Product_Cost_Price
+            // 
+            this.Product_Cost_Price.HeaderText = "Giá Vốn";
+            this.Product_Cost_Price.MinimumWidth = 6;
+            this.Product_Cost_Price.Name = "Product_Cost_Price";
+            this.Product_Cost_Price.Width = 75;
+            // 
+            // Product_Sale_Price
+            // 
+            this.Product_Sale_Price.HeaderText = "Giá Bán";
+            this.Product_Sale_Price.MinimumWidth = 6;
+            this.Product_Sale_Price.Name = "Product_Sale_Price";
+            this.Product_Sale_Price.Width = 73;
+            // 
+            // Date_Product
+            // 
+            this.Date_Product.HeaderText = "Ngày Sản Xuất";
+            this.Date_Product.MinimumWidth = 6;
+            this.Date_Product.Name = "Date_Product";
+            this.Date_Product.Visible = false;
+            this.Date_Product.Width = 86;
+            // 
+            // Date_Expired
+            // 
+            this.Date_Expired.HeaderText = "Ngày Hết Hạn";
+            this.Date_Expired.MinimumWidth = 6;
+            this.Date_Expired.Name = "Date_Expired";
+            this.Date_Expired.Width = 86;
+            // 
+            // Consighment_Name
+            // 
+            this.Consighment_Name.HeaderText = "Lô Hàng";
+            this.Consighment_Name.MinimumWidth = 6;
+            this.Consighment_Name.Name = "Consighment_Name";
+            this.Consighment_Name.Width = 77;
+            // 
+            // Product_Group_Name
+            // 
+            this.Product_Group_Name.HeaderText = "Nhóm Hàng";
+            this.Product_Group_Name.MinimumWidth = 6;
+            this.Product_Group_Name.Name = "Product_Group_Name";
+            this.Product_Group_Name.Width = 98;
+            // 
+            // Product_Type_Name
+            // 
+            this.Product_Type_Name.HeaderText = "Loại Hàng";
+            this.Product_Type_Name.MinimumWidth = 6;
+            this.Product_Type_Name.Name = "Product_Type_Name";
+            this.Product_Type_Name.Width = 86;
+            // 
+            // Sup_Name
+            // 
+            this.Sup_Name.HeaderText = "Nhà Cung Cấp ";
+            this.Sup_Name.MinimumWidth = 6;
+            this.Sup_Name.Name = "Sup_Name";
+            this.Sup_Name.Visible = false;
+            this.Sup_Name.Width = 115;
+            // 
+            // Address_Sup
+            // 
+            this.Address_Sup.HeaderText = "Địa Chỉ Nhà Cung Cấp";
+            this.Address_Sup.MinimumWidth = 6;
+            this.Address_Sup.Name = "Address_Sup";
+            this.Address_Sup.Width = 133;
+            // 
+            // Product_Unit
+            // 
+            this.Product_Unit.HeaderText = "ĐVT";
+            this.Product_Unit.MinimumWidth = 6;
+            this.Product_Unit.Name = "Product_Unit";
+            this.Product_Unit.Width = 58;
+            // 
+            // Product_Barcode
+            // 
+            this.Product_Barcode.HeaderText = "Mã Vạch";
+            this.Product_Barcode.MinimumWidth = 6;
+            this.Product_Barcode.Name = "Product_Barcode";
+            this.Product_Barcode.Width = 79;
+            // 
+            // Note
+            // 
+            this.Note.HeaderText = "Ghi Chú";
+            this.Note.MinimumWidth = 6;
+            this.Note.Name = "Note";
+            this.Note.Width = 76;
             // 
             // guna2GradientPanel1
             // 
@@ -199,7 +321,7 @@ namespace PetShop.Forms
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(10)))));
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
@@ -254,12 +376,12 @@ namespace PetShop.Forms
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             this.dgvListProductSaleMax.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvListProductSaleMax.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvListProductSaleMax.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(15)))));
+            this.dgvListProductSaleMax.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.dgvListProductSaleMax.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListProductSaleMax.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvListProductSaleMax.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(84)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -298,9 +420,9 @@ namespace PetShop.Forms
             this.dgvListProductSaleMax.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.dgvListProductSaleMax.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.dgvListProductSaleMax.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvListProductSaleMax.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(15)))));
+            this.dgvListProductSaleMax.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.dgvListProductSaleMax.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvListProductSaleMax.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgvListProductSaleMax.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(84)))), ((int)(((byte)(0)))));
             this.dgvListProductSaleMax.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvListProductSaleMax.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.dgvListProductSaleMax.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
@@ -477,7 +599,7 @@ namespace PetShop.Forms
             this.txtFindProduct.ForeColor = System.Drawing.Color.White;
             this.txtFindProduct.Icon = ((System.Drawing.Image)(resources.GetObject("txtFindProduct.Icon")));
             this.txtFindProduct.Location = new System.Drawing.Point(0, 0);
-            this.txtFindProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFindProduct.Margin = new System.Windows.Forms.Padding(4);
             this.txtFindProduct.Name = "txtFindProduct";
             this.txtFindProduct.Size = new System.Drawing.Size(202, 54);
             this.txtFindProduct.TabIndex = 2;
@@ -608,127 +730,6 @@ namespace PetShop.Forms
             // 
             this.pdlgCORPrint.AllowSelection = true;
             this.pdlgCORPrint.UseEXDialog = true;
-            // 
-            // dcpChoose
-            // 
-            this.dcpChoose.HeaderText = "Chọn";
-            this.dcpChoose.Name = "dcpChoose";
-            this.dcpChoose.Width = 46;
-            // 
-            // Product_Serial_Key
-            // 
-            this.Product_Serial_Key.HeaderText = "Key Sản Phẩm ";
-            this.Product_Serial_Key.MinimumWidth = 6;
-            this.Product_Serial_Key.Name = "Product_Serial_Key";
-            this.Product_Serial_Key.Visible = false;
-            this.Product_Serial_Key.Width = 112;
-            // 
-            // Product_Id
-            // 
-            this.Product_Id.HeaderText = "Mã Sản Phẩm";
-            this.Product_Id.MinimumWidth = 6;
-            this.Product_Id.Name = "Product_Id";
-            this.Product_Id.Width = 107;
-            // 
-            // Product_Name
-            // 
-            this.Product_Name.HeaderText = "Tên Sản Phẩm";
-            this.Product_Name.MinimumWidth = 6;
-            this.Product_Name.Name = "Product_Name";
-            this.Product_Name.Width = 108;
-            // 
-            // Product_Quantity
-            // 
-            this.Product_Quantity.HeaderText = "Tồn Kho";
-            this.Product_Quantity.MinimumWidth = 6;
-            this.Product_Quantity.Name = "Product_Quantity";
-            this.Product_Quantity.Width = 76;
-            // 
-            // Product_Cost_Price
-            // 
-            this.Product_Cost_Price.HeaderText = "Giá Vốn";
-            this.Product_Cost_Price.MinimumWidth = 6;
-            this.Product_Cost_Price.Name = "Product_Cost_Price";
-            this.Product_Cost_Price.Width = 75;
-            // 
-            // Product_Sale_Price
-            // 
-            this.Product_Sale_Price.HeaderText = "Giá Bán";
-            this.Product_Sale_Price.MinimumWidth = 6;
-            this.Product_Sale_Price.Name = "Product_Sale_Price";
-            this.Product_Sale_Price.Width = 73;
-            // 
-            // Date_Product
-            // 
-            this.Date_Product.HeaderText = "Ngày Sản Xuất";
-            this.Date_Product.MinimumWidth = 6;
-            this.Date_Product.Name = "Date_Product";
-            this.Date_Product.Visible = false;
-            this.Date_Product.Width = 86;
-            // 
-            // Date_Expired
-            // 
-            this.Date_Expired.HeaderText = "Ngày Hết Hạn";
-            this.Date_Expired.MinimumWidth = 6;
-            this.Date_Expired.Name = "Date_Expired";
-            this.Date_Expired.Width = 86;
-            // 
-            // Consighment_Name
-            // 
-            this.Consighment_Name.HeaderText = "Lô Hàng";
-            this.Consighment_Name.MinimumWidth = 6;
-            this.Consighment_Name.Name = "Consighment_Name";
-            this.Consighment_Name.Width = 77;
-            // 
-            // Product_Group_Name
-            // 
-            this.Product_Group_Name.HeaderText = "Nhóm Hàng";
-            this.Product_Group_Name.MinimumWidth = 6;
-            this.Product_Group_Name.Name = "Product_Group_Name";
-            this.Product_Group_Name.Width = 98;
-            // 
-            // Product_Type_Name
-            // 
-            this.Product_Type_Name.HeaderText = "Loại Hàng";
-            this.Product_Type_Name.MinimumWidth = 6;
-            this.Product_Type_Name.Name = "Product_Type_Name";
-            this.Product_Type_Name.Width = 86;
-            // 
-            // Sup_Name
-            // 
-            this.Sup_Name.HeaderText = "Nhà Cung Cấp ";
-            this.Sup_Name.MinimumWidth = 6;
-            this.Sup_Name.Name = "Sup_Name";
-            this.Sup_Name.Visible = false;
-            this.Sup_Name.Width = 115;
-            // 
-            // Address_Sup
-            // 
-            this.Address_Sup.HeaderText = "Địa Chỉ Nhà Cung Cấp";
-            this.Address_Sup.MinimumWidth = 6;
-            this.Address_Sup.Name = "Address_Sup";
-            this.Address_Sup.Width = 133;
-            // 
-            // Product_Unit
-            // 
-            this.Product_Unit.HeaderText = "ĐVT";
-            this.Product_Unit.MinimumWidth = 6;
-            this.Product_Unit.Name = "Product_Unit";
-            this.Product_Unit.Width = 58;
-            // 
-            // Product_Barcode
-            // 
-            this.Product_Barcode.HeaderText = "Mã Vạch";
-            this.Product_Barcode.MinimumWidth = 6;
-            this.Product_Barcode.Name = "Product_Barcode";
-            this.Product_Barcode.Width = 79;
-            // 
-            // Note
-            // 
-            this.Note.HeaderText = "Ghi Chú";
-            this.Note.MinimumWidth = 6;
-            this.Note.Name = "Note";
-            this.Note.Width = 76;
             // 
             // FormProduct
             // 

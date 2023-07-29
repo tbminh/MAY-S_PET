@@ -398,7 +398,63 @@ namespace PetShop.Forms
                 t++;
             }
         }
+        List<Log_Print_Label> QRCode = new List<Log_Print_Label>();
+        public static int PageNum, PageNumRun = 1, CardNum, x, y, stock_count = 0;
+        public static int StartNum, size_preview = 12, EndNum = 1, dang1;
 
+        private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Check if the CellContentClick event was triggered by a click on the checkbox column (index 0).
+            if (e.RowIndex >= 0 && e.ColumnIndex == 0 && dgvProduct.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn)
+            {
+                // Get the current checkbox cell.
+                DataGridViewCheckBoxCell checkboxCell = (DataGridViewCheckBoxCell)dgvProduct.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+                // Toggle the checkbox value.
+                checkboxCell.Value = !(bool)checkboxCell.Value;
+            }
+        }
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            //for (int i = 0; i < dgvProduct.RowCount; i++)
+            //{
+            //    dang1 = i;
+            //    PrintDocument pd = new PrintDocument();
+            //    pd.PrintPage += new PrintPageEventHandler(pd_PrintPage);
+            //    pd.Print();
+            //}
+            //MessageBox.Show("In hoàn thành!");
+            StartNum = 1;
+            EndNum = 1;
+            PageNum = 1;
+            PageNumRun = 1;
+            QRCode.Clear();
+            Log_Print_Label log = new Log_Print_Label();
+            for (int i = 0; i < dgvProduct.RowCount; i++)
+            {
+                if (dgvProduct.Rows[i].Cells[0].Value.ToString() == "True")
+                {
+                    log.Material_Name = dgvProduct.Rows[i].Cells["Product_Name"].Value.ToString().Trim();
+                    log.Expire_Date = Convert.ToDateTime(dgvProduct.Rows[i].Cells["Date_Expired"].Value.ToString().Trim());
+                    log.Sale_Price = dgvProduct.Rows[i].Cells["Product_Sale_Price"].Value.ToString().Trim();
+                    log.Barcode = dgvProduct.Rows[i].Cells["Product_Barcode"].Value.ToString().Trim();
+                    QRCode.Add(log);
+                    stock_count = stock_count + 1;
+                }
+            }
+            if (CardNum % size_preview == 0)
+            {
+                PageNum = CardNum / size_preview;
+            }
+            else
+            {
+                PageNum = (CardNum / size_preview) + 1;
+            }
+            pvdCORPrint.Document = printReview;
+            string a = ((ToolStrip)(pvdCORPrint.Controls[1])).Items.Count.ToString();
+            ((ToolStrip)(pvdCORPrint.Controls[1])).Items.RemoveByKey("printToolStripButton");
+            pvdCORPrint.ShowDialog();
+        }
         private void printReview_PrintPage(object sender, PrintPageEventArgs e)
         {
             string Material_Name = "";
@@ -417,13 +473,22 @@ namespace PetShop.Forms
             //Create a solid brush with black color  
             SolidBrush brush = new SolidBrush(Color.Black);
             Pen pen = new Pen(Color.Blue, 1);
-            for (int i = 0; i <= 4; i++)
+            int Size_QR = 120; //80
+            int size_preview = 12;
+
+            StartNum = (PageNumRun - 1) * size_preview + 1;
+            if (CardNum - StartNum >= size_preview)
+                EndNum = StartNum + (size_preview - 1);
+            else
+                EndNum = CardNum;
+
+            for (int i = StartNum; i <= EndNum; i++)
             {
                 Material_Name = QRCode[i].Material_Name.ToString();
                 Expire_Date = QRCode[i].Expire_Date.ToString("dd/MM/yyyy");
                 Sale_Price = QRCode[i].Sale_Price.ToString();
                 Barcode = QRCode[i].Barcode.ToString();
-                Graphics g = e.Graphics;                
+                Graphics g = e.Graphics;
                 //Material Name 
                 g.DrawString(Material_Name, font2, brush, new Rectangle(0, 0, 144, 55));
                 //g.DrawRectangle(pen, new Rectangle(1, 92, 302, 40));                
@@ -444,38 +509,18 @@ namespace PetShop.Forms
                 {
                     MessageBox.Show("Barcode rỗng");
                 }
-                e.HasMorePages = false;
-            }
-        }
-        static int dang1;
-        List<Log_Print_Label> QRCode = new List<Log_Print_Label>();
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-            //for (int i = 0; i < dgvProduct.RowCount; i++)
-            //{
-            //    dang1 = i;
-            //    PrintDocument pd = new PrintDocument();
-            //    pd.PrintPage += new PrintPageEventHandler(pd_PrintPage);
-            //    pd.Print();
-            //}
-            //MessageBox.Show("In hoàn thành!");
-            Log_Print_Label log = new Log_Print_Label();
-            for (int i = 0; i < dgvProduct.RowCount; i++)
-            {
-                if (dgvProduct.Rows[i].Cells[0].Value.ToString() == "True")
+                if (PageNumRun < PageNum)
                 {
-                    log.Material_Name = dgvProduct.Rows[i].Cells["Product_Name"].Value.ToString().Trim();
-                    log.Expire_Date = Convert.ToDateTime(dgvProduct.Rows[i].Cells["Date_Expired"].Value.ToString().Trim());
-                    log.Sale_Price = dgvProduct.Rows[i].Cells["Product_Sale_Price"].Value.ToString().Trim();
-                    log.Barcode = dgvProduct.Rows[i].Cells["Product_Barcode"].Value.ToString().Trim();
-                    QRCode.Add(log);
+                    e.HasMorePages = true;
+                    PageNumRun++;
+                }
+                else
+                {
+                    e.HasMorePages = false;
+                    PageNumRun = PageNum;
                 }
             }
-            pvdCORPrint.Document = printReview;
-            string a = ((ToolStrip)(pvdCORPrint.Controls[1])).Items.Count.ToString();
-            ((ToolStrip)(pvdCORPrint.Controls[1])).Items.RemoveByKey("printToolStripButton");
-            pvdCORPrint.ShowDialog();
-        }        
+        }
         public void pd_PrintPage(object sender, PrintPageEventArgs ev)
         {
             PrintDocument pd = new PrintDocument();
