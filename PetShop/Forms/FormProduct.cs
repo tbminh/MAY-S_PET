@@ -356,7 +356,6 @@ namespace PetShop.Forms
                     Status_Name = "Đang Kinh Doanh";
                     for (int i = 0; i < dgvProduct.RowCount; i++)
                     {
-
                         if (dgvProduct.Rows[i].Cells[15].Value.ToString().Trim() == Status_Name.Trim())
                         {
                             dgvProduct.Rows[i].DefaultCellStyle.ForeColor = Color.Purple;
@@ -377,7 +376,7 @@ namespace PetShop.Forms
                     }
                 }
                 dgvProduct.Rows.Add(new object[] {
-                            true,
+                            false,
                             reader["Product_Serial_Key"].ToString(),
                             reader["Product_Id"].ToString(),
                             reader["Product_Name"].ToString(),

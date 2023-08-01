@@ -266,7 +266,7 @@ namespace PetShop.Forms
             // 
             this.txtTaiKhoan.BackColor = System.Drawing.Color.White;
             this.txtTaiKhoan.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTaiKhoan.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.txtTaiKhoan.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTaiKhoan.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTaiKhoan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.txtTaiKhoan.Location = new System.Drawing.Point(0, 0);
