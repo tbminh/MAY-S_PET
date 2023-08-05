@@ -26,15 +26,13 @@ namespace PetShop.Forms
             clsSql sqlquery = new clsSql();
             if (sqlquery.Check_Login(txtTaiKhoan.Text, txtMatKhau.Text))
             {
-                //Form frmLogin = new FormLogin();
-                Form frmMenu = new FormMenu();
+                Form frmMenu = new FormMain();
                 frmMenu.Show();
                 this.Hide();
                 //frmLogin.Close();
                 taikhoan = txtTaiKhoan.Text;
             }
         }
-
         private void btnThoat_Click(object sender, EventArgs e)
         {
             Application.Exit();

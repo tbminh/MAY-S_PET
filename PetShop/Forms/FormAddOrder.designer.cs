@@ -67,9 +67,8 @@ namespace PetShop.Forms
             this.gunaGradient2Panel1.GradientColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.gunaGradient2Panel1.GradientColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
             this.gunaGradient2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.gunaGradient2Panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaGradient2Panel1.Name = "gunaGradient2Panel1";
-            this.gunaGradient2Panel1.Size = new System.Drawing.Size(536, 487);
+            this.gunaGradient2Panel1.Size = new System.Drawing.Size(402, 396);
             this.gunaGradient2Panel1.TabIndex = 7;
             // 
             // guna2Panel1
@@ -83,10 +82,9 @@ namespace PetShop.Forms
             this.guna2Panel1.Controls.Add(this.panel1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-            this.guna2Panel1.Size = new System.Drawing.Size(536, 487);
+            this.guna2Panel1.Size = new System.Drawing.Size(402, 396);
             this.guna2Panel1.TabIndex = 7;
             // 
             // tableLayoutPanel4
@@ -107,8 +105,7 @@ namespace PetShop.Forms
             this.tableLayoutPanel4.Controls.Add(this.lbl_tenpet, 0, 4);
             this.tableLayoutPanel4.Controls.Add(this.datatime_ngaytaikham, 1, 3);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 54);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 44);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 6;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
@@ -117,8 +114,8 @@ namespace PetShop.Forms
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(536, 386);
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(402, 314);
             this.tableLayoutPanel4.TabIndex = 3;
             // 
             // lblNote
@@ -128,10 +125,9 @@ namespace PetShop.Forms
             this.lblNote.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblNote.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNote.ForeColor = System.Drawing.Color.White;
-            this.lblNote.Location = new System.Drawing.Point(4, 320);
-            this.lblNote.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNote.Location = new System.Drawing.Point(3, 260);
             this.lblNote.Name = "lblNote";
-            this.lblNote.Size = new System.Drawing.Size(179, 66);
+            this.lblNote.Size = new System.Drawing.Size(134, 54);
             this.lblNote.TabIndex = 14;
             this.lblNote.Text = "Ghi Chú";
             this.lblNote.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -153,14 +149,14 @@ namespace PetShop.Forms
             this.txt_sdt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
             this.txt_sdt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_sdt.HoverState.Parent = this.txt_sdt;
-            this.txt_sdt.Location = new System.Drawing.Point(194, 70);
-            this.txt_sdt.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txt_sdt.Location = new System.Drawing.Point(145, 57);
+            this.txt_sdt.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txt_sdt.Name = "txt_sdt";
             this.txt_sdt.PasswordChar = '\0';
             this.txt_sdt.PlaceholderText = "";
             this.txt_sdt.SelectedText = "";
             this.txt_sdt.ShadowDecoration.Parent = this.txt_sdt;
-            this.txt_sdt.Size = new System.Drawing.Size(335, 52);
+            this.txt_sdt.Size = new System.Drawing.Size(252, 42);
             this.txt_sdt.TabIndex = 9;
             // 
             // lbl_sdt
@@ -170,10 +166,9 @@ namespace PetShop.Forms
             this.lbl_sdt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_sdt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_sdt.ForeColor = System.Drawing.Color.White;
-            this.lbl_sdt.Location = new System.Drawing.Point(4, 64);
-            this.lbl_sdt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_sdt.Location = new System.Drawing.Point(3, 52);
             this.lbl_sdt.Name = "lbl_sdt";
-            this.lbl_sdt.Size = new System.Drawing.Size(179, 64);
+            this.lbl_sdt.Size = new System.Drawing.Size(134, 52);
             this.lbl_sdt.TabIndex = 1;
             this.lbl_sdt.Text = "Số Điện Thoại (*)";
             this.lbl_sdt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -185,10 +180,9 @@ namespace PetShop.Forms
             this.lbl_Ten.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_Ten.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Ten.ForeColor = System.Drawing.Color.White;
-            this.lbl_Ten.Location = new System.Drawing.Point(4, 0);
-            this.lbl_Ten.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_Ten.Location = new System.Drawing.Point(3, 0);
             this.lbl_Ten.Name = "lbl_Ten";
-            this.lbl_Ten.Size = new System.Drawing.Size(179, 64);
+            this.lbl_Ten.Size = new System.Drawing.Size(134, 52);
             this.lbl_Ten.TabIndex = 1;
             this.lbl_Ten.Text = "Tên Khách Hàng (*)";
             this.lbl_Ten.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -210,14 +204,14 @@ namespace PetShop.Forms
             this.txt_ten.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
             this.txt_ten.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_ten.HoverState.Parent = this.txt_ten;
-            this.txt_ten.Location = new System.Drawing.Point(194, 6);
-            this.txt_ten.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txt_ten.Location = new System.Drawing.Point(145, 5);
+            this.txt_ten.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txt_ten.Name = "txt_ten";
             this.txt_ten.PasswordChar = '\0';
             this.txt_ten.PlaceholderText = "";
             this.txt_ten.SelectedText = "";
             this.txt_ten.ShadowDecoration.Parent = this.txt_ten;
-            this.txt_ten.Size = new System.Drawing.Size(335, 52);
+            this.txt_ten.Size = new System.Drawing.Size(252, 42);
             this.txt_ten.TabIndex = 0;
             // 
             // lblBarcode
@@ -227,10 +221,9 @@ namespace PetShop.Forms
             this.lblBarcode.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblBarcode.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBarcode.ForeColor = System.Drawing.Color.White;
-            this.lblBarcode.Location = new System.Drawing.Point(4, 128);
-            this.lblBarcode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBarcode.Location = new System.Drawing.Point(3, 104);
             this.lblBarcode.Name = "lblBarcode";
-            this.lblBarcode.Size = new System.Drawing.Size(179, 64);
+            this.lblBarcode.Size = new System.Drawing.Size(134, 52);
             this.lblBarcode.TabIndex = 1;
             this.lblBarcode.Text = "Nhắc Lịch ";
             this.lblBarcode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -242,10 +235,9 @@ namespace PetShop.Forms
             this.lbl_ngaytaikham.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_ngaytaikham.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ngaytaikham.ForeColor = System.Drawing.Color.White;
-            this.lbl_ngaytaikham.Location = new System.Drawing.Point(4, 192);
-            this.lbl_ngaytaikham.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_ngaytaikham.Location = new System.Drawing.Point(3, 156);
             this.lbl_ngaytaikham.Name = "lbl_ngaytaikham";
-            this.lbl_ngaytaikham.Size = new System.Drawing.Size(179, 64);
+            this.lbl_ngaytaikham.Size = new System.Drawing.Size(134, 52);
             this.lbl_ngaytaikham.TabIndex = 1;
             this.lbl_ngaytaikham.Text = "Chọn Ngày";
             this.lbl_ngaytaikham.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -257,8 +249,8 @@ namespace PetShop.Forms
             this.chkb_taikham.CheckedOnColor = System.Drawing.Color.Black;
             this.chkb_taikham.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.chkb_taikham.FillColor = System.Drawing.Color.White;
-            this.chkb_taikham.Location = new System.Drawing.Point(200, 147);
-            this.chkb_taikham.Margin = new System.Windows.Forms.Padding(13, 4, 4, 25);
+            this.chkb_taikham.Location = new System.Drawing.Point(150, 116);
+            this.chkb_taikham.Margin = new System.Windows.Forms.Padding(10, 3, 3, 20);
             this.chkb_taikham.Name = "chkb_taikham";
             this.chkb_taikham.Size = new System.Drawing.Size(20, 20);
             this.chkb_taikham.TabIndex = 8;
@@ -283,14 +275,14 @@ namespace PetShop.Forms
             this.txt_tenpet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
             this.txt_tenpet.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_tenpet.HoverState.Parent = this.txt_tenpet;
-            this.txt_tenpet.Location = new System.Drawing.Point(194, 262);
-            this.txt_tenpet.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txt_tenpet.Location = new System.Drawing.Point(145, 213);
+            this.txt_tenpet.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txt_tenpet.Name = "txt_tenpet";
             this.txt_tenpet.PasswordChar = '\0';
             this.txt_tenpet.PlaceholderText = "";
             this.txt_tenpet.SelectedText = "";
             this.txt_tenpet.ShadowDecoration.Parent = this.txt_tenpet;
-            this.txt_tenpet.Size = new System.Drawing.Size(335, 52);
+            this.txt_tenpet.Size = new System.Drawing.Size(252, 42);
             this.txt_tenpet.TabIndex = 11;
             // 
             // txtNote
@@ -312,14 +304,14 @@ namespace PetShop.Forms
             this.txtNote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
             this.txtNote.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNote.HoverState.Parent = this.txtNote;
-            this.txtNote.Location = new System.Drawing.Point(194, 326);
-            this.txtNote.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtNote.Location = new System.Drawing.Point(145, 265);
+            this.txtNote.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtNote.Name = "txtNote";
             this.txtNote.PasswordChar = '\0';
             this.txtNote.PlaceholderText = "";
             this.txtNote.SelectedText = "";
             this.txtNote.ShadowDecoration.Parent = this.txtNote;
-            this.txtNote.Size = new System.Drawing.Size(335, 54);
+            this.txtNote.Size = new System.Drawing.Size(252, 44);
             this.txtNote.TabIndex = 12;
             // 
             // lbl_tenpet
@@ -329,10 +321,9 @@ namespace PetShop.Forms
             this.lbl_tenpet.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_tenpet.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_tenpet.ForeColor = System.Drawing.Color.White;
-            this.lbl_tenpet.Location = new System.Drawing.Point(4, 256);
-            this.lbl_tenpet.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_tenpet.Location = new System.Drawing.Point(3, 208);
             this.lbl_tenpet.Name = "lbl_tenpet";
-            this.lbl_tenpet.Size = new System.Drawing.Size(179, 64);
+            this.lbl_tenpet.Size = new System.Drawing.Size(134, 52);
             this.lbl_tenpet.TabIndex = 13;
             this.lbl_tenpet.Text = "Tên Thú Cưng";
             this.lbl_tenpet.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -351,13 +342,12 @@ namespace PetShop.Forms
             this.datatime_ngaytaikham.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.datatime_ngaytaikham.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datatime_ngaytaikham.HoverState.Parent = this.datatime_ngaytaikham;
-            this.datatime_ngaytaikham.Location = new System.Drawing.Point(191, 196);
-            this.datatime_ngaytaikham.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.datatime_ngaytaikham.Location = new System.Drawing.Point(143, 159);
             this.datatime_ngaytaikham.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.datatime_ngaytaikham.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datatime_ngaytaikham.Name = "datatime_ngaytaikham";
             this.datatime_ngaytaikham.ShadowDecoration.Parent = this.datatime_ngaytaikham;
-            this.datatime_ngaytaikham.Size = new System.Drawing.Size(341, 56);
+            this.datatime_ngaytaikham.Size = new System.Drawing.Size(256, 46);
             this.datatime_ngaytaikham.TabIndex = 10;
             this.datatime_ngaytaikham.Value = new System.DateTime(2023, 4, 24, 13, 42, 21, 705);
             // 
@@ -365,10 +355,9 @@ namespace PetShop.Forms
             // 
             this.panel2.Controls.Add(this.tableLayoutPanel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 440);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Location = new System.Drawing.Point(0, 358);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(536, 47);
+            this.panel2.Size = new System.Drawing.Size(402, 38);
             this.panel2.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -381,11 +370,10 @@ namespace PetShop.Forms
             this.tableLayoutPanel3.Controls.Add(this.btnAdd, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(536, 47);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(402, 38);
             this.tableLayoutPanel3.TabIndex = 5;
             // 
             // btnAdd
@@ -401,8 +389,7 @@ namespace PetShop.Forms
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Image = null;
             this.btnAdd.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnAdd.Location = new System.Drawing.Point(356, 4);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Location = new System.Drawing.Point(267, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.btnAdd.OnHoverBaseColor2 = System.Drawing.Color.SeaGreen;
@@ -410,7 +397,7 @@ namespace PetShop.Forms
             this.btnAdd.OnHoverForeColor = System.Drawing.Color.White;
             this.btnAdd.OnHoverImage = null;
             this.btnAdd.OnPressedColor = System.Drawing.Color.Black;
-            this.btnAdd.Size = new System.Drawing.Size(168, 39);
+            this.btnAdd.Size = new System.Drawing.Size(126, 32);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Tạo Đơn";
             this.btnAdd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -422,9 +409,8 @@ namespace PetShop.Forms
             this.panel1.Controls.Add(this.btnback);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(536, 54);
+            this.panel1.Size = new System.Drawing.Size(402, 44);
             this.panel1.TabIndex = 0;
             // 
             // lblInfor_In_Out
@@ -432,10 +418,10 @@ namespace PetShop.Forms
             this.lblInfor_In_Out.AutoSize = true;
             this.lblInfor_In_Out.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfor_In_Out.ForeColor = System.Drawing.Color.White;
-            this.lblInfor_In_Out.Location = new System.Drawing.Point(113, 2);
-            this.lblInfor_In_Out.Margin = new System.Windows.Forms.Padding(4, 0, 4, 6);
+            this.lblInfor_In_Out.Location = new System.Drawing.Point(85, 2);
+            this.lblInfor_In_Out.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
             this.lblInfor_In_Out.Name = "lblInfor_In_Out";
-            this.lblInfor_In_Out.Size = new System.Drawing.Size(342, 46);
+            this.lblInfor_In_Out.Size = new System.Drawing.Size(273, 37);
             this.lblInfor_In_Out.TabIndex = 30;
             this.lblInfor_In_Out.Text = "Thông Tin Đơn Hàng";
             this.lblInfor_In_Out.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -448,23 +434,21 @@ namespace PetShop.Forms
             this.btnback.Image = ((System.Drawing.Image)(resources.GetObject("btnback.Image")));
             this.btnback.ImageSize = new System.Drawing.Size(40, 40);
             this.btnback.Location = new System.Drawing.Point(0, 0);
-            this.btnback.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnback.MaximumSize = new System.Drawing.Size(73, 68);
+            this.btnback.MaximumSize = new System.Drawing.Size(55, 55);
             this.btnback.Name = "btnback";
             this.btnback.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("btnback.OnHoverImage")));
             this.btnback.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.btnback.Size = new System.Drawing.Size(56, 54);
+            this.btnback.Size = new System.Drawing.Size(42, 44);
             this.btnback.TabIndex = 29;
             this.btnback.Click += new System.EventHandler(this.btnback_Click);
             // 
             // FormAddOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 487);
+            this.ClientSize = new System.Drawing.Size(402, 396);
             this.Controls.Add(this.gunaGradient2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormAddOrder";
             this.Text = "FormAddOrder";
             this.gunaGradient2Panel1.ResumeLayout(false);

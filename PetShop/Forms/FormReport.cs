@@ -29,9 +29,7 @@ namespace PetShop.Forms
             getRevenueMonth();
             getRevenueYear();
             fillChart();
-
             //cbxMonth.Text = DateTime.Now.Month.ToString();
-
         }
         public void addItemComboBox()
         {
@@ -138,9 +136,6 @@ namespace PetShop.Forms
 
             }
         }
-
-        
-
         private void cbxYear_SelectedIndexChanged(object sender, EventArgs e)
         {
             getRevenueMonth();

@@ -237,11 +237,17 @@
     <Compile Include="clsConnect.cs" />
     <Compile Include="clsSql.cs" />
     <Compile Include="CS\Log_Print_Label.cs" />
-    <Compile Include="FormMenu .cs">
+    <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMenu .designer.cs">
-      <DependentUpon>FormMenu .cs</DependentUpon>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenu.designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormAddOrder.cs">
       <SubType>Form</SubType>
@@ -285,6 +291,12 @@
     <Compile Include="Forms\FormReport.Designer.cs">
       <DependentUpon>FormReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormSelling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSelling.Designer.cs">
+      <DependentUpon>FormSelling.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmAlert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -318,8 +330,11 @@
       <DependentUpon>SlideBar.cs</DependentUpon>
     </Compile>
     <Compile Include="ThemeColor.cs" />
-    <EmbeddedResource Include="FormMenu .resx">
-      <DependentUpon>FormMenu .cs</DependentUpon>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAddOrder.resx">
       <DependentUpon>FormAddOrder.cs</DependentUpon>
@@ -341,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormReport.resx">
       <DependentUpon>FormReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSelling.resx">
+      <DependentUpon>FormSelling.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmAlert.resx">
       <DependentUpon>frmAlert.cs</DependentUpon>

@@ -34,6 +34,10 @@ namespace PetShop.Forms
             get { return lblSerialKey.Text; }
             set { lblPhone.Text = value; }
         }
+        private void FormCheckOut_Load(object sender, EventArgs e)
+        {
+            lblEmployeeName.Text = clsSql.User_FullName;
+        }
         enum dgv_enum : int
         {
             STT,
@@ -53,6 +57,11 @@ namespace PetShop.Forms
             Status,
         }
         private bool isLeavingTextbox = false;
+        static int i = 1;
+        private static double gia;
+        private string key_order;
+        private string tien_khach_dua;
+        private string phu_thu;
         #region Function
         //Cập Nhật Lại Tổng Tiền
         public void Update_Total_Bill()
@@ -368,8 +377,7 @@ namespace PetShop.Forms
             lblGiven.Font = new Font(cbxSurcharge.Font.FontFamily, 8, cbxSurcharge.Font.Style);
             lblGiven.Font = new Font(lblGiven.Font.FontFamily, lblGiven.Font.Size, FontStyle.Regular);
         }
-        static int i = 1;
-        private static double gia;
+        
         private void txtSurcharge_TextChanged(object sender, EventArgs e)
         {
             if (txtSurcharge.Text != "")
@@ -559,10 +567,7 @@ namespace PetShop.Forms
             isLeavingTextbox = true;
             txtScanQR.Text = "Quét Mã QR Code ...";
             isLeavingTextbox = false;
-        }
-        private string key_order;
-        private string tien_khach_dua;
-        private string phu_thu;
+        }        
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
             clsSql ReadData_user = new clsSql();
@@ -578,7 +583,7 @@ namespace PetShop.Forms
                 }
                 if (sql.Thanh_toan(lblSerialKey.Text))
                 {
-                    sql.update_invoid(lblSerialKey.Text, ReadData_user.User_Login, lblTotalPrice.Text.Replace(".", "").Replace(",", ""), phuthu);
+                    sql.update_invoid(lblSerialKey.Text, clsSql.User_Login, lblTotalPrice.Text.Replace(".", "").Replace(",", ""), phuthu);
                     btnOrder_Click(sender, e);
                     flowLayoutPanel1.Controls.Clear();
                     key_order = lblSerialKey.Text;
@@ -751,6 +756,6 @@ namespace PetShop.Forms
         {
             pd_PrintPage(sender, e);
         }
-        #endregion
+        #endregion        
     }
 }

@@ -24,17 +24,14 @@ namespace PetShop.Forms
 
         private void FormUser_Load(object sender, EventArgs e)
         {
-            //btn_Add.Visible = false;
             ReadData_user = clsSql.Get_Data_User();
             txt_TrangThai.ReadOnly = true;
-            //lbl_FullName.Text = "Xin Chào: " + ReadData_user.User_FullName;
             ReadData_user.Get_user(dgvuser1);
 
             cbxMonth.Text = DateTime.Now.Month.ToString();
-            Show_BonusStaff();
+            //Show_BonusStaff();
             btn_Add.Enabled = true;
             btn_Update.Enabled = false;
-            
             btn_Delete.Enabled = false;
         }
 
@@ -64,7 +61,6 @@ namespace PetShop.Forms
                     {
                         t,
                         reader["User_Full_Name"].ToString(),
-                        //reader["tongtien"].ToString(),
                         String.Format("{0:#,0 VNĐ}", reader["tongtien"]),
                         reader["User_Time_In"].ToString(),
                         reader["User_Status"].ToString()
@@ -90,12 +86,46 @@ namespace PetShop.Forms
             User_Level,
             User_Status
         }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void cbxMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try
+            {
+                string sSQL = @"SELECT i.user_id, sum((id.Product_Price*Product_Total)*0.1) as tongtien, u.User_Time_In,u.User_Status,u.User_Full_Name
+                                FROM INVOICE i, USER_AD u, INVOICE_DETAIL id
+                                WHERE id.Invoice = i.Invoice_Serial_Key 
+                                AND i.User_id = u.User_Login 
+                                AND left(id.Product_Id,2) ='dv' 
+                                AND i.User_id = u.User_Login
+                                AND Month(CONVERT(date,i.Invoice_Date)) = '" + cbxMonth.Text.Trim() + @"'
+                                --and Month(CONVERT(date,i.Invoice_Date)) = MONTH(getdate())
+                                GROUP BY i.User_id,u.User_Full_Name,u.User_Time_In,u.User_Status";
 
+                OleDbConnection conn = new OleDbConnection(clsConnect.Connect_String);
+                conn.Open();
+                OleDbCommand cmd = new OleDbCommand(sSQL, conn);
+                OleDbDataReader reader = cmd.ExecuteReader();
+                dgvStaffBonus.Rows.Clear();
+                int t = 1;
+                while (reader.Read())
+                {
+                    string Status = (reader["User_Status"].ToString() == "0") ? "Đang làm" : "Đã nghỉ";
+                    dgvStaffBonus.Rows.Add(new object[]
+                    {
+                        t,
+                        reader["User_Full_Name"].ToString(),
+                        //reader["tongtien"].ToString(),
+                        String.Format("{0:#,0 VNĐ}", reader["tongtien"]),
+                        reader["User_Time_In"].ToString(),
+                        Status,
+                    });
+                    t++;
+                }
+            }
+            catch
+            {
+
+            }
         }
-
         private void btnLamMoi_Click_1(object sender, EventArgs e)
         {
             txt_HoTen.Text = "";
@@ -129,7 +159,6 @@ namespace PetShop.Forms
         {
             if (txt_TaiKhoang.Text != "" || txt_MatKhau.Text != "" || txt_HoTen.Text != "" || txt_SDT.Text != "")
             {
-
                 clsSql add = new clsSql();
                 if (add.check_user(txt_TaiKhoang.Text) == true)
                 {
@@ -140,8 +169,6 @@ namespace PetShop.Forms
                     add.Insert_User(txt_TaiKhoang.Text, txt_MatKhau.Text, txt_HoTen.Text, txt_SDT.Text);
                     ReadData_user.Get_user(dgvuser1);
                     btnLamMoi_Click_1(sender, e);
-                    //ReadData_user.Get_user(dgvuser1);
-                    //Employee_Click(sender, e);
                 }
             }
             else
@@ -155,46 +182,6 @@ namespace PetShop.Forms
             clsSql cls = new clsSql();
             cls.Update_User_info(txt_HoTen.Text, txt_TaiKhoang.Text, txt_MatKhau.Text, txt_SDT.Text, key);
             cls.Get_user(dgvuser1);
-        }
-
-        private void cbxMonth_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                string sSQL = @"select   i.user_id, sum((id.Product_Price*Product_Total)*0.1) as tongtien, u.User_Time_In,u.User_Status,u.User_Full_Name
-                                from INVOICE i, USER_AD u, INVOICE_DETAIL id
-                                where id.Invoice = i.Invoice_Serial_Key 
-                                and i.User_id = u.User_Login 
-                                and left(id.Product_Id,2) ='dv' 
-                                and i.User_id = u.User_Login
-                                and Month(CONVERT(date,i.Invoice_Date)) = '" + cbxMonth.Text.Trim() + @"'
-                                --and Month(CONVERT(date,i.Invoice_Date)) = MONTH(getdate())
-                                group by i.User_id,u.User_Full_Name,u.User_Time_In,u.User_Status";
-
-                OleDbConnection conn = new OleDbConnection(clsConnect.Connect_String);
-                conn.Open();
-                OleDbCommand cmd = new OleDbCommand(sSQL, conn);
-                OleDbDataReader reader = cmd.ExecuteReader();
-                dgvStaffBonus.Rows.Clear();
-                int t = 1;
-                while (reader.Read())
-                {
-                    dgvStaffBonus.Rows.Add(new object[]
-                    {
-                        t,
-                        reader["User_Full_Name"].ToString(),
-                        //reader["tongtien"].ToString(),
-                        String.Format("{0:#,0 VNĐ}", reader["tongtien"]),
-                        reader["User_Time_In"].ToString(),
-                        reader["User_Status"].ToString()
-                    });
-                    t++;
-                }
-            }
-            catch
-            {
-
-            }
         }
 
         private void dgvuser1_CellClick_1(object sender, DataGridViewCellEventArgs e)

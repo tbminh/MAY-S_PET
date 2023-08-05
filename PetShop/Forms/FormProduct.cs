@@ -23,8 +23,8 @@ namespace PetShop.Forms
         public static string Product_Cost_Price_Send = "";
         public static string Product_Sale_Price_Send = "";
         public static string Product_Date_In_Send;
-        public static string Product_Date_Send;
-        public static string Product_Expired_Date_Send;
+        public static string Product_Date_Send = DateTime.Now.ToString("yyyy/MM/dd");
+        public static string Product_Expired_Date_Send = DateTime.Now.ToString("yyyy/MM/dd");
         public static string Product_Consignment_ID_Send = "";
         public static string Product_Group_Name_Send = "";
         public static string Product_Type_Name_Send = "";
@@ -40,12 +40,8 @@ namespace PetShop.Forms
         }
         private void FormProduct_Load(object sender, EventArgs e)
         {
-            //rdExpire.Checked = true;
-            //rdExpire_CheckedChanged(sender, e);
             clsSql sql = new clsSql();
-            //sql.Get_product(dgvProduct);
             sql.Get_Group_Product(cbxGroup);
-            //txtFindProduct.Focus();
             sql.getDataProductSaleMax(dgvListProductSaleMax);
             txtFindProduct.Focus();
         }
@@ -288,7 +284,6 @@ namespace PetShop.Forms
                 Product_Unit_Send = dgvProduct.CurrentRow.Cells[(int)dgvenum.Product_Unit].Value.ToString();
                 Product_Barcode_Send = dgvProduct.CurrentRow.Cells[(int)dgvenum.Product_Barcode].Value.ToString();
                 Product_Note_Send = dgvProduct.CurrentRow.Cells[(int)dgvenum.Note].Value.ToString();
-                MessageBox.Show(Product_Serial_Key_Send);
                 var f2 = new FormAddProduct();
                 //f2.GetStringFromAnotherForm += new frmPartial_In_Out.MyDelegate(GetContentValueBarcode);
                 MaskedDialog.ShowDialog(this, f2);

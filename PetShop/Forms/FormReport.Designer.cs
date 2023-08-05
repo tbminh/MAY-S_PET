@@ -830,7 +830,7 @@ namespace PetShop.Forms
             this.btnTitle.ShadowDecoration.Parent = this.btnTitle;
             this.btnTitle.Size = new System.Drawing.Size(822, 84);
             this.btnTitle.TabIndex = 0;
-            this.btnTitle.Text = "REVENUE REPORT";
+            this.btnTitle.Text = "BÁO CÁO DOANH THU";
             // 
             // panel1
             // 

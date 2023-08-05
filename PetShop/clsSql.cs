@@ -15,11 +15,11 @@ namespace PetShop
     {
         
         #region Các Biến Cục Bộ
-        public string User_Login { get; set; }
-        public string User_FullName { get; set; }
-        public string User_Level { get; set; }
+        public static string User_Login { get; set; }
+        public static string User_FullName { get; set; }
+        public static string User_Level { get; set; }
 
-        private static string TaiKhoang;
+        private static string TaiKhoan;
         public string ID_SP { get; set; }
         public string Ten_SP { get; set; }
         public string Gia { get; set; }
@@ -30,6 +30,7 @@ namespace PetShop
         public string Ten_Nguoi_mua { get; set; }
         public string SDT_Nguoi_Mua { get; set; }
         public bool chek_tim { get; set; }
+        public static int permission { get; set; }
 
         #endregion
         #region Code xử lý đăng nhập
@@ -37,22 +38,21 @@ namespace PetShop
         public bool Check_Login(string tk, string mk)
         {
             bool check = false;
-            string sSQL = @"select top 1 User_Serial_Key,User_Login,Password_Login,User_Full_Name,User_Level 
-                            from USER_AD where User_Login = '" + tk + "' and Password_Login = '" + mk + "' ";
+            string sSQL = @"SELECT TOP 1 User_Serial_Key,User_Login,Password_Login,User_Full_Name,User_Level 
+                            FROM USER_AD WHERE User_Login = '" + tk + "' and Password_Login = '" + mk + "' ";
             OleDbConnection odcConnect = new OleDbConnection(clsConnect.Connect_String);
             OleDbCommand odcCommand = new OleDbCommand(sSQL, odcConnect);
             odcCommand.CommandTimeout = 120;
             odcConnect.Open();
-            if (odcCommand.ExecuteNonQuery() != 0)
+            OleDbDataReader odr = odcCommand.ExecuteReader();
+            if (odr.HasRows)
             {
-
-                TaiKhoang = tk;
                 check = true;
-                //MessageBox.Show("dang nhap thanh cong");
-            }
-            else
-            {
-                MessageBox.Show("Thông tin đăng nhập chưa chính xác!");
+                TaiKhoan = tk;
+                while (odr.Read())
+                {
+                    permission = Convert.ToInt32(odr["User_Level"]);
+                }
             }
             return check;
         }
@@ -61,19 +61,17 @@ namespace PetShop
         public static clsSql Get_Data_User()
         {
             clsSql ip = new clsSql();
-            string sSQL = "select top 1 User_Serial_Key,User_Login,Password_Login,User_Full_Name,User_Level from USER_AD where User_Login = '" + TaiKhoang + "'";
+            string sSQL = "SELECT TOP 1 User_Serial_Key,User_Login,Password_Login,User_Full_Name,User_Level from USER_AD where User_Login = '" + TaiKhoan + "'";
             OleDbConnection odcConnect = new OleDbConnection(clsConnect.Connect_String);
             OleDbCommand odcCommand = new OleDbCommand(sSQL, odcConnect);
-            clsSql sqlquery = new clsSql();
-            // doc du lieu 
             odcCommand.CommandTimeout = 120;
             odcConnect.Open();
             OleDbDataReader reader = odcCommand.ExecuteReader();
             while (reader.Read())
             {
-                ip.User_Login = reader["User_Login"].ToString();
-                ip.User_FullName = reader["User_Full_Name"].ToString();
-                ip.User_Level = reader["User_Level"].ToString();
+                clsSql.User_Login = reader["User_Login"].ToString();
+                clsSql.User_FullName = reader["User_Full_Name"].ToString();
+                clsSql.User_Level = reader["User_Level"].ToString();
             }
             return ip;
         }
@@ -121,7 +119,6 @@ namespace PetShop
                     Trang_thai
                 });
                 t++;
-
             }
         }
 
@@ -145,7 +142,6 @@ namespace PetShop
         }
         public void Insert_User(string tk, string mk, string HoTen, string sdt)
         {
-            
             string sSql = @"INSERT INTO USER_AD([User_Serial_Key]
                               ,[User_Login]
                               ,[Password_Login]
@@ -157,8 +153,7 @@ namespace PetShop
                               ,[User_Modify_Time]) 
 	                           VALUES('" + MAX_Key_User_AD() + "', '" + tk + "', '" + mk + "', N'" + HoTen + "','2','0','" + sdt + "',getdate(), getdate())";
             OleDbConnection sqlConnect = new OleDbConnection(clsConnect.Connect_String);
-            OleDbCommand sqlCommand = new OleDbCommand(sSql, sqlConnect);
-            
+            OleDbCommand sqlCommand = new OleDbCommand(sSql, sqlConnect);            
             try
             {
                 Cursor.Current = Cursors.WaitCursor;
@@ -168,7 +163,6 @@ namespace PetShop
                 Cursor.Current = Cursors.Default;
                 MessageBox.Show("Thêm Thành Viên Thành Công");
             }
-            
             catch { }
         }
         public void Update_User_info(string hoten, string tk, string mk,  string sdt, string key)
@@ -208,12 +202,11 @@ namespace PetShop
             {
                 check = false;
             }    
-
             return check;
         }
         #endregion
-        #region Code xử lý sản phẩm - tồn kho chính xác
 
+        #region Code xử lý sản phẩm - tồn kho chính xác
 
         public void getDataProductSaleMax(DataGridView dgv)
         {
@@ -1220,7 +1213,6 @@ namespace PetShop
             }
             return sData;
         }
-        #endregion
-        
+        #endregion        
     }
 }

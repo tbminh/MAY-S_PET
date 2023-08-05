@@ -93,10 +93,9 @@ namespace PetShop.Forms
             this.guna2Panel1.Controls.Add(this.panel1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-            this.guna2Panel1.Size = new System.Drawing.Size(873, 777);
+            this.guna2Panel1.Size = new System.Drawing.Size(655, 631);
             this.guna2Panel1.TabIndex = 5;
             // 
             // tableLayoutPanel1
@@ -137,8 +136,7 @@ namespace PetShop.Forms
             this.tableLayoutPanel1.Controls.Add(this.lolCostPrice, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 54);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 44);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 16;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
@@ -157,7 +155,7 @@ namespace PetShop.Forms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(873, 676);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(655, 549);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // lblSerialKey
@@ -167,10 +165,9 @@ namespace PetShop.Forms
             this.lblSerialKey.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSerialKey.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSerialKey.ForeColor = System.Drawing.Color.White;
-            this.lblSerialKey.Location = new System.Drawing.Point(4, 0);
-            this.lblSerialKey.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSerialKey.Location = new System.Drawing.Point(3, 0);
             this.lblSerialKey.Name = "lblSerialKey";
-            this.lblSerialKey.Size = new System.Drawing.Size(428, 42);
+            this.lblSerialKey.Size = new System.Drawing.Size(321, 34);
             this.lblSerialKey.TabIndex = 1;
             this.lblSerialKey.Text = "Key sản phẩm (*):";
             this.lblSerialKey.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -184,13 +181,12 @@ namespace PetShop.Forms
             this.dptDateExpired.ForeColor = System.Drawing.Color.White;
             this.dptDateExpired.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dptDateExpired.HoverState.Parent = this.dptDateExpired;
-            this.dptDateExpired.Location = new System.Drawing.Point(440, 424);
-            this.dptDateExpired.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dptDateExpired.Location = new System.Drawing.Point(330, 343);
             this.dptDateExpired.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dptDateExpired.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dptDateExpired.Name = "dptDateExpired";
             this.dptDateExpired.ShadowDecoration.Parent = this.dptDateExpired;
-            this.dptDateExpired.Size = new System.Drawing.Size(429, 34);
+            this.dptDateExpired.Size = new System.Drawing.Size(322, 28);
             this.dptDateExpired.TabIndex = 4;
             this.dptDateExpired.Value = new System.DateTime(2023, 4, 24, 13, 42, 21, 705);
             // 
@@ -201,10 +197,9 @@ namespace PetShop.Forms
             this.lblProductID.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblProductID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProductID.ForeColor = System.Drawing.Color.White;
-            this.lblProductID.Location = new System.Drawing.Point(4, 42);
-            this.lblProductID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblProductID.Location = new System.Drawing.Point(3, 34);
             this.lblProductID.Name = "lblProductID";
-            this.lblProductID.Size = new System.Drawing.Size(428, 42);
+            this.lblProductID.Size = new System.Drawing.Size(321, 34);
             this.lblProductID.TabIndex = 1;
             this.lblProductID.Text = "Mã Sản Phẩm (*):";
             this.lblProductID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -227,14 +222,14 @@ namespace PetShop.Forms
             this.txtSup.ForeColor = System.Drawing.Color.White;
             this.txtSup.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSup.HoverState.Parent = this.txtSup;
-            this.txtSup.Location = new System.Drawing.Point(443, 636);
-            this.txtSup.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtSup.Location = new System.Drawing.Point(332, 515);
+            this.txtSup.Margin = new System.Windows.Forms.Padding(5);
             this.txtSup.Name = "txtSup";
             this.txtSup.PasswordChar = '\0';
             this.txtSup.PlaceholderText = "";
             this.txtSup.SelectedText = "";
             this.txtSup.ShadowDecoration.Parent = this.txtSup;
-            this.txtSup.Size = new System.Drawing.Size(423, 34);
+            this.txtSup.Size = new System.Drawing.Size(318, 29);
             this.txtSup.TabIndex = 0;
             // 
             // cbxGroup
@@ -245,10 +240,9 @@ namespace PetShop.Forms
             this.cbxGroup.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxGroup.ForeColor = System.Drawing.Color.White;
             this.cbxGroup.FormattingEnabled = true;
-            this.cbxGroup.Location = new System.Drawing.Point(440, 466);
-            this.cbxGroup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxGroup.Location = new System.Drawing.Point(330, 377);
             this.cbxGroup.Name = "cbxGroup";
-            this.cbxGroup.Size = new System.Drawing.Size(429, 35);
+            this.cbxGroup.Size = new System.Drawing.Size(322, 29);
             this.cbxGroup.TabIndex = 5;
             this.cbxGroup.SelectedIndexChanged += new System.EventHandler(this.cbxGroup_SelectedIndexChanged);
             // 
@@ -270,14 +264,14 @@ namespace PetShop.Forms
             this.txtNote.ForeColor = System.Drawing.Color.White;
             this.txtNote.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNote.HoverState.Parent = this.txtNote;
-            this.txtNote.Location = new System.Drawing.Point(443, 594);
-            this.txtNote.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtNote.Location = new System.Drawing.Point(332, 481);
+            this.txtNote.Margin = new System.Windows.Forms.Padding(5);
             this.txtNote.Name = "txtNote";
             this.txtNote.PasswordChar = '\0';
             this.txtNote.PlaceholderText = "";
             this.txtNote.SelectedText = "";
             this.txtNote.ShadowDecoration.Parent = this.txtNote;
-            this.txtNote.Size = new System.Drawing.Size(423, 30);
+            this.txtNote.Size = new System.Drawing.Size(318, 24);
             this.txtNote.TabIndex = 0;
             // 
             // lblBarcode
@@ -287,10 +281,9 @@ namespace PetShop.Forms
             this.lblBarcode.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblBarcode.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBarcode.ForeColor = System.Drawing.Color.White;
-            this.lblBarcode.Location = new System.Drawing.Point(4, 84);
-            this.lblBarcode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBarcode.Location = new System.Drawing.Point(3, 68);
             this.lblBarcode.Name = "lblBarcode";
-            this.lblBarcode.Size = new System.Drawing.Size(428, 42);
+            this.lblBarcode.Size = new System.Drawing.Size(321, 34);
             this.lblBarcode.TabIndex = 1;
             this.lblBarcode.Text = "Barcode/Mã Vạch (*):";
             this.lblBarcode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -313,14 +306,14 @@ namespace PetShop.Forms
             this.txtAddressSup.ForeColor = System.Drawing.Color.White;
             this.txtAddressSup.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAddressSup.HoverState.Parent = this.txtAddressSup;
-            this.txtAddressSup.Location = new System.Drawing.Point(443, 552);
-            this.txtAddressSup.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtAddressSup.Location = new System.Drawing.Point(332, 447);
+            this.txtAddressSup.Margin = new System.Windows.Forms.Padding(5);
             this.txtAddressSup.Name = "txtAddressSup";
             this.txtAddressSup.PasswordChar = '\0';
             this.txtAddressSup.PlaceholderText = "";
             this.txtAddressSup.SelectedText = "";
             this.txtAddressSup.ShadowDecoration.Parent = this.txtAddressSup;
-            this.txtAddressSup.Size = new System.Drawing.Size(423, 30);
+            this.txtAddressSup.Size = new System.Drawing.Size(318, 24);
             this.txtAddressSup.TabIndex = 0;
             // 
             // lblNameProduct
@@ -330,10 +323,9 @@ namespace PetShop.Forms
             this.lblNameProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblNameProduct.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNameProduct.ForeColor = System.Drawing.Color.White;
-            this.lblNameProduct.Location = new System.Drawing.Point(4, 126);
-            this.lblNameProduct.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNameProduct.Location = new System.Drawing.Point(3, 102);
             this.lblNameProduct.Name = "lblNameProduct";
-            this.lblNameProduct.Size = new System.Drawing.Size(428, 42);
+            this.lblNameProduct.Size = new System.Drawing.Size(321, 34);
             this.lblNameProduct.TabIndex = 1;
             this.lblNameProduct.Text = "Tên Sản Phẩm (*):";
             this.lblNameProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -356,14 +348,14 @@ namespace PetShop.Forms
             this.txtSerialKey.ForeColor = System.Drawing.Color.White;
             this.txtSerialKey.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSerialKey.HoverState.Parent = this.txtSerialKey;
-            this.txtSerialKey.Location = new System.Drawing.Point(443, 6);
-            this.txtSerialKey.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtSerialKey.Location = new System.Drawing.Point(332, 5);
+            this.txtSerialKey.Margin = new System.Windows.Forms.Padding(5);
             this.txtSerialKey.Name = "txtSerialKey";
             this.txtSerialKey.PasswordChar = '\0';
             this.txtSerialKey.PlaceholderText = "";
             this.txtSerialKey.SelectedText = "";
             this.txtSerialKey.ShadowDecoration.Parent = this.txtSerialKey;
-            this.txtSerialKey.Size = new System.Drawing.Size(423, 30);
+            this.txtSerialKey.Size = new System.Drawing.Size(318, 24);
             this.txtSerialKey.TabIndex = 0;
             // 
             // txtUnit
@@ -384,14 +376,14 @@ namespace PetShop.Forms
             this.txtUnit.ForeColor = System.Drawing.Color.White;
             this.txtUnit.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUnit.HoverState.Parent = this.txtUnit;
-            this.txtUnit.Location = new System.Drawing.Point(443, 300);
-            this.txtUnit.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtUnit.Location = new System.Drawing.Point(332, 243);
+            this.txtUnit.Margin = new System.Windows.Forms.Padding(5);
             this.txtUnit.Name = "txtUnit";
             this.txtUnit.PasswordChar = '\0';
             this.txtUnit.PlaceholderText = "";
             this.txtUnit.SelectedText = "";
             this.txtUnit.ShadowDecoration.Parent = this.txtUnit;
-            this.txtUnit.Size = new System.Drawing.Size(423, 30);
+            this.txtUnit.Size = new System.Drawing.Size(318, 24);
             this.txtUnit.TabIndex = 0;
             // 
             // cbxType
@@ -402,10 +394,9 @@ namespace PetShop.Forms
             this.cbxType.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxType.ForeColor = System.Drawing.Color.White;
             this.cbxType.FormattingEnabled = true;
-            this.cbxType.Location = new System.Drawing.Point(440, 508);
-            this.cbxType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxType.Location = new System.Drawing.Point(330, 411);
             this.cbxType.Name = "cbxType";
-            this.cbxType.Size = new System.Drawing.Size(429, 35);
+            this.cbxType.Size = new System.Drawing.Size(322, 29);
             this.cbxType.TabIndex = 5;
             // 
             // lblInventory
@@ -415,10 +406,9 @@ namespace PetShop.Forms
             this.lblInventory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblInventory.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInventory.ForeColor = System.Drawing.Color.White;
-            this.lblInventory.Location = new System.Drawing.Point(4, 168);
-            this.lblInventory.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblInventory.Location = new System.Drawing.Point(3, 136);
             this.lblInventory.Name = "lblInventory";
-            this.lblInventory.Size = new System.Drawing.Size(428, 42);
+            this.lblInventory.Size = new System.Drawing.Size(321, 34);
             this.lblInventory.TabIndex = 1;
             this.lblInventory.Text = "Tồn Kho (*):";
             this.lblInventory.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -430,10 +420,9 @@ namespace PetShop.Forms
             this.lblSalePrice.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSalePrice.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSalePrice.ForeColor = System.Drawing.Color.White;
-            this.lblSalePrice.Location = new System.Drawing.Point(4, 252);
-            this.lblSalePrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSalePrice.Location = new System.Drawing.Point(3, 204);
             this.lblSalePrice.Name = "lblSalePrice";
-            this.lblSalePrice.Size = new System.Drawing.Size(428, 42);
+            this.lblSalePrice.Size = new System.Drawing.Size(321, 34);
             this.lblSalePrice.TabIndex = 1;
             this.lblSalePrice.Text = "Giá Bán (*):";
             this.lblSalePrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -445,10 +434,9 @@ namespace PetShop.Forms
             this.lblUnit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblUnit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUnit.ForeColor = System.Drawing.Color.White;
-            this.lblUnit.Location = new System.Drawing.Point(4, 294);
-            this.lblUnit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUnit.Location = new System.Drawing.Point(3, 238);
             this.lblUnit.Name = "lblUnit";
-            this.lblUnit.Size = new System.Drawing.Size(428, 42);
+            this.lblUnit.Size = new System.Drawing.Size(321, 34);
             this.lblUnit.TabIndex = 1;
             this.lblUnit.Text = "Đơn Vị:";
             this.lblUnit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -462,13 +450,12 @@ namespace PetShop.Forms
             this.dptDateProduct.ForeColor = System.Drawing.Color.White;
             this.dptDateProduct.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dptDateProduct.HoverState.Parent = this.dptDateProduct;
-            this.dptDateProduct.Location = new System.Drawing.Point(440, 382);
-            this.dptDateProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dptDateProduct.Location = new System.Drawing.Point(330, 309);
             this.dptDateProduct.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dptDateProduct.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dptDateProduct.Name = "dptDateProduct";
             this.dptDateProduct.ShadowDecoration.Parent = this.dptDateProduct;
-            this.dptDateProduct.Size = new System.Drawing.Size(429, 34);
+            this.dptDateProduct.Size = new System.Drawing.Size(322, 28);
             this.dptDateProduct.TabIndex = 4;
             this.dptDateProduct.Value = new System.DateTime(2023, 4, 24, 13, 42, 21, 705);
             // 
@@ -490,14 +477,14 @@ namespace PetShop.Forms
             this.txtBarcode.ForeColor = System.Drawing.Color.White;
             this.txtBarcode.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBarcode.HoverState.Parent = this.txtBarcode;
-            this.txtBarcode.Location = new System.Drawing.Point(443, 90);
-            this.txtBarcode.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtBarcode.Location = new System.Drawing.Point(332, 73);
+            this.txtBarcode.Margin = new System.Windows.Forms.Padding(5);
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.PasswordChar = '\0';
             this.txtBarcode.PlaceholderText = "";
             this.txtBarcode.SelectedText = "";
             this.txtBarcode.ShadowDecoration.Parent = this.txtBarcode;
-            this.txtBarcode.Size = new System.Drawing.Size(423, 30);
+            this.txtBarcode.Size = new System.Drawing.Size(318, 24);
             this.txtBarcode.TabIndex = 0;
             // 
             // txtConsignmentID
@@ -518,14 +505,14 @@ namespace PetShop.Forms
             this.txtConsignmentID.ForeColor = System.Drawing.Color.White;
             this.txtConsignmentID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtConsignmentID.HoverState.Parent = this.txtConsignmentID;
-            this.txtConsignmentID.Location = new System.Drawing.Point(443, 342);
-            this.txtConsignmentID.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtConsignmentID.Location = new System.Drawing.Point(332, 277);
+            this.txtConsignmentID.Margin = new System.Windows.Forms.Padding(5);
             this.txtConsignmentID.Name = "txtConsignmentID";
             this.txtConsignmentID.PasswordChar = '\0';
             this.txtConsignmentID.PlaceholderText = "";
             this.txtConsignmentID.SelectedText = "";
             this.txtConsignmentID.ShadowDecoration.Parent = this.txtConsignmentID;
-            this.txtConsignmentID.Size = new System.Drawing.Size(423, 30);
+            this.txtConsignmentID.Size = new System.Drawing.Size(318, 24);
             this.txtConsignmentID.TabIndex = 0;
             // 
             // lblConsignmentID
@@ -535,10 +522,9 @@ namespace PetShop.Forms
             this.lblConsignmentID.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblConsignmentID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConsignmentID.ForeColor = System.Drawing.Color.White;
-            this.lblConsignmentID.Location = new System.Drawing.Point(4, 336);
-            this.lblConsignmentID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblConsignmentID.Location = new System.Drawing.Point(3, 272);
             this.lblConsignmentID.Name = "lblConsignmentID";
-            this.lblConsignmentID.Size = new System.Drawing.Size(428, 42);
+            this.lblConsignmentID.Size = new System.Drawing.Size(321, 34);
             this.lblConsignmentID.TabIndex = 1;
             this.lblConsignmentID.Text = "Ngày nhập hàng (*):";
             this.lblConsignmentID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -561,14 +547,14 @@ namespace PetShop.Forms
             this.txtNameProduct.ForeColor = System.Drawing.Color.White;
             this.txtNameProduct.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNameProduct.HoverState.Parent = this.txtNameProduct;
-            this.txtNameProduct.Location = new System.Drawing.Point(443, 132);
-            this.txtNameProduct.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtNameProduct.Location = new System.Drawing.Point(332, 107);
+            this.txtNameProduct.Margin = new System.Windows.Forms.Padding(5);
             this.txtNameProduct.Name = "txtNameProduct";
             this.txtNameProduct.PasswordChar = '\0';
             this.txtNameProduct.PlaceholderText = "";
             this.txtNameProduct.SelectedText = "";
             this.txtNameProduct.ShadowDecoration.Parent = this.txtNameProduct;
-            this.txtNameProduct.Size = new System.Drawing.Size(423, 30);
+            this.txtNameProduct.Size = new System.Drawing.Size(318, 24);
             this.txtNameProduct.TabIndex = 0;
             // 
             // lblDateProduct
@@ -578,10 +564,9 @@ namespace PetShop.Forms
             this.lblDateProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDateProduct.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateProduct.ForeColor = System.Drawing.Color.White;
-            this.lblDateProduct.Location = new System.Drawing.Point(4, 378);
-            this.lblDateProduct.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDateProduct.Location = new System.Drawing.Point(3, 306);
             this.lblDateProduct.Name = "lblDateProduct";
-            this.lblDateProduct.Size = new System.Drawing.Size(428, 42);
+            this.lblDateProduct.Size = new System.Drawing.Size(321, 34);
             this.lblDateProduct.TabIndex = 1;
             this.lblDateProduct.Text = "Ngày Sản Xuất:";
             this.lblDateProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -604,14 +589,14 @@ namespace PetShop.Forms
             this.txtSalePrice.ForeColor = System.Drawing.Color.White;
             this.txtSalePrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSalePrice.HoverState.Parent = this.txtSalePrice;
-            this.txtSalePrice.Location = new System.Drawing.Point(443, 258);
-            this.txtSalePrice.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtSalePrice.Location = new System.Drawing.Point(332, 209);
+            this.txtSalePrice.Margin = new System.Windows.Forms.Padding(5);
             this.txtSalePrice.Name = "txtSalePrice";
             this.txtSalePrice.PasswordChar = '\0';
             this.txtSalePrice.PlaceholderText = "";
             this.txtSalePrice.SelectedText = "";
             this.txtSalePrice.ShadowDecoration.Parent = this.txtSalePrice;
-            this.txtSalePrice.Size = new System.Drawing.Size(423, 30);
+            this.txtSalePrice.Size = new System.Drawing.Size(318, 24);
             this.txtSalePrice.TabIndex = 0;
             // 
             // txtInventory
@@ -632,14 +617,14 @@ namespace PetShop.Forms
             this.txtInventory.ForeColor = System.Drawing.Color.White;
             this.txtInventory.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtInventory.HoverState.Parent = this.txtInventory;
-            this.txtInventory.Location = new System.Drawing.Point(443, 174);
-            this.txtInventory.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtInventory.Location = new System.Drawing.Point(332, 141);
+            this.txtInventory.Margin = new System.Windows.Forms.Padding(5);
             this.txtInventory.Name = "txtInventory";
             this.txtInventory.PasswordChar = '\0';
             this.txtInventory.PlaceholderText = "";
             this.txtInventory.SelectedText = "";
             this.txtInventory.ShadowDecoration.Parent = this.txtInventory;
-            this.txtInventory.Size = new System.Drawing.Size(423, 30);
+            this.txtInventory.Size = new System.Drawing.Size(318, 24);
             this.txtInventory.TabIndex = 0;
             // 
             // txtCostPrice
@@ -660,14 +645,14 @@ namespace PetShop.Forms
             this.txtCostPrice.ForeColor = System.Drawing.Color.White;
             this.txtCostPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCostPrice.HoverState.Parent = this.txtCostPrice;
-            this.txtCostPrice.Location = new System.Drawing.Point(443, 216);
-            this.txtCostPrice.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtCostPrice.Location = new System.Drawing.Point(332, 175);
+            this.txtCostPrice.Margin = new System.Windows.Forms.Padding(5);
             this.txtCostPrice.Name = "txtCostPrice";
             this.txtCostPrice.PasswordChar = '\0';
             this.txtCostPrice.PlaceholderText = "";
             this.txtCostPrice.SelectedText = "";
             this.txtCostPrice.ShadowDecoration.Parent = this.txtCostPrice;
-            this.txtCostPrice.Size = new System.Drawing.Size(423, 30);
+            this.txtCostPrice.Size = new System.Drawing.Size(318, 24);
             this.txtCostPrice.TabIndex = 0;
             // 
             // lblDateExpired
@@ -677,10 +662,9 @@ namespace PetShop.Forms
             this.lblDateExpired.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDateExpired.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateExpired.ForeColor = System.Drawing.Color.White;
-            this.lblDateExpired.Location = new System.Drawing.Point(4, 420);
-            this.lblDateExpired.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDateExpired.Location = new System.Drawing.Point(3, 340);
             this.lblDateExpired.Name = "lblDateExpired";
-            this.lblDateExpired.Size = new System.Drawing.Size(428, 42);
+            this.lblDateExpired.Size = new System.Drawing.Size(321, 34);
             this.lblDateExpired.TabIndex = 1;
             this.lblDateExpired.Text = "Hạn Sử Dụng:";
             this.lblDateExpired.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -692,10 +676,9 @@ namespace PetShop.Forms
             this.lblGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblGroup.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGroup.ForeColor = System.Drawing.Color.White;
-            this.lblGroup.Location = new System.Drawing.Point(4, 462);
-            this.lblGroup.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblGroup.Location = new System.Drawing.Point(3, 374);
             this.lblGroup.Name = "lblGroup";
-            this.lblGroup.Size = new System.Drawing.Size(428, 42);
+            this.lblGroup.Size = new System.Drawing.Size(321, 34);
             this.lblGroup.TabIndex = 1;
             this.lblGroup.Text = "Nhóm Hàng (*):";
             this.lblGroup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -707,10 +690,9 @@ namespace PetShop.Forms
             this.lblProductType.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblProductType.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProductType.ForeColor = System.Drawing.Color.White;
-            this.lblProductType.Location = new System.Drawing.Point(4, 504);
-            this.lblProductType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblProductType.Location = new System.Drawing.Point(3, 408);
             this.lblProductType.Name = "lblProductType";
-            this.lblProductType.Size = new System.Drawing.Size(428, 42);
+            this.lblProductType.Size = new System.Drawing.Size(321, 34);
             this.lblProductType.TabIndex = 1;
             this.lblProductType.Text = "Loại Hàng (*):";
             this.lblProductType.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -722,10 +704,9 @@ namespace PetShop.Forms
             this.lblAddressSup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblAddressSup.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddressSup.ForeColor = System.Drawing.Color.White;
-            this.lblAddressSup.Location = new System.Drawing.Point(4, 546);
-            this.lblAddressSup.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAddressSup.Location = new System.Drawing.Point(3, 442);
             this.lblAddressSup.Name = "lblAddressSup";
-            this.lblAddressSup.Size = new System.Drawing.Size(428, 42);
+            this.lblAddressSup.Size = new System.Drawing.Size(321, 34);
             this.lblAddressSup.TabIndex = 1;
             this.lblAddressSup.Text = "Địa chỉ nhà cung cấp:";
             this.lblAddressSup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -737,10 +718,9 @@ namespace PetShop.Forms
             this.lblNote.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblNote.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNote.ForeColor = System.Drawing.Color.White;
-            this.lblNote.Location = new System.Drawing.Point(4, 588);
-            this.lblNote.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNote.Location = new System.Drawing.Point(3, 476);
             this.lblNote.Name = "lblNote";
-            this.lblNote.Size = new System.Drawing.Size(428, 42);
+            this.lblNote.Size = new System.Drawing.Size(321, 34);
             this.lblNote.TabIndex = 1;
             this.lblNote.Text = "Ghi chú:";
             this.lblNote.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -752,10 +732,9 @@ namespace PetShop.Forms
             this.lblSup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSup.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSup.ForeColor = System.Drawing.Color.White;
-            this.lblSup.Location = new System.Drawing.Point(4, 630);
-            this.lblSup.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSup.Location = new System.Drawing.Point(3, 510);
             this.lblSup.Name = "lblSup";
-            this.lblSup.Size = new System.Drawing.Size(428, 46);
+            this.lblSup.Size = new System.Drawing.Size(321, 39);
             this.lblSup.TabIndex = 1;
             this.lblSup.Text = "Nhà phân phối/Thương hiệu:";
             this.lblSup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -767,10 +746,9 @@ namespace PetShop.Forms
             this.lolCostPrice.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lolCostPrice.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lolCostPrice.ForeColor = System.Drawing.Color.White;
-            this.lolCostPrice.Location = new System.Drawing.Point(4, 210);
-            this.lolCostPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lolCostPrice.Location = new System.Drawing.Point(3, 170);
             this.lolCostPrice.Name = "lolCostPrice";
-            this.lolCostPrice.Size = new System.Drawing.Size(428, 42);
+            this.lolCostPrice.Size = new System.Drawing.Size(321, 34);
             this.lolCostPrice.TabIndex = 1;
             this.lolCostPrice.Text = "Giá Vốn";
             this.lolCostPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -782,13 +760,12 @@ namespace PetShop.Forms
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.txtProductID, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnCreateID, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(440, 46);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(330, 37);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(267, 34);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(200, 28);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // txtProductID
@@ -810,14 +787,14 @@ namespace PetShop.Forms
             this.txtProductID.ForeColor = System.Drawing.Color.White;
             this.txtProductID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtProductID.HoverState.Parent = this.txtProductID;
-            this.txtProductID.Location = new System.Drawing.Point(7, 6);
-            this.txtProductID.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtProductID.Location = new System.Drawing.Point(5, 5);
+            this.txtProductID.Margin = new System.Windows.Forms.Padding(5);
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.PasswordChar = '\0';
             this.txtProductID.PlaceholderText = "";
             this.txtProductID.SelectedText = "";
             this.txtProductID.ShadowDecoration.Parent = this.txtProductID;
-            this.txtProductID.Size = new System.Drawing.Size(119, 22);
+            this.txtProductID.Size = new System.Drawing.Size(90, 18);
             this.txtProductID.TabIndex = 0;
             this.txtProductID.TextChanged += new System.EventHandler(this.txtProductID_TextChanged);
             // 
@@ -829,11 +806,10 @@ namespace PetShop.Forms
             this.btnCreateID.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateID.ForeColor = System.Drawing.Color.AliceBlue;
             this.btnCreateID.HoverState.Parent = this.btnCreateID;
-            this.btnCreateID.Location = new System.Drawing.Point(137, 4);
-            this.btnCreateID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCreateID.Location = new System.Drawing.Point(103, 3);
             this.btnCreateID.Name = "btnCreateID";
             this.btnCreateID.ShadowDecoration.Parent = this.btnCreateID;
-            this.btnCreateID.Size = new System.Drawing.Size(125, 23);
+            this.btnCreateID.Size = new System.Drawing.Size(94, 19);
             this.btnCreateID.TabIndex = 1;
             this.btnCreateID.Text = "Tạo Mã";
             this.btnCreateID.Click += new System.EventHandler(this.btnCreateID_Click);
@@ -842,10 +818,9 @@ namespace PetShop.Forms
             // 
             this.panel2.Controls.Add(this.tableLayoutPanel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 730);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Location = new System.Drawing.Point(0, 593);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(873, 47);
+            this.panel2.Size = new System.Drawing.Size(655, 38);
             this.panel2.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -860,11 +835,10 @@ namespace PetShop.Forms
             this.tableLayoutPanel3.Controls.Add(this.btnDelete, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(873, 47);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(655, 38);
             this.tableLayoutPanel3.TabIndex = 5;
             // 
             // btnNhap
@@ -889,14 +863,14 @@ namespace PetShop.Forms
             this.btnNhap.IconVisible = true;
             this.btnNhap.IconZoom = 90D;
             this.btnNhap.IsTab = false;
-            this.btnNhap.Location = new System.Drawing.Point(5, 5);
-            this.btnNhap.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnNhap.Location = new System.Drawing.Point(4, 4);
+            this.btnNhap.Margin = new System.Windows.Forms.Padding(4);
             this.btnNhap.Name = "btnNhap";
             this.btnNhap.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.btnNhap.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
             this.btnNhap.OnHoverTextColor = System.Drawing.Color.White;
             this.btnNhap.selected = false;
-            this.btnNhap.Size = new System.Drawing.Size(278, 37);
+            this.btnNhap.Size = new System.Drawing.Size(208, 30);
             this.btnNhap.TabIndex = 4;
             this.btnNhap.Text = "Thêm";
             this.btnNhap.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -927,14 +901,14 @@ namespace PetShop.Forms
             this.btnUpdate.IconVisible = true;
             this.btnUpdate.IconZoom = 90D;
             this.btnUpdate.IsTab = false;
-            this.btnUpdate.Location = new System.Drawing.Point(292, 5);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnUpdate.Location = new System.Drawing.Point(219, 4);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Normalcolor = System.Drawing.Color.Olive;
             this.btnUpdate.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
             this.btnUpdate.OnHoverTextColor = System.Drawing.Color.White;
             this.btnUpdate.selected = false;
-            this.btnUpdate.Size = new System.Drawing.Size(280, 37);
+            this.btnUpdate.Size = new System.Drawing.Size(210, 30);
             this.btnUpdate.TabIndex = 4;
             this.btnUpdate.Text = "Cập Nhật";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -964,14 +938,14 @@ namespace PetShop.Forms
             this.btnDelete.IconVisible = true;
             this.btnDelete.IconZoom = 90D;
             this.btnDelete.IsTab = false;
-            this.btnDelete.Location = new System.Drawing.Point(581, 5);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnDelete.Location = new System.Drawing.Point(436, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnDelete.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
             this.btnDelete.OnHoverTextColor = System.Drawing.Color.White;
             this.btnDelete.selected = false;
-            this.btnDelete.Size = new System.Drawing.Size(278, 37);
+            this.btnDelete.Size = new System.Drawing.Size(208, 30);
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -986,9 +960,8 @@ namespace PetShop.Forms
             this.panel1.Controls.Add(this.btnback);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(873, 54);
+            this.panel1.Size = new System.Drawing.Size(655, 44);
             this.panel1.TabIndex = 0;
             // 
             // lblInfor_In_Out
@@ -996,10 +969,10 @@ namespace PetShop.Forms
             this.lblInfor_In_Out.AutoSize = true;
             this.lblInfor_In_Out.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfor_In_Out.ForeColor = System.Drawing.Color.White;
-            this.lblInfor_In_Out.Location = new System.Drawing.Point(168, 2);
-            this.lblInfor_In_Out.Margin = new System.Windows.Forms.Padding(4, 0, 4, 6);
+            this.lblInfor_In_Out.Location = new System.Drawing.Point(126, 2);
+            this.lblInfor_In_Out.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
             this.lblInfor_In_Out.Name = "lblInfor_In_Out";
-            this.lblInfor_In_Out.Size = new System.Drawing.Size(349, 46);
+            this.lblInfor_In_Out.Size = new System.Drawing.Size(279, 37);
             this.lblInfor_In_Out.TabIndex = 30;
             this.lblInfor_In_Out.Text = "Thông Tin Nhập Xuất";
             this.lblInfor_In_Out.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1012,24 +985,22 @@ namespace PetShop.Forms
             this.btnback.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnback.Image = ((System.Drawing.Image)(resources.GetObject("btnback.Image")));
             this.btnback.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnback.Location = new System.Drawing.Point(817, 0);
-            this.btnback.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnback.MaximumSize = new System.Drawing.Size(73, 68);
+            this.btnback.Location = new System.Drawing.Point(0, 0);
+            this.btnback.MaximumSize = new System.Drawing.Size(55, 55);
             this.btnback.Name = "btnback";
             this.btnback.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("btnback.OnHoverImage")));
             this.btnback.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.btnback.Size = new System.Drawing.Size(56, 54);
+            this.btnback.Size = new System.Drawing.Size(42, 44);
             this.btnback.TabIndex = 29;
             this.btnback.Click += new System.EventHandler(this.btnback_Click);
             // 
             // FormAddProduct
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(873, 777);
+            this.ClientSize = new System.Drawing.Size(655, 631);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormAddProduct";
             this.Text = "FormAddProduct";
             this.Load += new System.EventHandler(this.FormAddProduct_Load);

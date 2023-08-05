@@ -18,12 +18,11 @@ namespace PetShop.Forms
         {
             InitializeComponent();
         }
-
+        public string product_key = "";
         private void btnback_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        public string product_key = "";
         private void FormAddProduct_Load(object sender, EventArgs e)
         {
             clsSql sql = new clsSql();
@@ -86,19 +85,24 @@ namespace PetShop.Forms
         }
         private void btnNhap_Click(object sender, EventArgs e)
         {
-            string sql_type = @"SELECT TOP 1 Product_Type_Serial_Key FROM PRODUCT_TYPE WHERE Product_Type_Name = N'" + cbxType.Text.Trim() + "'";
-            string sql_group = @"SELECT TOP 1 Product_Group_Serial_Key FROM PRODUCT_GROUP WHERE Product_GROUP_Name = N'" + cbxGroup.Text.Trim() + "'";
+            string sql_type = @"SELECT TOP 1 Product_Type_Serial_Key
+                                FROM PRODUCT_TYPE 
+                                WHERE Product_Type_Name = N'" + cbxType.Text.Trim() + "'";
+
+            string sql_group = @"SELECT TOP 1 Product_Group_Serial_Key 
+                                FROM PRODUCT_GROUP
+                                WHERE Product_GROUP_Name = N'" + cbxGroup.Text.Trim() + "'";
 
             string sql_add_consignment = @"DECLARE @CONSIGNMENT_SERIAL_KEY VARCHAR(15) = '000000000000000', @NEW_NUMBER VARCHAR(16)
-                            SELECT @NEW_NUMBER = RIGHT(MAX(Consignment_Serial_Key),13) + 1 FROM CONSIGNMENT
-							--select @NEW_NUMBER = LEFT(@CONSIGNMENT_SERIAL_KEY, 13 - LEN(@NEW_NUMBER)) + CONVERT(VARCHAR,@NEW_NUMBER)
-							--select @NEW_NUMBER
-							--select 
-                            SELECT @NEW_NUMBER = 'CS' + LEFT(@CONSIGNMENT_SERIAL_KEY, 13 - LEN(@NEW_NUMBER)) + CONVERT(VARCHAR,@NEW_NUMBER)
-							--select @NEW_NUMBER
-                            INSERT INTO CONSIGNMENT (Consignment_Serial_Key, Consignment_ID, Consignment_Date, Date_Product, Date_Expired)
-                            VALUES(@NEW_NUMBER,'" + txtConsignmentID.Text.Trim() + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + dptDateProduct.Value.ToString("yyyy-MM-dd") + "','" + dptDateExpired.Value.ToString("yyyy-MM-dd") + "')";
+                                        SELECT @NEW_NUMBER = RIGHT(MAX(Consignment_Serial_Key),13) + 1
+                                        FROM CONSIGNMENT
+							            --select @NEW_NUMBER = LEFT(@CONSIGNMENT_SERIAL_KEY, 13 - LEN(@NEW_NUMBER)) + CONVERT(VARCHAR,@NEW_NUMBER)							
+                                        SELECT @NEW_NUMBER = 'CS' + LEFT(@CONSIGNMENT_SERIAL_KEY, 13 - LEN(@NEW_NUMBER)) + CONVERT(VARCHAR,@NEW_NUMBER)
+							
+                                        INSERT INTO CONSIGNMENT (Consignment_Serial_Key, Consignment_ID, Consignment_Date, Date_Product, Date_Expired)
+                                        VALUES(@NEW_NUMBER,'" + txtConsignmentID.Text.Trim() + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + dptDateProduct.Value.ToString("yyyy-MM-dd") + "','" + dptDateExpired.Value.ToString("yyyy-MM-dd") + "')";
             string sql_consignment = @"SELECT TOP 1 Consignment_Serial_Key FROM CONSIGNMENT WHERE Consignment_ID = '" + txtConsignmentID.Text.Trim() + "'";
+            
             if (txtProductID.Text == "" || txtBarcode.Text == "" || txtNameProduct.Text == "" || txtInventory.Text == "" || txtSalePrice.Text == "" || cbxGroup.Text == "" || cbxType.Text == "")
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin!");
@@ -111,7 +115,7 @@ namespace PetShop.Forms
             {
                 OleDbConnection conn = new OleDbConnection(clsConnect.Connect_String);
                 conn.Open();
-                string sql_check_key = @"select top 1 Product_Id from PRODUCT_INFO WHERE Product_Id = '" + txtProductID.Text.Trim() + "'";
+                string sql_check_key = @"SELECT TOP 1 Product_Id from PRODUCT_INFO WHERE Product_Id = '" + txtProductID.Text.Trim() + "'";
                 OleDbCommand cmdcheck = new OleDbCommand(sql_check_key, conn);
                 if (cmdcheck.ExecuteNonQuery() != 0)
                 {
@@ -129,19 +133,19 @@ namespace PetShop.Forms
                     string consignment_serial_key = cmd3.ExecuteScalar().ToString();
                     clsSql insert = new clsSql();
                     insert.Add_Product(
-                    txtProductID.Text,
-                    txtBarcode.Text,
-                    txtNameProduct.Text,
-                    txtInventory.Text,
-                    txtCostPrice.Text,
-                    txtSalePrice.Text,
-                    txtUnit.Text,
-                    txtNote.Text,
-                    txtSup.Text,
-                    txtAddressSup.Text,
-                    product_type_serial_key,
-                    product_group_serial_key,
-                    consignment_serial_key);
+                                txtProductID.Text,
+                                txtBarcode.Text,
+                                txtNameProduct.Text,
+                                txtInventory.Text,
+                                txtCostPrice.Text,
+                                txtSalePrice.Text,
+                                txtUnit.Text,
+                                txtNote.Text,
+                                txtSup.Text,
+                                txtAddressSup.Text,
+                                product_type_serial_key,
+                                product_group_serial_key,
+                                consignment_serial_key);
                     MessageBox.Show("Thêm Thành Công");
                     txtSerialKey.Text = "";
                     txtProductID.Text = "";
@@ -151,8 +155,6 @@ namespace PetShop.Forms
                     txtSalePrice.Text = "";
                     //dptDateIn.Text = "";
                     txtConsignmentID.Text = "";
-                    //dptDateProduct.Text = FormProduct.Product_Date_Send;
-                    //dptDateExpired.Text = FormProduct.Product_Expired_Date_Send;
                     cbxGroup.Text = "";
                     cbxType.Text = "";
                     txtSup.Text = "";
