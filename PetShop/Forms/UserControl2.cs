@@ -45,14 +45,14 @@ namespace PetShop.Forms
         public void NumToTal_ValueChanged(object sender, EventArgs e)
         {
             NumToTal.Text = NumToTal.Value.ToString();
-            if(NumToTal.Value > 0)
+            if (NumToTal.Value > 0)
             {
                 float result;
                 int qty = int.Parse(NumToTal.Text);
                 int price = int.Parse(lblPriceSale.Text.Replace(",", "").Replace(".", ""));
                 result = qty * price;
                 Sum_Price = result.ToString("#,##0");
-                FormCheckOut frm = this.ParentForm as FormCheckOut;
+                FormSelling frm = this.ParentForm as FormSelling;
                 frm.Update_Product_Total(Serial_Key, NumToTal.Text.Trim());
                 frm.Update_Total_Bill();
             }
@@ -63,7 +63,7 @@ namespace PetShop.Forms
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            FormCheckOut checkout = this.ParentForm as FormCheckOut;
+            FormSelling checkout = this.ParentForm as FormSelling;
             if (checkout != null)
             {
                 checkout.Delete_Product(Serial_Key);
@@ -81,7 +81,7 @@ namespace PetShop.Forms
                 int price = int.Parse(lblPriceSale.Text.Replace(",", ""));
                 result = qty * price;
                 Sum_Price = result.ToString("#,##0");
-                FormCheckOut frm = this.ParentForm as FormCheckOut;
+                FormSelling frm = this.ParentForm as FormSelling;
                 frm.Update_Product_Total(Serial_Key, NumToTal.Text.Trim());
                 frm.Update_Total_Bill();
             }

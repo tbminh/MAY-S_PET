@@ -220,7 +220,7 @@ namespace PetShop
         private void btnSale_Click(object sender, EventArgs e)
         {
             //color = SelectThemeColor();
-            OpenChildForm(new Forms.FormCheckOut(), sender);
+            OpenChildForm(new Forms.FormSelling(), sender);
             btnHome.Text = "Cài Đặt";
             btnHome.IconChar = btnNotification.IconChar;
         }
@@ -247,7 +247,10 @@ namespace PetShop
         }
         private void btnSetting_Click(object sender, EventArgs e)
         {
-
+            //color = Color.FromArgb(128, 128, 255);
+            OpenChildForm(new Forms.FormSelling(), sender);
+            btnHome.Text = "Hóa Đơn";
+            btnHome.IconChar = btnProduct.IconChar;
         }
         private void btnLogOut_Click(object sender, EventArgs e)
         {
