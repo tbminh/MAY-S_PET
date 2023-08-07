@@ -53,8 +53,6 @@ namespace PetShop.Forms
                     //checkout.Cus_Name = txt_ten.Text;
                     //checkout.Number_Phone = txt_sdt.Text;
                     //checkout.SerialKey = get_ID_HD.ID_HoaDon;
-
-                    // dang viet them
                     order_key = get_ID_HD.ID_HoaDon;
                         
                     phone = txt_sdt.Text;
@@ -107,9 +105,6 @@ namespace PetShop.Forms
                 MessageBox.Show("Số Điện Thoại Không Đúng Định Dạng");
             }
         }
-
-
-
         private void chkb_taikham_CheckedChanged(object sender, EventArgs e)
         {
             if (chkb_taikham.Checked)
@@ -129,6 +124,21 @@ namespace PetShop.Forms
                 txt_tenpet.FillColor = Color.FromArgb(224, 224, 224);
                 txtNote.Enabled = false;
                 txtNote.FillColor = Color.FromArgb(224, 224, 224);
+            }
+        }
+        private void txt_sdt_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_sdt.Text.Length >= 10)
+            {
+                OleDbConnection conn = new OleDbConnection(clsConnect.Connect_String);
+                string SQL = $"SELECT Customer_Full_Name FROM CUSTOMER_INFO WHERE Customer_Phone_Number = '{txt_sdt.Text}'";
+                OleDbCommand cmd = new OleDbCommand(SQL, conn);
+                conn.Open();
+                object result = cmd.ExecuteScalar();
+                if (result != null)
+                {
+                    txt_ten.Text = result.ToString();
+                }
             }
         }
     }

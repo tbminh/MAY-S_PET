@@ -29,22 +29,17 @@ namespace PetShop.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSelling));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.dgvOrder = new Guna.UI.WinForms.GunaDataGridView();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Serial_Key = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Customer_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Phone_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Order_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Surcharge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gunaPanel2 = new Guna.UI.WinForms.GunaPanel();
             this.gunaLabel9 = new Guna.UI.WinForms.GunaLabel();
             this.lblUnit = new Guna.UI.WinForms.GunaLabel();
@@ -93,7 +88,13 @@ namespace PetShop.Forms
             this.btnHotel = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnService = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnProduct = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Serial_Key = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Customer_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Phone_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Invoice_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Order_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Surcharge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
             this.gunaPanel2.SuspendLayout();
@@ -123,39 +124,50 @@ namespace PetShop.Forms
             this.panel1.Size = new System.Drawing.Size(1600, 788);
             this.panel1.TabIndex = 0;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(764, 315);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(740, 265);
+            this.flowLayoutPanel1.TabIndex = 49;
+            // 
             // dgvOrder
             // 
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.White;
-            this.dgvOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvOrder.BackgroundColor = System.Drawing.Color.White;
             this.dgvOrder.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvOrder.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvOrder.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvOrder.ColumnHeadersHeight = 30;
             this.dgvOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.STT,
             this.Serial_Key,
             this.Customer_Name,
             this.Phone_Number,
+            this.Invoice_Date,
             this.Order_Status,
             this.Surcharge});
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOrder.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOrder.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvOrder.EnableHeadersVisualStyles = false;
             this.dgvOrder.GridColor = System.Drawing.Color.White;
             this.dgvOrder.Location = new System.Drawing.Point(764, 204);
@@ -191,50 +203,6 @@ namespace PetShop.Forms
             this.dgvOrder.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvOrder.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
             this.dgvOrder.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrder_CellDoubleClick);
-            // 
-            // STT
-            // 
-            this.STT.HeaderText = "STT";
-            this.STT.MinimumWidth = 6;
-            this.STT.Name = "STT";
-            this.STT.ReadOnly = true;
-            // 
-            // Serial_Key
-            // 
-            this.Serial_Key.HeaderText = "Serial_Key";
-            this.Serial_Key.MinimumWidth = 6;
-            this.Serial_Key.Name = "Serial_Key";
-            this.Serial_Key.ReadOnly = true;
-            this.Serial_Key.Visible = false;
-            // 
-            // Customer_Name
-            // 
-            this.Customer_Name.HeaderText = "Tên KH";
-            this.Customer_Name.MinimumWidth = 6;
-            this.Customer_Name.Name = "Customer_Name";
-            this.Customer_Name.ReadOnly = true;
-            // 
-            // Phone_Number
-            // 
-            this.Phone_Number.HeaderText = "SĐT";
-            this.Phone_Number.MinimumWidth = 6;
-            this.Phone_Number.Name = "Phone_Number";
-            this.Phone_Number.ReadOnly = true;
-            // 
-            // Order_Status
-            // 
-            this.Order_Status.HeaderText = "Trạng Thái";
-            this.Order_Status.MinimumWidth = 6;
-            this.Order_Status.Name = "Order_Status";
-            this.Order_Status.ReadOnly = true;
-            // 
-            // Surcharge
-            // 
-            this.Surcharge.HeaderText = "Phụ Thu";
-            this.Surcharge.MinimumWidth = 6;
-            this.Surcharge.Name = "Surcharge";
-            this.Surcharge.ReadOnly = true;
-            this.Surcharge.Visible = false;
             // 
             // gunaPanel2
             // 
@@ -396,6 +364,7 @@ namespace PetShop.Forms
             this.cbxSurcharge.Size = new System.Drawing.Size(82, 20);
             this.cbxSurcharge.TabIndex = 26;
             this.cbxSurcharge.Text = "Phụ Thu";
+            this.cbxSurcharge.CheckedChanged += new System.EventHandler(this.cbxSurcharge_CheckedChanged);
             // 
             // lblRemain
             // 
@@ -621,7 +590,7 @@ namespace PetShop.Forms
             this.txtScanQR.SelectedText = "";
             this.txtScanQR.Size = new System.Drawing.Size(161, 43);
             this.txtScanQR.TabIndex = 47;
-            this.txtScanQR.Text = "Quét Mã QR Code...";
+            this.txtScanQR.Text = "Tìm Đơn Hàng...";
             this.txtScanQR.TextChanged += new System.EventHandler(this.txtScanQR_TextChanged);
             this.txtScanQR.Enter += new System.EventHandler(this.txtScanQR_Enter);
             // 
@@ -717,21 +686,21 @@ namespace PetShop.Forms
             // 
             // dgvList
             // 
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.White;
-            this.dgvList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvList.BackgroundColor = System.Drawing.Color.White;
             this.dgvList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvList.ColumnHeadersHeight = 30;
             this.dgvList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Product_Seiral_Key,
@@ -740,14 +709,14 @@ namespace PetShop.Forms
             this.Product_Sale_Price,
             this.Product_Quantity,
             this.Status});
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle35.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvList.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvList.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvList.EnableHeadersVisualStyles = false;
             this.dgvList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvList.Location = new System.Drawing.Point(0, 0);
@@ -811,9 +780,9 @@ namespace PetShop.Forms
             // 
             // Product_Sale_Price
             // 
-            dataGridViewCellStyle34.Format = "C0";
-            dataGridViewCellStyle34.NullValue = null;
-            this.Product_Sale_Price.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle6.Format = "C0";
+            dataGridViewCellStyle6.NullValue = null;
+            this.Product_Sale_Price.DefaultCellStyle = dataGridViewCellStyle6;
             this.Product_Sale_Price.FillWeight = 70F;
             this.Product_Sale_Price.HeaderText = "Giá Bán";
             this.Product_Sale_Price.MinimumWidth = 6;
@@ -1094,15 +1063,56 @@ namespace PetShop.Forms
             this.btnProduct.Text = "Hàng Hóa";
             this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
             // 
-            // flowLayoutPanel1
+            // STT
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(764, 315);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(740, 265);
-            this.flowLayoutPanel1.TabIndex = 49;
+            this.STT.HeaderText = "STT";
+            this.STT.MinimumWidth = 6;
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            // 
+            // Serial_Key
+            // 
+            this.Serial_Key.HeaderText = "Serial_Key";
+            this.Serial_Key.MinimumWidth = 6;
+            this.Serial_Key.Name = "Serial_Key";
+            this.Serial_Key.ReadOnly = true;
+            this.Serial_Key.Visible = false;
+            // 
+            // Customer_Name
+            // 
+            this.Customer_Name.HeaderText = "Tên KH";
+            this.Customer_Name.MinimumWidth = 6;
+            this.Customer_Name.Name = "Customer_Name";
+            this.Customer_Name.ReadOnly = true;
+            // 
+            // Phone_Number
+            // 
+            this.Phone_Number.HeaderText = "SĐT";
+            this.Phone_Number.MinimumWidth = 6;
+            this.Phone_Number.Name = "Phone_Number";
+            this.Phone_Number.ReadOnly = true;
+            // 
+            // Invoice_Date
+            // 
+            this.Invoice_Date.HeaderText = "Ngày Bán";
+            this.Invoice_Date.MinimumWidth = 6;
+            this.Invoice_Date.Name = "Invoice_Date";
+            this.Invoice_Date.ReadOnly = true;
+            // 
+            // Order_Status
+            // 
+            this.Order_Status.HeaderText = "Trạng Thái";
+            this.Order_Status.MinimumWidth = 6;
+            this.Order_Status.Name = "Order_Status";
+            this.Order_Status.ReadOnly = true;
+            // 
+            // Surcharge
+            // 
+            this.Surcharge.HeaderText = "Phụ Thu";
+            this.Surcharge.MinimumWidth = 6;
+            this.Surcharge.Name = "Surcharge";
+            this.Surcharge.ReadOnly = true;
+            this.Surcharge.Visible = false;
             // 
             // FormSelling
             // 
@@ -1114,6 +1124,7 @@ namespace PetShop.Forms
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormSelling";
             this.Text = "FormSelling";
+            this.Load += new System.EventHandler(this.FormSelling_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).EndInit();
             this.gunaPanel2.ResumeLayout(false);
@@ -1182,16 +1193,17 @@ namespace PetShop.Forms
         private Guna.UI.WinForms.GunaAdvenceButton gunaAdvenceButton5;
         private Guna.UI.WinForms.GunaAdvenceButton btnCheckOut;
         private Guna.UI.WinForms.GunaDataGridView dgvOrder;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Serial_Key;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Customer_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Phone_Number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Order_Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Surcharge;
         private Guna.UI.WinForms.GunaAdvenceButton btnOrder;
         private Guna.UI.WinForms.GunaAdvenceButton btnAddOrder;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
         private Guna.UI.WinForms.GunaLineTextBox txtScanQR;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Serial_Key;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Customer_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Phone_Number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Invoice_Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Order_Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Surcharge;
     }
 }

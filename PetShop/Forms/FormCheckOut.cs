@@ -334,8 +334,7 @@ namespace PetShop.Forms
             }
         }
         private void cbxSurcharge_CheckedChanged(object sender, EventArgs e)
-        {
-           
+        {           
             if (cbxSurcharge.Checked) 
             {
                 cbxSurcharge.ForeColor = Color.OrangeRed;

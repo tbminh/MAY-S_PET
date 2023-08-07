@@ -34,7 +34,7 @@ namespace PetShop.Forms
             get { return lblSerialKey.Text; }
             set { lblPhone.Text = value; }
         }
-        private void FormCheckOut_Load(object sender, EventArgs e)
+        private void FormSelling_Load(object sender, EventArgs e)
         {
             lblEmployeeName.Text = clsSql.User_FullName;
         }
@@ -57,11 +57,8 @@ namespace PetShop.Forms
             Status,
         }
         private bool isLeavingTextbox = false;
-        static int i = 1;
+        int i = 0;
         private static double gia;
-        private string key_order;
-        private string tien_khach_dua;
-        private string phu_thu;
         #region Function
         //Cập Nhật Lại Tổng Tiền
         public void Update_Total_Bill()
@@ -240,6 +237,20 @@ namespace PetShop.Forms
                 t++;
             }
         }
+        private void Searching_Order(string keyword)
+        {
+            string SQL = @"SELECT * FROM INVOICE WHERE Phone = '" + keyword + @"'";
+            OleDbConnection odcConnect = new OleDbConnection(clsConnect.Connect_String);
+            OleDbCommand odcCommand = new OleDbCommand(SQL, odcConnect);
+            odcConnect.Open();
+            OleDbDataReader reader = odcCommand.ExecuteReader();
+            dgvList.Columns["Product_Quantity"].Visible = true;
+            dgvList.Columns["Status"].Visible = false;
+            while (reader.Read())
+            {
+                
+            }
+        }
         private void ScanQR_Product(string keyword)
         {
             string SQL = @"SELECT * FROM PRODUCT_INFO WHERE Product_Barcode = '" + keyword + @"'
@@ -263,7 +274,6 @@ namespace PetShop.Forms
                     txtScanQR.Text = "";
                 }
             }
-
         }
         #endregion
 
@@ -271,7 +281,9 @@ namespace PetShop.Forms
         {
             dgvOrder.Visible = true;
             flowLayoutPanel1.Visible = false;
-            string SQL = @"SELECT * from INVOICE where Status = 'waiting' ORDER BY Invoice_Serial_Key desc";
+            i = 0;
+            txtScanQR.Text = "Tìm Đơn Hàng...";
+            string SQL = @"SELECT * FROM INVOICE WHERE Status = 'waiting' ORDER BY Invoice_Serial_Key DESC";
             OleDbConnection odcConnect = new OleDbConnection(clsConnect.Connect_String);
             OleDbCommand odcCommand = new OleDbCommand(SQL, odcConnect);
             odcConnect.Open();
@@ -450,7 +462,14 @@ namespace PetShop.Forms
             {
                 return;
             }
-            ScanQR_Product(txtScanQR.Text);
+            if (i == 0)
+            {
+                Searching_Order(txtScanQR.Text);
+            }
+            else
+            {
+                ScanQR_Product(txtScanQR.Text);
+            }            
         }
 
         private void dgvOrder_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -458,6 +477,8 @@ namespace PetShop.Forms
             string Serial_Key = dgvOrder.CurrentRow.Cells[(int)dgv_enum.Serial_Key].Value?.ToString();
             lblName.Text = dgvOrder.CurrentRow.Cells[(int)dgv_enum.Customer_Name].Value?.ToString();
             lblPhone.Text = dgvOrder.CurrentRow.Cells[(int)dgv_enum.Phone_Number].Value?.ToString();
+            i = 1;
+            txtScanQR.Text = "Quét Mã QR Code...";
             txtGiven.Text = "0";
             lblRemain.Text = "0";
             cbxSurcharge.Checked = false;
@@ -495,14 +516,12 @@ namespace PetShop.Forms
                 txtSurcharge.Text = "0";
             }
         }
-
         private void txtGiven_Leave(object sender, EventArgs e)
         {
             lblGiven.ForeColor = Color.Gray;
             lblGiven.Font = new Font(cbxSurcharge.Font.FontFamily, 8, cbxSurcharge.Font.Style);
             lblGiven.Font = new Font(lblGiven.Font.FontFamily, lblGiven.Font.Size, FontStyle.Regular);
         }
-
         private void txtGiven_TextChanged(object sender, EventArgs e)
         {
             if (txtGiven.Text != "")
@@ -520,20 +539,17 @@ namespace PetShop.Forms
                 }
             }
         }
-
         private void txtGiven_Enter(object sender, EventArgs e)
         {
             lblGiven.ForeColor = Color.OrangeRed;
             lblGiven.Font = new Font(cbxSurcharge.Font.FontFamily, 10, cbxSurcharge.Font.Style);
             lblGiven.Font = new Font(lblGiven.Font.FontFamily, lblGiven.Font.Size, FontStyle.Bold);
         }
-
         private void lblTotalPrice_TextChanged(object sender, EventArgs e)
         {
             txtGiven.Text = "0";
             lblRemain.Text = "0";
         }
-
         private void txtSearch_Enter(object sender, EventArgs e)
         {
             if (!ReferenceEquals(sender, txtSearch)) //!(sender is Guna.UI.WinForms.GunaTextBox) ||
@@ -542,6 +558,37 @@ namespace PetShop.Forms
                 return;
             }
             txtSearch.Text = "";
+        }
+        private void cbxSurcharge_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxSurcharge.Checked)
+            {
+                cbxSurcharge.ForeColor = Color.OrangeRed;
+                lblUnit.ForeColor = Color.OrangeRed;
+                txtSurcharge.Enabled = true;
+                txtSurcharge.Focus();
+                cbxSurcharge.Font = new Font(cbxSurcharge.Font.FontFamily, 10, cbxSurcharge.Font.Style);
+                cbxSurcharge.Font = new Font(cbxSurcharge.Font.FontFamily, cbxSurcharge.Font.Size, FontStyle.Bold);
+                cbxSurcharge.Size = new Size(75, 20);
+                gia = Convert.ToDouble(lblTotalPrice.Text);
+                txtSurcharge.Text = "0";
+            }
+            else
+            {
+                cbxSurcharge.ForeColor = Color.Gray;
+                cbxSurcharge.Font = new Font(cbxSurcharge.Font.FontFamily, 8, cbxSurcharge.Font.Style);
+                cbxSurcharge.Font = new Font(cbxSurcharge.Font.FontFamily, cbxSurcharge.Font.Size, FontStyle.Regular);
+                cbxSurcharge.Size = new Size(71, 20);
+                lblUnit.ForeColor = Color.Gray;
+                txtSurcharge.Enabled = false;
+                if (lblTotalPrice.Text == "")
+                {
+                    lblTotalPrice.Text = "0";
+                }
+                lblTotalPrice.Text = gia.ToString("#,##0");
+                //lblTotalPrice.Text = (Convert.ToDouble(Convert.ToDecimal(lblTotalPrice.Text) - Convert.ToDecimal(txtSurcharge.Text.Trim())).ToString("#,##0"));
+                txtSurcharge.Text = "0";
+            }
         }
     }
 }
