@@ -16,6 +16,7 @@ namespace PetShop.Forms
         {
             InitializeComponent();
         }
+        private bool isFirstTime = true;
         public string Price_Sale 
         {
             get { return lblPriceSale.Text; }
@@ -45,6 +46,11 @@ namespace PetShop.Forms
         public void NumToTal_ValueChanged(object sender, EventArgs e)
         {
             NumToTal.Text = NumToTal.Value.ToString();
+            if (isFirstTime)
+            {
+                isFirstTime = false;
+                return;
+            }
             if (NumToTal.Value > 0)
             {
                 float result;
@@ -68,26 +74,6 @@ namespace PetShop.Forms
             {
                 checkout.Delete_Product(Serial_Key);
                 this.Visible = false;
-            }
-        }
-
-        private void NumToTal_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            NumToTal.Text = NumToTal.Value.ToString();
-            if (NumToTal.Value > 0)
-            {
-                float result;
-                int qty = int.Parse(NumToTal.Text);
-                int price = int.Parse(lblPriceSale.Text.Replace(",", ""));
-                result = qty * price;
-                Sum_Price = result.ToString("#,##0");
-                FormSelling frm = this.ParentForm as FormSelling;
-                frm.Update_Product_Total(Serial_Key, NumToTal.Text.Trim());
-                frm.Update_Total_Bill();
-            }
-            else
-            {
-                NumToTal.Value = 1;
             }
         }
     }

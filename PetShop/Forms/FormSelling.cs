@@ -116,12 +116,12 @@ namespace PetShop.Forms
             {
                 UserControl2 myControl = new UserControl2();
                 flowLayoutPanel1.Controls.Add(myControl);
-                myControl.Serial_Key = reader["Invoice_Serial_Key"].ToString();
-                myControl.Product_Total_Qty = reader["Product_Total"].ToString();
-                myControl.Product_Name = reader["Product_Name"].ToString();
                 int number = int.Parse(reader["Product_Price"].ToString()); //Get sale price
                 int qty = int.Parse(reader["Product_Total"].ToString()); //Get quantity 
                 int total_price = number * qty;
+                myControl.Serial_Key = reader["Invoice_Serial_Key"].ToString();
+                myControl.Product_Total_Qty = reader["Product_Total"].ToString();
+                myControl.Product_Name = reader["Product_Name"].ToString();
                 myControl.Price_Sale = number.ToString("#,##0");
                 myControl.Sum_Price = total_price.ToString("#,##0");
                 t++;
@@ -211,7 +211,10 @@ namespace PetShop.Forms
         }
         private void Show_List_Product()
         {
-            string SQL = @"SELECT TOP 20 * from PRODUCT_INFO where Product_Type_Serial_Key = 'PT0000000000001' 
+            string SQL = @"SELECT TOP 200 * 
+                            FROM PRODUCT_INFO I, PRODUCT_GROUP P
+                            WHERE I.Product_Group_Serial_Key = P.Product_Group_Serial_Key
+                            AND P.Product_Type_Serial_Key = 'PT0000000000001' 
                             AND Product_Status = '1'
                             AND Product_Quantity > 0";
             OleDbConnection odcConnect = new OleDbConnection(clsConnect.Connect_String);
@@ -260,7 +263,6 @@ namespace PetShop.Forms
             OleDbCommand odcCommand = new OleDbCommand(SQL, odcConnect);
             odcConnect.Open();
             OleDbDataReader reader = odcCommand.ExecuteReader();
-            int t = 1;
             dgvList.Columns["Product_Quantity"].Visible = true;
             dgvList.Columns["Status"].Visible = false;
             while (reader.Read())
@@ -298,6 +300,7 @@ namespace PetShop.Forms
                     reader["Invoice_Serial_Key"].ToString(),
                     reader["Name"].ToString(),
                     reader["Phone"].ToString(),
+                    "", //Ngày Bán
                     "Đang chờ",
                     reader["Surcharge"].ToString(),
                 });
@@ -462,14 +465,15 @@ namespace PetShop.Forms
             {
                 return;
             }
-            if (i == 0)
-            {
-                Searching_Order(txtScanQR.Text);
-            }
-            else
-            {
-                ScanQR_Product(txtScanQR.Text);
-            }            
+            ScanQR_Product(txtScanQR.Text);
+            //if (i == 0)
+            //{
+            //    Searching_Order(txtScanQR.Text);
+            //}
+            //else
+            //{
+            //    ScanQR_Product(txtScanQR.Text);
+            //}            
         }
 
         private void dgvOrder_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -589,6 +593,21 @@ namespace PetShop.Forms
                 //lblTotalPrice.Text = (Convert.ToDouble(Convert.ToDecimal(lblTotalPrice.Text) - Convert.ToDecimal(txtSurcharge.Text.Trim())).ToString("#,##0"));
                 txtSurcharge.Text = "0";
             }
+        }
+
+        private void txtScanQR_Leave(object sender, EventArgs e)
+        {
+            txtScanQR.Text = "Quét Mã QR Code...";
+        }
+
+        private void gunaVScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+
+        }
+
+        private void dgvList_Scroll(object sender, ScrollEventArgs e)
+        {
+            gunaVScrollBar1.Value = dgvList.FirstDisplayedScrollingRowIndex;
         }
     }
 }

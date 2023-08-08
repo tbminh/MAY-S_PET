@@ -112,8 +112,8 @@ namespace PetShop.Forms
             // panel1
             // 
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.dgvOrder);
+            this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.gunaPanel2);
             this.panel1.Controls.Add(this.pnInfoOrder);
             this.panel1.Controls.Add(this.gunaShadowPanel1);
@@ -590,9 +590,10 @@ namespace PetShop.Forms
             this.txtScanQR.SelectedText = "";
             this.txtScanQR.Size = new System.Drawing.Size(161, 43);
             this.txtScanQR.TabIndex = 47;
-            this.txtScanQR.Text = "Tìm Đơn Hàng...";
+            this.txtScanQR.Text = "Quét Mã QR Code...";
             this.txtScanQR.TextChanged += new System.EventHandler(this.txtScanQR_TextChanged);
             this.txtScanQR.Enter += new System.EventHandler(this.txtScanQR_Enter);
+            this.txtScanQR.Leave += new System.EventHandler(this.txtScanQR_Leave);
             // 
             // gunaPictureBox1
             // 
@@ -753,6 +754,7 @@ namespace PetShop.Forms
             this.dgvList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.dgvList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellDoubleClick);
+            this.dgvList.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dgvList_Scroll);
             // 
             // Product_Seiral_Key
             // 
@@ -892,6 +894,7 @@ namespace PetShop.Forms
             this.gunaVScrollBar1.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(210)))));
             this.gunaVScrollBar1.ThumbHoverColor = System.Drawing.Color.Tomato;
             this.gunaVScrollBar1.ThumbPressedColor = System.Drawing.Color.DarkGray;
+            this.gunaVScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.gunaVScrollBar1_Scroll);
             // 
             // gunaLabel2
             // 
@@ -1098,6 +1101,7 @@ namespace PetShop.Forms
             this.Invoice_Date.MinimumWidth = 6;
             this.Invoice_Date.Name = "Invoice_Date";
             this.Invoice_Date.ReadOnly = true;
+            this.Invoice_Date.Visible = false;
             // 
             // Order_Status
             // 

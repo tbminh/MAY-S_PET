@@ -31,15 +31,17 @@ namespace PetShop.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControl2));
             this.gunaLinePanel1 = new Guna.UI.WinForms.GunaLinePanel();
+            this.NumToTal = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.gunaComboBox1 = new Guna.UI.WinForms.GunaComboBox();
             this.lblSerialKey = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.lblSumPrice = new Guna.UI.WinForms.GunaLabel();
-            this.NumToTal = new Guna.UI.WinForms.GunaNumeric();
             this.lblPriceSale = new Guna.UI.WinForms.GunaLabel();
             this.lblProductName = new Guna.UI.WinForms.GunaLabel();
             this.btnDelete = new Guna.UI.WinForms.GunaAdvenceButton();
             this.gunaLinePanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumToTal)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaLinePanel1
@@ -47,11 +49,12 @@ namespace PetShop.Forms
             this.gunaLinePanel1.AutoSize = true;
             this.gunaLinePanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.gunaLinePanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
+            this.gunaLinePanel1.Controls.Add(this.NumToTal);
+            this.gunaLinePanel1.Controls.Add(this.gunaComboBox1);
             this.gunaLinePanel1.Controls.Add(this.lblSerialKey);
             this.gunaLinePanel1.Controls.Add(this.gunaLabel1);
             this.gunaLinePanel1.Controls.Add(this.gunaLabel2);
             this.gunaLinePanel1.Controls.Add(this.lblSumPrice);
-            this.gunaLinePanel1.Controls.Add(this.NumToTal);
             this.gunaLinePanel1.Controls.Add(this.lblPriceSale);
             this.gunaLinePanel1.Controls.Add(this.lblProductName);
             this.gunaLinePanel1.Controls.Add(this.btnDelete);
@@ -60,19 +63,61 @@ namespace PetShop.Forms
             this.gunaLinePanel1.LineColor = System.Drawing.Color.Silver;
             this.gunaLinePanel1.LineStyle = System.Windows.Forms.BorderStyle.None;
             this.gunaLinePanel1.Location = new System.Drawing.Point(0, 0);
-            this.gunaLinePanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaLinePanel1.Margin = new System.Windows.Forms.Padding(4);
             this.gunaLinePanel1.MaximumSize = new System.Drawing.Size(740, 65);
             this.gunaLinePanel1.MinimumSize = new System.Drawing.Size(740, 65);
             this.gunaLinePanel1.Name = "gunaLinePanel1";
             this.gunaLinePanel1.Size = new System.Drawing.Size(740, 65);
             this.gunaLinePanel1.TabIndex = 1;
             // 
+            // NumToTal
+            // 
+            this.NumToTal.BackColor = System.Drawing.Color.Transparent;
+            this.NumToTal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.NumToTal.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.NumToTal.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.NumToTal.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.NumToTal.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.NumToTal.DisabledState.Parent = this.NumToTal;
+            this.NumToTal.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
+            this.NumToTal.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(203)))));
+            this.NumToTal.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.NumToTal.FocusedState.Parent = this.NumToTal;
+            this.NumToTal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumToTal.ForeColor = System.Drawing.Color.Black;
+            this.NumToTal.Location = new System.Drawing.Point(474, 11);
+            this.NumToTal.Name = "NumToTal";
+            this.NumToTal.ShadowDecoration.Parent = this.NumToTal;
+            this.NumToTal.Size = new System.Drawing.Size(72, 36);
+            this.NumToTal.TabIndex = 10;
+            this.NumToTal.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.NumToTal.UpDownButtonForeColor = System.Drawing.Color.White;
+            this.NumToTal.ValueChanged += new System.EventHandler(this.NumToTal_ValueChanged);
+            // 
+            // gunaComboBox1
+            // 
+            this.gunaComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaComboBox1.BaseColor = System.Drawing.Color.White;
+            this.gunaComboBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.gunaComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.gunaComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gunaComboBox1.FocusedColor = System.Drawing.Color.Empty;
+            this.gunaComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.gunaComboBox1.ForeColor = System.Drawing.Color.Black;
+            this.gunaComboBox1.FormattingEnabled = true;
+            this.gunaComboBox1.Location = new System.Drawing.Point(336, 13);
+            this.gunaComboBox1.Name = "gunaComboBox1";
+            this.gunaComboBox1.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gunaComboBox1.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.gunaComboBox1.Size = new System.Drawing.Size(121, 31);
+            this.gunaComboBox1.TabIndex = 9;
+            // 
             // lblSerialKey
             // 
             this.lblSerialKey.AutoSize = true;
             this.lblSerialKey.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lblSerialKey.ForeColor = System.Drawing.Color.Gray;
-            this.lblSerialKey.Location = new System.Drawing.Point(189, 37);
+            this.lblSerialKey.Location = new System.Drawing.Point(182, 37);
             this.lblSerialKey.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSerialKey.Name = "lblSerialKey";
             this.lblSerialKey.Size = new System.Drawing.Size(69, 19);
@@ -97,7 +142,7 @@ namespace PetShop.Forms
             this.gunaLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaLabel2.AutoSize = true;
             this.gunaLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.749999F, System.Drawing.FontStyle.Bold);
-            this.gunaLabel2.Location = new System.Drawing.Point(640, 18);
+            this.gunaLabel2.Location = new System.Drawing.Point(642, 19);
             this.gunaLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.gunaLabel2.Name = "gunaLabel2";
             this.gunaLabel2.Size = new System.Drawing.Size(42, 18);
@@ -109,35 +154,12 @@ namespace PetShop.Forms
             this.lblSumPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSumPrice.AutoSize = true;
             this.lblSumPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.749999F, System.Drawing.FontStyle.Bold);
-            this.lblSumPrice.Location = new System.Drawing.Point(537, 18);
+            this.lblSumPrice.Location = new System.Drawing.Point(553, 19);
             this.lblSumPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSumPrice.Name = "lblSumPrice";
             this.lblSumPrice.Size = new System.Drawing.Size(81, 18);
             this.lblSumPrice.TabIndex = 4;
             this.lblSumPrice.Text = "1,000,000";
-            // 
-            // NumToTal
-            // 
-            this.NumToTal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.NumToTal.BackColor = System.Drawing.Color.Transparent;
-            this.NumToTal.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
-            this.NumToTal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.NumToTal.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.NumToTal.ButtonForeColor = System.Drawing.Color.White;
-            this.NumToTal.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.NumToTal.ForeColor = System.Drawing.Color.Black;
-            this.NumToTal.Location = new System.Drawing.Point(434, 12);
-            this.NumToTal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.NumToTal.Maximum = ((long)(9999999));
-            this.NumToTal.Minimum = ((long)(0));
-            this.NumToTal.Name = "NumToTal";
-            this.NumToTal.Radius = 4;
-            this.NumToTal.Size = new System.Drawing.Size(81, 30);
-            this.NumToTal.TabIndex = 3;
-            this.NumToTal.Text = "0";
-            this.NumToTal.Value = ((long)(0));
-            this.NumToTal.ValueChanged += new System.EventHandler(this.NumToTal_ValueChanged);
-            this.NumToTal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumToTal_KeyPress);
             // 
             // lblPriceSale
             // 
@@ -181,8 +203,8 @@ namespace PetShop.Forms
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
             this.btnDelete.ImageSize = new System.Drawing.Size(20, 20);
             this.btnDelete.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.btnDelete.Location = new System.Drawing.Point(692, 18);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Location = new System.Drawing.Point(692, 15);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.OnHoverBaseColor = System.Drawing.Color.Transparent;
             this.btnDelete.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -199,14 +221,17 @@ namespace PetShop.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.gunaLinePanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(740, 65);
             this.MinimumSize = new System.Drawing.Size(740, 65);
             this.Name = "UserControl2";
             this.Size = new System.Drawing.Size(740, 65);
             this.gunaLinePanel1.ResumeLayout(false);
             this.gunaLinePanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumToTal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,12 +241,13 @@ namespace PetShop.Forms
 
         private Guna.UI.WinForms.GunaLinePanel gunaLinePanel1;
         private Guna.UI.WinForms.GunaLabel lblSumPrice;
-        private Guna.UI.WinForms.GunaNumeric NumToTal;
         private Guna.UI.WinForms.GunaLabel lblPriceSale;
         private Guna.UI.WinForms.GunaLabel lblProductName;
         private Guna.UI.WinForms.GunaAdvenceButton btnDelete;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI.WinForms.GunaLabel lblSerialKey;
+        private Guna.UI.WinForms.GunaComboBox gunaComboBox1;
+        private Guna.UI2.WinForms.Guna2NumericUpDown NumToTal;
     }
 }
