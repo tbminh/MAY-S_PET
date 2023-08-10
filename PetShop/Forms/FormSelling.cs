@@ -19,21 +19,21 @@ namespace PetShop.Forms
         {
             InitializeComponent();
         }
-        public string Cus_Name
-        {
-            get { return lblName.Text; }
-            set { lblName.Text = value; }
-        }
-        public string Number_Phone
-        {
-            get { return lblPhone.Text; }
-            set { lblPhone.Text = value; }
-        }
-        public string SerialKey
-        {
-            get { return lblSerialKey.Text; }
-            set { lblPhone.Text = value; }
-        }
+        //public string Cus_Name
+        //{
+        //    get { return lblName.Text; }
+        //    set { lblName.Text = value; }
+        //}
+        //public string Number_Phone
+        //{
+        //    get { return lblPhone.Text; }
+        //    set { lblPhone.Text = value; }
+        //}
+        //public string SerialKey
+        //{
+        //    get { return lblSerialKey.Text; }
+        //    set { lblPhone.Text = value; }
+        //}
         private void FormSelling_Load(object sender, EventArgs e)
         {
             lblEmployeeName.Text = clsSql.User_FullName;
@@ -69,23 +69,40 @@ namespace PetShop.Forms
         //Cập Nhật Lại Tổng Tiền
         public void Update_Total_Bill()
         {
-            int result = 0;
-            foreach (Control control in flowLayoutPanel1.Controls)
+            //foreach (Control control in flowLayoutPanel1.Controls)
+            //{
+            //    if (control is UserControl2)
+            //    {
+            //        UserControl2 myUserControl = (UserControl2)control;
+            //        int price = int.Parse(myUserControl.Sum_Price.Replace(",", "").Replace(".", ""));
+            //        result = result + price;
+            //    }
+            //}
+            string SQL = $@"SELECT Total_Price,Surcharge, Discount 
+                            FROM INVOICE 
+                            WHERE Invoice_Serial_Key = '{lblSerialKey.Text}'";
+            using (OleDbConnection conn = new OleDbConnection(clsConnect.Connect_String))
             {
-                if (control is UserControl2)
+                conn.Open();
+                using (OleDbCommand cmd = new OleDbCommand(SQL, conn))
                 {
-                    UserControl2 myUserControl = (UserControl2)control;
-                    int price = int.Parse(myUserControl.Sum_Price.Replace(",", "").Replace(".", ""));
-                    result = result + price;
+                    OleDbDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        txtSurcharge.Text = (Convert.ToInt32(reader["Surcharge"])).ToString("#,##0");
+                        txtDiscount.Text = (Convert.ToInt32(reader["Discount"])).ToString("#,##0");
+                        lblTotalPrice.Text = (Convert.ToInt32(reader["Discount"])).ToString("#,##0");
+                    }
                 }
-            }
-            lblTotalPrice.Text = result.ToString("#,##0");
+            }  
         }
 
         // Cập nhật tổng tiền của từng sản phẩm
         public void Update_Product_Total(string Serial_Key, string Qty)
         {
-            string SQL = @"UPDATE INVOICE_DETAIL SET Product_Total = '" + Qty + @"'
+            string SQL = @"UPDATE INVOICE_DETAIL 
+                            SET Product_Total = '" + Decimal.Parse(Qty) + @"',
+                                Product_Price = '"+ Decimal.Parse(Qty) + @"' * Product_Price
                            WHERE Invoice_Serial_Key = '" + Serial_Key + "'";
             OleDbConnection odcConnect = new OleDbConnection(clsConnect.Connect_String);
             odcConnect.Open();
@@ -225,11 +242,18 @@ namespace PetShop.Forms
         public bool Save_Order() 
         {
             bool result = false;
-            string SQL = @"UPDATE INVOICE 
-                            SET Surcharge = '" + Decimal.Parse(txtSurcharge.Text) + @"',
-                                Discount = '" + Decimal.Parse(txtDiscount.Text) + @"',
-                                Total_Price = '"+ Decimal.Parse(lblTotalPrice.Text) + @"'
-                            WHERE Invoice_Serial_Key = '" + lblSerialKey.Text + "' ";
+                string SQL = @" DECLARE @Surcharge FLOAT = '" + Decimal.Parse(txtSurcharge.Text) + @"'
+                                DECLARE @Discount FLOAT = '" + Decimal.Parse(txtDiscount.Text) + @"'
+                                UPDATE INVOICE 
+                                SET Surcharge = @Surcharge,
+                                    Discount = @Discount,
+                                    Total_Price = (SELECT SUM(Product_Price) + @Surcharge -s @Discount
+							                        FROM INVOICE_DETAIL
+							                        WHERE Invoice = '" + lblSerialKey.Text + @"')
+                                FROM INVOICE I
+		                        JOIN INVOICE_DETAIL ID
+		                        ON I.Invoice_Serial_Key = ID.Invoice
+		                        WHERE I.Invoice_Serial_Key = '" + lblSerialKey.Text + "' ";
             OleDbConnection conn = new OleDbConnection(clsConnect.Connect_String);
             OleDbCommand cmd = new OleDbCommand(SQL, conn);
             conn.Open();
@@ -595,8 +619,9 @@ namespace PetShop.Forms
                 string Unit = dgvList.CurrentRow.Cells[(int)dgv_list_enum.Product_Unit].Value?.ToString();
                 string Barcode = dgvList.CurrentRow.Cells[(int)dgv_list_enum.Product_Barcode].Value?.ToString();
 
-                if(Add_Cart(Invoice_Serial_Key, Product_ID, Product_Name, Product_Price, Unit, Barcode))
+                if (Add_Cart(Invoice_Serial_Key, Product_ID, Product_Name, Product_Price, Unit, Barcode))
                 {
+                    Save_Order();
                     Show_Payment_Layout(Invoice_Serial_Key);
                 }
             }
@@ -628,7 +653,7 @@ namespace PetShop.Forms
                 string SQL = @"SELECT TOP 20 * 
                                 FROM PRODUCT_INFO 
                                 WHERE Product_Name LIKE  N'%" + tim + @"%' 
-                                AND Product_Barcode LIKE  N'%" + tim + "%'";
+                                OR Product_Barcode LIKE  N'%" + tim + "%'";
                 OleDbConnection odcConnect = new OleDbConnection(clsConnect.Connect_String);
                 OleDbCommand odcCommand = new OleDbCommand(SQL, odcConnect);
                 odcConnect.Open();
@@ -691,6 +716,7 @@ namespace PetShop.Forms
             txtGiven.Text = "0";
             lblRemain.Text = "0";
             cbxSurcharge.Checked = false;
+            chxDiscount.Checked = false;
             if (dgvOrder.CurrentRow.Cells[(int)dgv_enum.Surcharge].Value?.ToString() == null)
             {
                 txtSurcharge.Text = "0";
@@ -785,7 +811,6 @@ namespace PetShop.Forms
                 cbxSurcharge.Font = new Font(cbxSurcharge.Font.FontFamily, cbxSurcharge.Font.Size, FontStyle.Bold);
                 cbxSurcharge.Size = new Size(75, 20);
                 gia = Convert.ToDouble(lblTotalPrice.Text);
-                txtSurcharge.Text = "0";
             }
             else
             {
@@ -833,7 +858,7 @@ namespace PetShop.Forms
         {
             if (txtDiscount.Text != "")
             {
-                if (decimal.TryParse(txtSurcharge.Text, out decimal value))
+                if (decimal.TryParse(txtDiscount.Text, out decimal value))
                 {
                     txtDiscount.Text = value.ToString("#,##0");
                     int length = txtDiscount.ToString().Length;
@@ -900,24 +925,26 @@ namespace PetShop.Forms
 
         private void cbxDiscount_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbxDiscount.Checked)
+            if (chxDiscount.Checked)
             {
                 lblUnitDisCount.ForeColor = Color.OliveDrab;
+                txtDiscount.Enabled = true;
                 txtDiscount.Focus();
-                cbxDiscount.Font = new Font(cbxDiscount.Font.FontFamily, 10, cbxDiscount.Font.Style);
-                cbxDiscount.Font = new Font(cbxDiscount.Font.FontFamily, cbxDiscount.Font.Size, FontStyle.Bold);
-                cbxDiscount.Size = new Size(75, 20);
+                chxDiscount.Font = new Font(chxDiscount.Font.FontFamily, 10, chxDiscount.Font.Style);
+                chxDiscount.Font = new Font(chxDiscount.Font.FontFamily, chxDiscount.Font.Size, FontStyle.Bold);
+                chxDiscount.Size = new Size(75, 20);
                 gia = Convert.ToDouble(lblTotalPrice.Text);
             }
             else
             {
-                cbxDiscount.ForeColor = Color.Gray;
-                cbxDiscount.Font = new Font(cbxDiscount.Font.FontFamily, 8, cbxDiscount.Font.Style);
-                cbxDiscount.Font = new Font(cbxDiscount.Font.FontFamily, cbxDiscount.Font.Size, FontStyle.Regular);
-                cbxDiscount.Size = new Size(71, 20);
+                chxDiscount.ForeColor = Color.Gray;
+                chxDiscount.Font = new Font(chxDiscount.Font.FontFamily, 8, chxDiscount.Font.Style);
+                chxDiscount.Font = new Font(chxDiscount.Font.FontFamily, chxDiscount.Font.Size, FontStyle.Regular);
+                chxDiscount.Size = new Size(71, 20);
                 lblUnitDisCount.ForeColor = Color.Gray;
                 lblTotalPrice.Text = gia.ToString("#,##0");
                 txtDiscount.Text = "0";
+                txtDiscount.Enabled = false;
             }
         }
     }

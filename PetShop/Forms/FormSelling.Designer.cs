@@ -51,7 +51,7 @@ namespace PetShop.Forms
             this.gunaPanel2 = new Guna.UI.WinForms.GunaPanel();
             this.lblUnitDisCount = new Guna.UI.WinForms.GunaLabel();
             this.txtDiscount = new Guna.UI.WinForms.GunaLineTextBox();
-            this.cbxDiscount = new Guna.UI.WinForms.GunaCheckBox();
+            this.chxDiscount = new Guna.UI.WinForms.GunaCheckBox();
             this.gunaLabel9 = new Guna.UI.WinForms.GunaLabel();
             this.lblUnit = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel7 = new Guna.UI.WinForms.GunaLabel();
@@ -125,8 +125,9 @@ namespace PetShop.Forms
             this.panel1.Controls.Add(this.gunaShadowPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1280, 630);
+            this.panel1.Size = new System.Drawing.Size(1600, 788);
             this.panel1.TabIndex = 0;
             // 
             // dgvOrder
@@ -165,14 +166,15 @@ namespace PetShop.Forms
             this.dgvOrder.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvOrder.EnableHeadersVisualStyles = false;
             this.dgvOrder.GridColor = System.Drawing.Color.White;
-            this.dgvOrder.Location = new System.Drawing.Point(586, 163);
+            this.dgvOrder.Location = new System.Drawing.Point(732, 204);
+            this.dgvOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvOrder.Name = "dgvOrder";
             this.dgvOrder.ReadOnly = true;
             this.dgvOrder.RowHeadersVisible = false;
             this.dgvOrder.RowHeadersWidth = 51;
             this.dgvOrder.RowTemplate.Height = 30;
             this.dgvOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrder.Size = new System.Drawing.Size(617, 300);
+            this.dgvOrder.Size = new System.Drawing.Size(771, 375);
             this.dgvOrder.TabIndex = 42;
             this.dgvOrder.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
             this.dgvOrder.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -254,9 +256,10 @@ namespace PetShop.Forms
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(611, 252);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(764, 315);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(592, 212);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(740, 265);
             this.flowLayoutPanel1.TabIndex = 49;
             // 
             // gunaPanel2
@@ -264,7 +267,7 @@ namespace PetShop.Forms
             this.gunaPanel2.BackColor = System.Drawing.Color.White;
             this.gunaPanel2.Controls.Add(this.lblUnitDisCount);
             this.gunaPanel2.Controls.Add(this.txtDiscount);
-            this.gunaPanel2.Controls.Add(this.cbxDiscount);
+            this.gunaPanel2.Controls.Add(this.chxDiscount);
             this.gunaPanel2.Controls.Add(this.gunaLabel9);
             this.gunaPanel2.Controls.Add(this.lblUnit);
             this.gunaPanel2.Controls.Add(this.gunaLabel7);
@@ -279,9 +282,10 @@ namespace PetShop.Forms
             this.gunaPanel2.Controls.Add(this.lblGiven);
             this.gunaPanel2.Controls.Add(this.btnSave);
             this.gunaPanel2.Controls.Add(this.btnCheckOut);
-            this.gunaPanel2.Location = new System.Drawing.Point(586, 470);
+            this.gunaPanel2.Location = new System.Drawing.Point(732, 588);
+            this.gunaPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaPanel2.Name = "gunaPanel2";
-            this.gunaPanel2.Size = new System.Drawing.Size(617, 229);
+            this.gunaPanel2.Size = new System.Drawing.Size(771, 286);
             this.gunaPanel2.TabIndex = 41;
             // 
             // lblUnitDisCount
@@ -289,9 +293,10 @@ namespace PetShop.Forms
             this.lblUnitDisCount.AutoSize = true;
             this.lblUnitDisCount.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUnitDisCount.ForeColor = System.Drawing.Color.Gray;
-            this.lblUnitDisCount.Location = new System.Drawing.Point(475, 41);
+            this.lblUnitDisCount.Location = new System.Drawing.Point(594, 51);
+            this.lblUnitDisCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUnitDisCount.Name = "lblUnitDisCount";
-            this.lblUnitDisCount.Size = new System.Drawing.Size(43, 21);
+            this.lblUnitDisCount.Size = new System.Drawing.Size(54, 28);
             this.lblUnitDisCount.TabIndex = 41;
             this.lblUnitDisCount.Text = "VND";
             // 
@@ -303,39 +308,42 @@ namespace PetShop.Forms
             this.txtDiscount.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtDiscount.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.txtDiscount.LineColor = System.Drawing.Color.Gainsboro;
-            this.txtDiscount.Location = new System.Drawing.Point(366, 37);
+            this.txtDiscount.Location = new System.Drawing.Point(458, 46);
+            this.txtDiscount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.PasswordChar = '\0';
             this.txtDiscount.SelectedText = "";
-            this.txtDiscount.Size = new System.Drawing.Size(95, 33);
+            this.txtDiscount.Size = new System.Drawing.Size(119, 41);
             this.txtDiscount.TabIndex = 40;
             this.txtDiscount.Text = "0";
             this.txtDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtDiscount.TextChanged += new System.EventHandler(this.txtDiscount_TextChanged);
             // 
-            // cbxDiscount
+            // chxDiscount
             // 
-            this.cbxDiscount.BaseColor = System.Drawing.Color.White;
-            this.cbxDiscount.CheckedOffColor = System.Drawing.Color.Gray;
-            this.cbxDiscount.CheckedOnColor = System.Drawing.Color.OliveDrab;
-            this.cbxDiscount.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
-            this.cbxDiscount.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxDiscount.ForeColor = System.Drawing.Color.Gray;
-            this.cbxDiscount.Location = new System.Drawing.Point(31, 41);
-            this.cbxDiscount.Name = "cbxDiscount";
-            this.cbxDiscount.Size = new System.Drawing.Size(76, 20);
-            this.cbxDiscount.TabIndex = 39;
-            this.cbxDiscount.Text = "Giảm Giá";
-            this.cbxDiscount.CheckedChanged += new System.EventHandler(this.cbxDiscount_CheckedChanged);
+            this.chxDiscount.BaseColor = System.Drawing.Color.White;
+            this.chxDiscount.CheckedOffColor = System.Drawing.Color.Gray;
+            this.chxDiscount.CheckedOnColor = System.Drawing.Color.OliveDrab;
+            this.chxDiscount.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
+            this.chxDiscount.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chxDiscount.ForeColor = System.Drawing.Color.Gray;
+            this.chxDiscount.Location = new System.Drawing.Point(39, 51);
+            this.chxDiscount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chxDiscount.Name = "chxDiscount";
+            this.chxDiscount.Size = new System.Drawing.Size(88, 20);
+            this.chxDiscount.TabIndex = 39;
+            this.chxDiscount.Text = "Giảm Giá";
+            this.chxDiscount.CheckedChanged += new System.EventHandler(this.cbxDiscount_CheckedChanged);
             // 
             // gunaLabel9
             // 
             this.gunaLabel9.AutoSize = true;
             this.gunaLabel9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel9.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel9.Location = new System.Drawing.Point(474, 103);
+            this.gunaLabel9.Location = new System.Drawing.Point(592, 129);
+            this.gunaLabel9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.gunaLabel9.Name = "gunaLabel9";
-            this.gunaLabel9.Size = new System.Drawing.Size(43, 21);
+            this.gunaLabel9.Size = new System.Drawing.Size(54, 28);
             this.gunaLabel9.TabIndex = 38;
             this.gunaLabel9.Text = "VND";
             // 
@@ -344,9 +352,10 @@ namespace PetShop.Forms
             this.lblUnit.AutoSize = true;
             this.lblUnit.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUnit.ForeColor = System.Drawing.Color.Gray;
-            this.lblUnit.Location = new System.Drawing.Point(474, 12);
+            this.lblUnit.Location = new System.Drawing.Point(592, 15);
+            this.lblUnit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUnit.Name = "lblUnit";
-            this.lblUnit.Size = new System.Drawing.Size(43, 21);
+            this.lblUnit.Size = new System.Drawing.Size(54, 28);
             this.lblUnit.TabIndex = 37;
             this.lblUnit.Text = "VND";
             // 
@@ -355,9 +364,10 @@ namespace PetShop.Forms
             this.gunaLabel7.AutoSize = true;
             this.gunaLabel7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel7.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel7.Location = new System.Drawing.Point(476, 137);
+            this.gunaLabel7.Location = new System.Drawing.Point(595, 171);
+            this.gunaLabel7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.gunaLabel7.Name = "gunaLabel7";
-            this.gunaLabel7.Size = new System.Drawing.Size(43, 21);
+            this.gunaLabel7.Size = new System.Drawing.Size(54, 28);
             this.gunaLabel7.TabIndex = 36;
             this.gunaLabel7.Text = "VND";
             // 
@@ -366,9 +376,10 @@ namespace PetShop.Forms
             this.gunaLabel5.AutoSize = true;
             this.gunaLabel5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel5.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel5.Location = new System.Drawing.Point(28, 137);
+            this.gunaLabel5.Location = new System.Drawing.Point(35, 171);
+            this.gunaLabel5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.gunaLabel5.Name = "gunaLabel5";
-            this.gunaLabel5.Size = new System.Drawing.Size(60, 15);
+            this.gunaLabel5.Size = new System.Drawing.Size(76, 20);
             this.gunaLabel5.TabIndex = 35;
             this.gunaLabel5.Text = "Tiền Thừa";
             // 
@@ -379,11 +390,12 @@ namespace PetShop.Forms
             this.txtGiven.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtGiven.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
             this.txtGiven.LineColor = System.Drawing.Color.Gainsboro;
-            this.txtGiven.Location = new System.Drawing.Point(366, 95);
+            this.txtGiven.Location = new System.Drawing.Point(458, 119);
+            this.txtGiven.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtGiven.Name = "txtGiven";
             this.txtGiven.PasswordChar = '\0';
             this.txtGiven.SelectedText = "";
-            this.txtGiven.Size = new System.Drawing.Size(95, 32);
+            this.txtGiven.Size = new System.Drawing.Size(119, 46);
             this.txtGiven.TabIndex = 34;
             this.txtGiven.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtGiven.TextChanged += new System.EventHandler(this.txtGiven_TextChanged);
@@ -395,9 +407,10 @@ namespace PetShop.Forms
             this.gunaLabel3.AutoSize = true;
             this.gunaLabel3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.gunaLabel3.ForeColor = System.Drawing.Color.Black;
-            this.gunaLabel3.Location = new System.Drawing.Point(476, 73);
+            this.gunaLabel3.Location = new System.Drawing.Point(595, 91);
+            this.gunaLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.gunaLabel3.Name = "gunaLabel3";
-            this.gunaLabel3.Size = new System.Drawing.Size(44, 19);
+            this.gunaLabel3.Size = new System.Drawing.Size(51, 24);
             this.gunaLabel3.TabIndex = 33;
             this.gunaLabel3.Text = "VND";
             // 
@@ -409,11 +422,12 @@ namespace PetShop.Forms
             this.txtSurcharge.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtSurcharge.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.txtSurcharge.LineColor = System.Drawing.Color.Gainsboro;
-            this.txtSurcharge.Location = new System.Drawing.Point(366, 3);
+            this.txtSurcharge.Location = new System.Drawing.Point(458, 4);
+            this.txtSurcharge.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSurcharge.Name = "txtSurcharge";
             this.txtSurcharge.PasswordChar = '\0';
             this.txtSurcharge.SelectedText = "";
-            this.txtSurcharge.Size = new System.Drawing.Size(95, 30);
+            this.txtSurcharge.Size = new System.Drawing.Size(119, 41);
             this.txtSurcharge.TabIndex = 32;
             this.txtSurcharge.Text = "0";
             this.txtSurcharge.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -424,9 +438,10 @@ namespace PetShop.Forms
             this.lblsumPrice.AutoSize = true;
             this.lblsumPrice.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblsumPrice.ForeColor = System.Drawing.Color.Black;
-            this.lblsumPrice.Location = new System.Drawing.Point(22, 76);
+            this.lblsumPrice.Location = new System.Drawing.Point(28, 95);
+            this.lblsumPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblsumPrice.Name = "lblsumPrice";
-            this.lblsumPrice.Size = new System.Drawing.Size(94, 16);
+            this.lblsumPrice.Size = new System.Drawing.Size(112, 19);
             this.lblsumPrice.TabIndex = 31;
             this.lblsumPrice.Text = "TỔNG CỘNG";
             // 
@@ -435,9 +450,10 @@ namespace PetShop.Forms
             this.lblTotalPrice.AutoSize = true;
             this.lblTotalPrice.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.lblTotalPrice.ForeColor = System.Drawing.Color.Black;
-            this.lblTotalPrice.Location = new System.Drawing.Point(362, 73);
+            this.lblTotalPrice.Location = new System.Drawing.Point(452, 91);
+            this.lblTotalPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalPrice.Name = "lblTotalPrice";
-            this.lblTotalPrice.Size = new System.Drawing.Size(18, 19);
+            this.lblTotalPrice.Size = new System.Drawing.Size(21, 24);
             this.lblTotalPrice.TabIndex = 30;
             this.lblTotalPrice.Text = "0";
             this.lblTotalPrice.TextChanged += new System.EventHandler(this.lblTotalPrice_TextChanged);
@@ -450,9 +466,10 @@ namespace PetShop.Forms
             this.cbxSurcharge.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
             this.cbxSurcharge.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxSurcharge.ForeColor = System.Drawing.Color.Gray;
-            this.cbxSurcharge.Location = new System.Drawing.Point(31, 13);
+            this.cbxSurcharge.Location = new System.Drawing.Point(39, 16);
+            this.cbxSurcharge.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbxSurcharge.Name = "cbxSurcharge";
-            this.cbxSurcharge.Size = new System.Drawing.Size(71, 20);
+            this.cbxSurcharge.Size = new System.Drawing.Size(82, 20);
             this.cbxSurcharge.TabIndex = 26;
             this.cbxSurcharge.Text = "Phụ Thu";
             this.cbxSurcharge.CheckedChanged += new System.EventHandler(this.cbxSurcharge_CheckedChanged);
@@ -462,9 +479,10 @@ namespace PetShop.Forms
             this.lblRemain.AutoSize = true;
             this.lblRemain.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRemain.ForeColor = System.Drawing.Color.Gray;
-            this.lblRemain.Location = new System.Drawing.Point(362, 135);
+            this.lblRemain.Location = new System.Drawing.Point(452, 169);
+            this.lblRemain.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRemain.Name = "lblRemain";
-            this.lblRemain.Size = new System.Drawing.Size(18, 19);
+            this.lblRemain.Size = new System.Drawing.Size(21, 24);
             this.lblRemain.TabIndex = 25;
             this.lblRemain.Text = "0";
             // 
@@ -473,9 +491,10 @@ namespace PetShop.Forms
             this.lblGiven.AutoSize = true;
             this.lblGiven.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGiven.ForeColor = System.Drawing.Color.Gray;
-            this.lblGiven.Location = new System.Drawing.Point(26, 103);
+            this.lblGiven.Location = new System.Drawing.Point(32, 129);
+            this.lblGiven.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGiven.Name = "lblGiven";
-            this.lblGiven.Size = new System.Drawing.Size(61, 13);
+            this.lblGiven.Size = new System.Drawing.Size(78, 19);
             this.lblGiven.TabIndex = 24;
             this.lblGiven.Text = "Khách Đưa";
             // 
@@ -500,7 +519,8 @@ namespace PetShop.Forms
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageSize = new System.Drawing.Size(20, 20);
             this.btnSave.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.btnSave.Location = new System.Drawing.Point(115, 161);
+            this.btnSave.Location = new System.Drawing.Point(144, 201);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
             this.btnSave.OnHoverBaseColor = System.Drawing.Color.Tomato;
             this.btnSave.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -509,7 +529,7 @@ namespace PetShop.Forms
             this.btnSave.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
             this.btnSave.OnPressedColor = System.Drawing.Color.Black;
             this.btnSave.Radius = 8;
-            this.btnSave.Size = new System.Drawing.Size(127, 58);
+            this.btnSave.Size = new System.Drawing.Size(159, 72);
             this.btnSave.TabIndex = 18;
             this.btnSave.Text = "Lưu";
             this.btnSave.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -536,7 +556,8 @@ namespace PetShop.Forms
             this.btnCheckOut.Image = ((System.Drawing.Image)(resources.GetObject("btnCheckOut.Image")));
             this.btnCheckOut.ImageSize = new System.Drawing.Size(24, 24);
             this.btnCheckOut.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.btnCheckOut.Location = new System.Drawing.Point(301, 161);
+            this.btnCheckOut.Location = new System.Drawing.Point(376, 201);
+            this.btnCheckOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCheckOut.Name = "btnCheckOut";
             this.btnCheckOut.OnHoverBaseColor = System.Drawing.Color.Coral;
             this.btnCheckOut.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -545,7 +566,7 @@ namespace PetShop.Forms
             this.btnCheckOut.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
             this.btnCheckOut.OnPressedColor = System.Drawing.Color.White;
             this.btnCheckOut.Radius = 8;
-            this.btnCheckOut.Size = new System.Drawing.Size(217, 58);
+            this.btnCheckOut.Size = new System.Drawing.Size(271, 72);
             this.btnCheckOut.TabIndex = 17;
             this.btnCheckOut.Text = "Thanh Toán";
             this.btnCheckOut.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -562,10 +583,11 @@ namespace PetShop.Forms
             this.pnInfoOrder.Controls.Add(this.lblOrderText);
             this.pnInfoOrder.GradientColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.pnInfoOrder.GradientColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
-            this.pnInfoOrder.Location = new System.Drawing.Point(611, 163);
+            this.pnInfoOrder.Location = new System.Drawing.Point(764, 204);
+            this.pnInfoOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnInfoOrder.Name = "pnInfoOrder";
             this.pnInfoOrder.Radius = 8;
-            this.pnInfoOrder.Size = new System.Drawing.Size(592, 82);
+            this.pnInfoOrder.Size = new System.Drawing.Size(740, 102);
             this.pnInfoOrder.TabIndex = 38;
             // 
             // lblSerialKey
@@ -573,9 +595,10 @@ namespace PetShop.Forms
             this.lblSerialKey.AutoSize = true;
             this.lblSerialKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSerialKey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lblSerialKey.Location = new System.Drawing.Point(129, 13);
+            this.lblSerialKey.Location = new System.Drawing.Point(161, 16);
+            this.lblSerialKey.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSerialKey.Name = "lblSerialKey";
-            this.lblSerialKey.Size = new System.Drawing.Size(0, 24);
+            this.lblSerialKey.Size = new System.Drawing.Size(0, 29);
             this.lblSerialKey.TabIndex = 7;
             // 
             // gunaLabel6
@@ -583,9 +606,10 @@ namespace PetShop.Forms
             this.gunaLabel6.AutoSize = true;
             this.gunaLabel6.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.gunaLabel6.Location = new System.Drawing.Point(26, 56);
+            this.gunaLabel6.Location = new System.Drawing.Point(32, 70);
+            this.gunaLabel6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.gunaLabel6.Name = "gunaLabel6";
-            this.gunaLabel6.Size = new System.Drawing.Size(63, 15);
+            this.gunaLabel6.Size = new System.Drawing.Size(81, 20);
             this.gunaLabel6.TabIndex = 6;
             this.gunaLabel6.Text = "Điện Thoại";
             // 
@@ -594,9 +618,10 @@ namespace PetShop.Forms
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lblName.Location = new System.Drawing.Point(112, 37);
+            this.lblName.Location = new System.Drawing.Point(140, 46);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(0, 15);
+            this.lblName.Size = new System.Drawing.Size(0, 20);
             this.lblName.TabIndex = 5;
             // 
             // gunaLabel4
@@ -604,9 +629,10 @@ namespace PetShop.Forms
             this.gunaLabel4.AutoSize = true;
             this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.gunaLabel4.Location = new System.Drawing.Point(26, 37);
+            this.gunaLabel4.Location = new System.Drawing.Point(32, 46);
+            this.gunaLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.gunaLabel4.Name = "gunaLabel4";
-            this.gunaLabel4.Size = new System.Drawing.Size(75, 15);
+            this.gunaLabel4.Size = new System.Drawing.Size(92, 20);
             this.gunaLabel4.TabIndex = 4;
             this.gunaLabel4.Text = "Khách Hàng:";
             // 
@@ -615,9 +641,10 @@ namespace PetShop.Forms
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lblPhone.Location = new System.Drawing.Point(112, 56);
+            this.lblPhone.Location = new System.Drawing.Point(140, 70);
+            this.lblPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(10, 15);
+            this.lblPhone.Size = new System.Drawing.Size(13, 20);
             this.lblPhone.TabIndex = 3;
             this.lblPhone.Text = " ";
             // 
@@ -626,9 +653,10 @@ namespace PetShop.Forms
             this.lblOrderText.AutoSize = true;
             this.lblOrderText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lblOrderText.Location = new System.Drawing.Point(25, 13);
+            this.lblOrderText.Location = new System.Drawing.Point(31, 16);
+            this.lblOrderText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOrderText.Name = "lblOrderText";
-            this.lblOrderText.Size = new System.Drawing.Size(92, 24);
+            this.lblOrderText.Size = new System.Drawing.Size(114, 29);
             this.lblOrderText.TabIndex = 2;
             this.lblOrderText.Text = "Hóa Đơn";
             // 
@@ -651,9 +679,10 @@ namespace PetShop.Forms
             this.gunaShadowPanel1.Controls.Add(this.gunaGradient2Panel1);
             this.gunaShadowPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gunaShadowPanel1.Location = new System.Drawing.Point(0, 0);
+            this.gunaShadowPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaShadowPanel1.Name = "gunaShadowPanel1";
             this.gunaShadowPanel1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.gunaShadowPanel1.Size = new System.Drawing.Size(1280, 630);
+            this.gunaShadowPanel1.Size = new System.Drawing.Size(1600, 788);
             this.gunaShadowPanel1.TabIndex = 5;
             // 
             // txtScanQR
@@ -664,11 +693,12 @@ namespace PetShop.Forms
             this.txtScanQR.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtScanQR.ForeColor = System.Drawing.Color.Gray;
             this.txtScanQR.LineColor = System.Drawing.Color.Gainsboro;
-            this.txtScanQR.Location = new System.Drawing.Point(1074, 123);
+            this.txtScanQR.Location = new System.Drawing.Point(1342, 154);
+            this.txtScanQR.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtScanQR.Name = "txtScanQR";
             this.txtScanQR.PasswordChar = '\0';
             this.txtScanQR.SelectedText = "";
-            this.txtScanQR.Size = new System.Drawing.Size(129, 34);
+            this.txtScanQR.Size = new System.Drawing.Size(161, 42);
             this.txtScanQR.TabIndex = 47;
             this.txtScanQR.Text = "Quét Mã QR Code...";
             this.txtScanQR.TextChanged += new System.EventHandler(this.txtScanQR_TextChanged);
@@ -679,9 +709,10 @@ namespace PetShop.Forms
             // 
             this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
             this.gunaPictureBox1.Image = global::PetShop.Properties.Resources._6556924;
-            this.gunaPictureBox1.Location = new System.Drawing.Point(1010, 123);
+            this.gunaPictureBox1.Location = new System.Drawing.Point(1262, 154);
+            this.gunaPictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaPictureBox1.Name = "gunaPictureBox1";
-            this.gunaPictureBox1.Size = new System.Drawing.Size(46, 34);
+            this.gunaPictureBox1.Size = new System.Drawing.Size(58, 42);
             this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.gunaPictureBox1.TabIndex = 46;
             this.gunaPictureBox1.TabStop = false;
@@ -705,7 +736,8 @@ namespace PetShop.Forms
             this.btnAddOrder.Image = global::PetShop.Properties.Resources._325_3251297_file_ambox_emblem_plus_svg_wikimedia_commons_transparent;
             this.btnAddOrder.ImageSize = new System.Drawing.Size(24, 24);
             this.btnAddOrder.LineColor = System.Drawing.Color.Transparent;
-            this.btnAddOrder.Location = new System.Drawing.Point(870, 117);
+            this.btnAddOrder.Location = new System.Drawing.Point(1088, 146);
+            this.btnAddOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddOrder.Name = "btnAddOrder";
             this.btnAddOrder.OnHoverBaseColor = System.Drawing.Color.Transparent;
             this.btnAddOrder.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -713,7 +745,7 @@ namespace PetShop.Forms
             this.btnAddOrder.OnHoverImage = null;
             this.btnAddOrder.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
             this.btnAddOrder.OnPressedColor = System.Drawing.Color.Black;
-            this.btnAddOrder.Size = new System.Drawing.Size(118, 42);
+            this.btnAddOrder.Size = new System.Drawing.Size(148, 52);
             this.btnAddOrder.TabIndex = 45;
             this.btnAddOrder.Text = "Thêm Đơn";
             this.btnAddOrder.Click += new System.EventHandler(this.btnAddOrder_Click);
@@ -737,7 +769,8 @@ namespace PetShop.Forms
             this.btnOrder.Image = global::PetShop.Properties.Resources._2038792;
             this.btnOrder.ImageSize = new System.Drawing.Size(32, 32);
             this.btnOrder.LineColor = System.Drawing.Color.Transparent;
-            this.btnOrder.Location = new System.Drawing.Point(746, 116);
+            this.btnOrder.Location = new System.Drawing.Point(932, 145);
+            this.btnOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.OnHoverBaseColor = System.Drawing.Color.Transparent;
             this.btnOrder.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -745,7 +778,7 @@ namespace PetShop.Forms
             this.btnOrder.OnHoverImage = null;
             this.btnOrder.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
             this.btnOrder.OnPressedColor = System.Drawing.Color.Black;
-            this.btnOrder.Size = new System.Drawing.Size(118, 42);
+            this.btnOrder.Size = new System.Drawing.Size(148, 52);
             this.btnOrder.TabIndex = 44;
             this.btnOrder.Text = "Đơn Hàng";
             this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
@@ -756,9 +789,10 @@ namespace PetShop.Forms
             this.gunaGradient2Panel4.Controls.Add(this.dgvList);
             this.gunaGradient2Panel4.GradientColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
             this.gunaGradient2Panel4.GradientColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
-            this.gunaGradient2Panel4.Location = new System.Drawing.Point(22, 163);
+            this.gunaGradient2Panel4.Location = new System.Drawing.Point(28, 204);
+            this.gunaGradient2Panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaGradient2Panel4.Name = "gunaGradient2Panel4";
-            this.gunaGradient2Panel4.Size = new System.Drawing.Size(528, 517);
+            this.gunaGradient2Panel4.Size = new System.Drawing.Size(660, 646);
             this.gunaGradient2Panel4.TabIndex = 43;
             // 
             // dgvList
@@ -799,6 +833,7 @@ namespace PetShop.Forms
             this.dgvList.EnableHeadersVisualStyles = false;
             this.dgvList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvList.Location = new System.Drawing.Point(0, 0);
+            this.dgvList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvList.Name = "dgvList";
             this.dgvList.ReadOnly = true;
             this.dgvList.RowHeadersVisible = false;
@@ -806,7 +841,7 @@ namespace PetShop.Forms
             this.dgvList.RowTemplate.Height = 30;
             this.dgvList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvList.Size = new System.Drawing.Size(528, 517);
+            this.dgvList.Size = new System.Drawing.Size(660, 646);
             this.dgvList.TabIndex = 1;
             this.dgvList.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
             this.dgvList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -883,6 +918,7 @@ namespace PetShop.Forms
             // 
             this.dcpUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dcpUnit.HeaderText = "Đơn Vị";
+            this.dcpUnit.MinimumWidth = 6;
             this.dcpUnit.Name = "dcpUnit";
             this.dcpUnit.ReadOnly = true;
             this.dcpUnit.Width = 80;
@@ -890,6 +926,7 @@ namespace PetShop.Forms
             // dcpBarcode
             // 
             this.dcpBarcode.HeaderText = "Barcode";
+            this.dcpBarcode.MinimumWidth = 6;
             this.dcpBarcode.Name = "dcpBarcode";
             this.dcpBarcode.ReadOnly = true;
             this.dcpBarcode.Visible = false;
@@ -909,10 +946,11 @@ namespace PetShop.Forms
             this.gunaGradient2Panel3.Controls.Add(this.gunaCirclePictureBox1);
             this.gunaGradient2Panel3.GradientColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.gunaGradient2Panel3.GradientColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
-            this.gunaGradient2Panel3.Location = new System.Drawing.Point(941, 34);
+            this.gunaGradient2Panel3.Location = new System.Drawing.Point(1176, 42);
+            this.gunaGradient2Panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaGradient2Panel3.Name = "gunaGradient2Panel3";
             this.gunaGradient2Panel3.Radius = 8;
-            this.gunaGradient2Panel3.Size = new System.Drawing.Size(215, 55);
+            this.gunaGradient2Panel3.Size = new System.Drawing.Size(269, 69);
             this.gunaGradient2Panel3.TabIndex = 9;
             // 
             // lblEmployeeName
@@ -920,9 +958,10 @@ namespace PetShop.Forms
             this.lblEmployeeName.AutoSize = true;
             this.lblEmployeeName.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblEmployeeName.ForeColor = System.Drawing.Color.White;
-            this.lblEmployeeName.Location = new System.Drawing.Point(70, 21);
+            this.lblEmployeeName.Location = new System.Drawing.Point(88, 26);
+            this.lblEmployeeName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmployeeName.Name = "lblEmployeeName";
-            this.lblEmployeeName.Size = new System.Drawing.Size(83, 15);
+            this.lblEmployeeName.Size = new System.Drawing.Size(104, 20);
             this.lblEmployeeName.TabIndex = 22;
             this.lblEmployeeName.Text = "Tên Nhân Viên";
             // 
@@ -931,8 +970,9 @@ namespace PetShop.Forms
             this.gunaCirclePictureBox1.BaseColor = System.Drawing.Color.White;
             this.gunaCirclePictureBox1.Image = global::PetShop.Properties.Resources._12169276551941958109;
             this.gunaCirclePictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.gunaCirclePictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaCirclePictureBox1.Name = "gunaCirclePictureBox1";
-            this.gunaCirclePictureBox1.Size = new System.Drawing.Size(52, 50);
+            this.gunaCirclePictureBox1.Size = new System.Drawing.Size(65, 62);
             this.gunaCirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.gunaCirclePictureBox1.TabIndex = 8;
             this.gunaCirclePictureBox1.TabStop = false;
@@ -942,9 +982,10 @@ namespace PetShop.Forms
             // 
             this.gunaPictureBox3.BaseColor = System.Drawing.Color.White;
             this.gunaPictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBox3.Image")));
-            this.gunaPictureBox3.Location = new System.Drawing.Point(586, 34);
+            this.gunaPictureBox3.Location = new System.Drawing.Point(732, 42);
+            this.gunaPictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaPictureBox3.Name = "gunaPictureBox3";
-            this.gunaPictureBox3.Size = new System.Drawing.Size(28, 34);
+            this.gunaPictureBox3.Size = new System.Drawing.Size(35, 42);
             this.gunaPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.gunaPictureBox3.TabIndex = 6;
             this.gunaPictureBox3.TabStop = false;
@@ -960,11 +1001,12 @@ namespace PetShop.Forms
             this.txtSearch.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
             this.txtSearch.Font = new System.Drawing.Font("Arial", 11.25F);
             this.txtSearch.ForeColor = System.Drawing.Color.Gray;
-            this.txtSearch.Location = new System.Drawing.Point(339, 34);
+            this.txtSearch.Location = new System.Drawing.Point(424, 42);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
             this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(240, 35);
+            this.txtSearch.Size = new System.Drawing.Size(300, 44);
             this.txtSearch.TabIndex = 3;
             this.txtSearch.Text = "Tìm Kiếm Sản Phẩm ...";
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
@@ -975,11 +1017,12 @@ namespace PetShop.Forms
             // 
             this.gunaVScrollBar1.Enabled = false;
             this.gunaVScrollBar1.LargeChange = 10;
-            this.gunaVScrollBar1.Location = new System.Drawing.Point(553, 163);
+            this.gunaVScrollBar1.Location = new System.Drawing.Point(691, 204);
+            this.gunaVScrollBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaVScrollBar1.Maximum = 100;
             this.gunaVScrollBar1.Name = "gunaVScrollBar1";
             this.gunaVScrollBar1.ScrollIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(226)))), ((int)(((byte)(230)))));
-            this.gunaVScrollBar1.Size = new System.Drawing.Size(9, 503);
+            this.gunaVScrollBar1.Size = new System.Drawing.Size(11, 629);
             this.gunaVScrollBar1.TabIndex = 35;
             this.gunaVScrollBar1.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(210)))));
             this.gunaVScrollBar1.ThumbHoverColor = System.Drawing.Color.Tomato;
@@ -992,9 +1035,10 @@ namespace PetShop.Forms
             this.gunaLabel2.AutoSize = true;
             this.gunaLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel2.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel2.Location = new System.Drawing.Point(26, 59);
+            this.gunaLabel2.Location = new System.Drawing.Point(32, 74);
+            this.gunaLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(224, 15);
+            this.gunaLabel2.Size = new System.Drawing.Size(264, 18);
             this.gunaLabel2.TabIndex = 2;
             this.gunaLabel2.Text = "Quét mã vạch hoặc nhập tìm kiếm";
             // 
@@ -1003,9 +1047,10 @@ namespace PetShop.Forms
             this.gunaLabel1.AutoSize = true;
             this.gunaLabel1.Font = new System.Drawing.Font("Arial", 16.75F, System.Drawing.FontStyle.Bold);
             this.gunaLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.gunaLabel1.Location = new System.Drawing.Point(22, 29);
+            this.gunaLabel1.Location = new System.Drawing.Point(28, 36);
+            this.gunaLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(220, 27);
+            this.gunaLabel1.Size = new System.Drawing.Size(268, 33);
             this.gunaLabel1.TabIndex = 1;
             this.gunaLabel1.Text = "Tra Cứu Sản Phẩm";
             // 
@@ -1028,7 +1073,8 @@ namespace PetShop.Forms
             this.btnPayment.Image = global::PetShop.Properties.Resources.Circle_icons_check;
             this.btnPayment.ImageSize = new System.Drawing.Size(30, 30);
             this.btnPayment.LineColor = System.Drawing.Color.Transparent;
-            this.btnPayment.Location = new System.Drawing.Point(606, 116);
+            this.btnPayment.Location = new System.Drawing.Point(758, 145);
+            this.btnPayment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPayment.Name = "btnPayment";
             this.btnPayment.OnHoverBaseColor = System.Drawing.Color.Transparent;
             this.btnPayment.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -1036,7 +1082,7 @@ namespace PetShop.Forms
             this.btnPayment.OnHoverImage = null;
             this.btnPayment.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
             this.btnPayment.OnPressedColor = System.Drawing.Color.Black;
-            this.btnPayment.Size = new System.Drawing.Size(128, 42);
+            this.btnPayment.Size = new System.Drawing.Size(160, 52);
             this.btnPayment.TabIndex = 34;
             this.btnPayment.Text = "Thanh Toán";
             this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
@@ -1049,9 +1095,10 @@ namespace PetShop.Forms
             this.gunaGradient2Panel1.Controls.Add(this.btnProduct);
             this.gunaGradient2Panel1.GradientColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.gunaGradient2Panel1.GradientColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
-            this.gunaGradient2Panel1.Location = new System.Drawing.Point(22, 101);
+            this.gunaGradient2Panel1.Location = new System.Drawing.Point(28, 126);
+            this.gunaGradient2Panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaGradient2Panel1.Name = "gunaGradient2Panel1";
-            this.gunaGradient2Panel1.Size = new System.Drawing.Size(528, 56);
+            this.gunaGradient2Panel1.Size = new System.Drawing.Size(660, 70);
             this.gunaGradient2Panel1.TabIndex = 42;
             // 
             // btnHotel
@@ -1074,7 +1121,8 @@ namespace PetShop.Forms
             this.btnHotel.Image = global::PetShop.Properties.Resources._528435375369710064;
             this.btnHotel.ImageSize = new System.Drawing.Size(30, 30);
             this.btnHotel.LineColor = System.Drawing.Color.Transparent;
-            this.btnHotel.Location = new System.Drawing.Point(362, 0);
+            this.btnHotel.Location = new System.Drawing.Point(452, 0);
+            this.btnHotel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnHotel.Name = "btnHotel";
             this.btnHotel.OnHoverBaseColor = System.Drawing.Color.Transparent;
             this.btnHotel.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -1082,7 +1130,7 @@ namespace PetShop.Forms
             this.btnHotel.OnHoverImage = null;
             this.btnHotel.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
             this.btnHotel.OnPressedColor = System.Drawing.Color.Black;
-            this.btnHotel.Size = new System.Drawing.Size(128, 53);
+            this.btnHotel.Size = new System.Drawing.Size(160, 66);
             this.btnHotel.TabIndex = 46;
             this.btnHotel.Text = "Lưu Chuồng";
             this.btnHotel.Click += new System.EventHandler(this.btnHotel_Click);
@@ -1107,7 +1155,8 @@ namespace PetShop.Forms
             this.btnService.Image = global::PetShop.Properties.Resources._2966486;
             this.btnService.ImageSize = new System.Drawing.Size(30, 30);
             this.btnService.LineColor = System.Drawing.Color.Transparent;
-            this.btnService.Location = new System.Drawing.Point(198, 1);
+            this.btnService.Location = new System.Drawing.Point(248, 1);
+            this.btnService.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnService.Name = "btnService";
             this.btnService.OnHoverBaseColor = System.Drawing.Color.Transparent;
             this.btnService.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -1115,7 +1164,7 @@ namespace PetShop.Forms
             this.btnService.OnHoverImage = null;
             this.btnService.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
             this.btnService.OnPressedColor = System.Drawing.Color.Black;
-            this.btnService.Size = new System.Drawing.Size(128, 53);
+            this.btnService.Size = new System.Drawing.Size(160, 66);
             this.btnService.TabIndex = 45;
             this.btnService.Text = "Dịch Vụ";
             this.btnService.Click += new System.EventHandler(this.btnService_Click);
@@ -1139,7 +1188,8 @@ namespace PetShop.Forms
             this.btnProduct.Image = global::PetShop.Properties.Resources.image_processing20220416_11036_l7gg96;
             this.btnProduct.ImageSize = new System.Drawing.Size(30, 30);
             this.btnProduct.LineColor = System.Drawing.Color.Transparent;
-            this.btnProduct.Location = new System.Drawing.Point(29, 1);
+            this.btnProduct.Location = new System.Drawing.Point(36, 1);
+            this.btnProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.OnHoverBaseColor = System.Drawing.Color.Transparent;
             this.btnProduct.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -1147,18 +1197,19 @@ namespace PetShop.Forms
             this.btnProduct.OnHoverImage = null;
             this.btnProduct.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
             this.btnProduct.OnPressedColor = System.Drawing.Color.Black;
-            this.btnProduct.Size = new System.Drawing.Size(128, 53);
+            this.btnProduct.Size = new System.Drawing.Size(160, 66);
             this.btnProduct.TabIndex = 44;
             this.btnProduct.Text = "Hàng Hóa";
             this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
             // 
             // FormSelling
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1280, 630);
+            this.ClientSize = new System.Drawing.Size(1600, 788);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormSelling";
             this.Text = "FormSelling";
             this.Load += new System.EventHandler(this.FormSelling_Load);
@@ -1246,6 +1297,6 @@ namespace PetShop.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private Guna.UI.WinForms.GunaLabel lblUnitDisCount;
         private Guna.UI.WinForms.GunaLineTextBox txtDiscount;
-        private Guna.UI.WinForms.GunaCheckBox cbxDiscount;
+        private Guna.UI.WinForms.GunaCheckBox chxDiscount;
     }
 }
