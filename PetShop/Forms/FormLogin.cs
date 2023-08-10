@@ -29,8 +29,11 @@ namespace PetShop.Forms
                 Form frmMain = new FormMain();
                 frmMain.Show();
                 this.Hide();
-                //frmLogin.Close();
                 taikhoan = txtTaiKhoan.Text;
+            }
+            else
+            {
+                MessageBox.Show("Tài khoản hoặc mật khẩu không đúng");
             }
         }
         private void btnThoat_Click(object sender, EventArgs e)

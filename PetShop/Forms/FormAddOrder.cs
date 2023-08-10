@@ -27,7 +27,6 @@ namespace PetShop.Forms
         private void btnAdd_Click(object sender, EventArgs e)
         {
             clsSql sql = new clsSql();
-            FormCheckOut checkout = new FormCheckOut();
             if ((txt_sdt.Text.Length == 10 && txt_sdt.Text.Substring(0, 1) == "0" && sql.chek_Int(txt_sdt.Text) == true) || (txt_ten.Text.Length == 0 || txt_ten.Text.Length == 10))
             {
                 if (sql.check_sdt(txt_sdt.Text) == true || txt_sdt.Text.Length == 0)
@@ -50,9 +49,6 @@ namespace PetShop.Forms
                     txt_tenpet.Text = "";
                     clsSql get_ID_HD = new clsSql();
                     get_ID_HD = clsSql.Get_ID_INVOICE();
-                    //checkout.Cus_Name = txt_ten.Text;
-                    //checkout.Number_Phone = txt_sdt.Text;
-                    //checkout.SerialKey = get_ID_HD.ID_HoaDon;
                     order_key = get_ID_HD.ID_HoaDon;
                         
                     phone = txt_sdt.Text;
@@ -65,19 +61,18 @@ namespace PetShop.Forms
                     {
                         name = txt_ten.Text;
                     }
-                //checkout.Show_Payment_Layout(get_ID_HD.ID_HoaDon);
                 this.Close();
                 }
                 else
                 {
-                    //MessageBox.Show("Số Điện Thoại Này Đã Tạo Hóa Đơn Và Chưa Thanh Toán");
-
                     DialogResult result = MessageBox.Show("Số Điện Thoại Này Đã Tạo Hóa Đơn Và Chưa Thanh Toán Bạn Muốn Tiếp Tục Với Số Điện Thoại Này", "Save Changes", MessageBoxButtons.YesNoCancel);
 
                     if (result == DialogResult.Yes)
                     {
                             
-                        string sql1 = "select Invoice_Serial_Key from INVOICE where Phone = '"+ txt_sdt.Text + "' and Status = 'waiting'";
+                        string sql1 = @"SELECT Invoice_Serial_Key FROM INVOICE 
+                                        WHERE Phone = '"+ txt_sdt.Text + @"' 
+                                        AND Status = 'waiting'";
                         OleDbConnection sqlConnect = new OleDbConnection(clsConnect.Connect_String);
                         OleDbCommand sqlCommand = new OleDbCommand(sql1, sqlConnect);
                         sqlConnect.Open();
@@ -87,18 +82,12 @@ namespace PetShop.Forms
                     }
                     else if (result == DialogResult.No)
                     {
-                        // User clicked No button
-                        // Discard changes here
                     }
                     else if (result == DialogResult.Cancel)
                     {
                         this.Close();
                     }
                 }
-                //else
-                //{
-                //    MessageBox.Show("Số " + txt_sdt.Text + " đã được tạo hóa đơn");
-                //}
             }
             else
             {

@@ -311,8 +311,7 @@ namespace PetShop.Forms
             else
             {
                 txtSurcharge.Text = dgvOrder.CurrentRow.Cells[(int)dgv_enum.Surcharge].Value?.ToString();
-            }
-            
+            }            
             Show_Payment_Layout(Serial_Key);
             txtScanQR.Focus();
         }
@@ -608,7 +607,6 @@ namespace PetShop.Forms
             {
                 MessageBox.Show("Chưa Có Đơn Hàng Nào Được Chọn");
             }
-           
         }
 
         #region in hóa đơn

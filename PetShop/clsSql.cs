@@ -39,7 +39,8 @@ namespace PetShop
         {
             bool check = false;
             string sSQL = @"SELECT TOP 1 User_Serial_Key,User_Login,Password_Login,User_Full_Name,User_Level 
-                            FROM USER_AD WHERE User_Login = '" + tk + "' and Password_Login = '" + mk + "' ";
+                            FROM USER_AD WHERE User_Login = '" + tk + @"' 
+                            AND Password_Login = '" + mk + "' ";
             OleDbConnection odcConnect = new OleDbConnection(clsConnect.Connect_String);
             OleDbCommand odcCommand = new OleDbCommand(sSQL, odcConnect);
             odcCommand.CommandTimeout = 120;
@@ -525,21 +526,32 @@ namespace PetShop
         public void Insert_Car(string invoice_date, string name, string sdt, string ngayhen, string tenPet)
         {
             string sql;
-            if (name != "")
-            {
+            name = name == "" ? "Khách Vãng Lai" : name;
+            //if (name != "")
+            //{
                 sql = @"INSERT INTO INVOICE (Invoice_Serial_Key,
                                                 Invoice_Date,
                                                 Name,
                                                 Phone,
                                                 Status,
                                                 Date_Come_Back,
-                                                Pet_Name)
-                                                VALUES ('" + MAX_Invoice_Serial() + "','"+ invoice_date + "' ,N'" + name + "','" + sdt + "','waiting','" + ngayhen + "','" + tenPet + "')";
-            }
-            else
-            {
-                sql = "INSERT INTO INVOICE (Invoice_Serial_Key,Name,Phone,Status,Date_Come_Back,Pet_Name) VALUES ('" + MAX_Invoice_Serial() + "',N'Khách Vãng Lai','" + sdt + "','waiting','" + ngayhen + "','" + tenPet + "')";
-            }
+                                                Pet_Name,
+                                                Discount,
+                                                Surcharge)
+                    VALUES ('" + MAX_Invoice_Serial() + @"',
+                            '"+ invoice_date + @"',
+                                N'" + name + @"',
+                                '" + sdt + @"',
+                                'waiting',
+                                '" + ngayhen + @"', --Ngày nhắc
+                                '" + tenPet + @"',
+                                0, -- Discount
+                                0) --Surcharge";
+            //}
+            //else
+            //{
+            //    sql = "INSERT INTO INVOICE (Invoice_Serial_Key,Name,Phone,Status,Date_Come_Back,Pet_Name) VALUES ('" + MAX_Invoice_Serial() + "',N'Khách Vãng Lai','" + sdt + "','waiting','" + ngayhen + "','" + tenPet + "')";
+            //}
             OleDbConnection sqlConnect = new OleDbConnection(clsConnect.Connect_String);
             OleDbCommand sqlCommand = new OleDbCommand(sql, sqlConnect);
             sqlCommand.CommandTimeout = 120;
@@ -930,7 +942,11 @@ namespace PetShop
             bool check = false;
             bool check_sl = true;
 
-            string sql = @"select pr.Product_Name,Pr.Product_Id,pr.Product_Quantity,id.Product_Total, (pr.Product_Quantity - id.Product_Total) as sanPham_dathanhtoan from PRODUCT_INFO Pr left join INVOICE_DETAIL id on id.Product_Id = pr.Product_Id where id.Invoice = '" + MHD + "'";
+            string sql = @"UPDATE PRODUCT_INFO
+		                    SET Product_Total_Quantity = (Product_Total_Quantity - I.Product_Total)
+		                    FROM PRODUCT_INFO P
+		                    JOIN INVOICE_DETAIL I ON I.Product_Barcode = P.Product_Barcode
+		                    WHERE Invoice = '" + MHD + "'";
             OleDbConnection sqlConnect = new OleDbConnection(clsConnect.Connect_String);
             OleDbCommand sqlCommand = new OleDbCommand(sql, sqlConnect);
             sqlConnect.Open();
@@ -946,17 +962,19 @@ namespace PetShop
                     ten = ten_sp;
                     check_sl = false;
                 }
-
             }
             if (check_sl == true)
             {
-                string sql_update = @"UPDATE PRODUCT_INFO SET Product_Quantity = (pr.Product_Quantity - id.Product_Total) from PRODUCT_INFO Pr left join INVOICE_DETAIL id on id.Product_Id = pr.Product_Id where id.Invoice = '" + MHD + "'";
+                string sql_update = @"UPDATE PRODUCT_INFO SET Product_Quantity = (pr.Product_Quantity - id.Product_Total) 
+                                        FROM PRODUCT_INFO Pr 
+                                        LEFT JOIN INVOICE_DETAIL id ON
+                                        id.Product_Id = pr.Product_Id 
+                                        WHERE id.Invoice = '" + MHD + "'";
                 OleDbConnection sqlConnect_update = new OleDbConnection(clsConnect.Connect_String);
                 OleDbCommand sqlCommand_update = new OleDbCommand(sql_update, sqlConnect);
                 sqlConnect_update.Open();
                 sqlCommand_update.ExecuteNonQuery();
                 sqlConnect_update.Close();
-                MessageBox.Show("Thêm thành công");
                 check = true;
                 return check;
             }

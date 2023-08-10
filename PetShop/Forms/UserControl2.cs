@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace PetShop.Forms
 {
@@ -28,6 +29,16 @@ namespace PetShop.Forms
             set { lblSumPrice.Text = value; }
         }
         public static float Sumprice_Float;
+        public string Product_ID
+        {
+            get { return lblProductID.Text; }
+            set { lblProductID.Text = value; }
+        }
+        public string Unit
+        {
+            get { return lblUnit.Text; }
+            set { lblUnit.Text = value; }
+        }
         public string Product_Name
         {
             get { return lblProductName.Text; }
@@ -42,6 +53,36 @@ namespace PetShop.Forms
         {
             get { return lblSerialKey.Text; }
             set { lblSerialKey.Text = value; }
+        }
+        private void UserControl2_Load(object sender, EventArgs e)
+        {
+            //string SQL = $@"SELECT I.*,P.Product_Unit as unit, P.Product_SubUnit as subunit 
+            //                FROM INVOICE_DETAIL I, PRODUCT_INFO P
+            //                WHERE I.Product_Id = P.Product_Id
+            //                AND Invoice_Serial_Key = '{Serial_Key}'
+            //                ORDER BY Invoice_Serial_Key DESC";
+            //using (OleDbConnection conn = new OleDbConnection(clsConnect.Connect_String))
+            //{
+            //    using (OleDbCommand cmd = new OleDbCommand(SQL, conn))
+            //    {
+            //        conn.Open();
+            //        OleDbDataReader reader = cmd.ExecuteReader();
+            //        while (reader.Read())
+            //        {
+            //            //Product_Sale_Price = reader["Product_Sale_Price"].ToString();
+            //            //Product_Sale_SubPrice = reader["Product_Sale_SubPrice"].ToString();
+            //            cbxUnit.Items.Add(reader["unit"].ToString());
+            //            cbxUnit.Items.Add(reader["subunit"].ToString());
+            //            cbxUnit.SelectedItem = reader["Product_Unit"].ToString();
+            //            //if (reader["subunit"].ToString() != "")
+            //            //{
+            //            //    cbxUnit.Items.Add(reader["subunit"].ToString());
+            //            //    //cbxUnit.SelectedItem = reader["Sub_Unit"].ToString();
+            //            //    isSubUnit = true; //Có đơn vị chi tiết
+            //            //}
+            //        }
+            //    }
+            //}
         }
         public void NumToTal_ValueChanged(object sender, EventArgs e)
         {
