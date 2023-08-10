@@ -63,6 +63,7 @@ namespace PetShop.Forms
             Status,
         }
         private bool isLeavingTextbox = false;
+        private bool isUpdateBill = false;
         int i = 0;
         private static double gia, discount;
         #region Function
@@ -89,9 +90,10 @@ namespace PetShop.Forms
                     OleDbDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
+                        isUpdateBill = true;
                         txtSurcharge.Text = (Convert.ToInt32(reader["Surcharge"])).ToString("#,##0");
                         txtDiscount.Text = (Convert.ToInt32(reader["Discount"])).ToString("#,##0");
-                        lblTotalPrice.Text = (Convert.ToInt32(reader["Discount"])).ToString("#,##0");
+                        lblTotalPrice.Text = (Convert.ToInt32(reader["Total_Price"])).ToString("#,##0");
                     }
                 }
             }  
@@ -247,7 +249,7 @@ namespace PetShop.Forms
                                 UPDATE INVOICE 
                                 SET Surcharge = @Surcharge,
                                     Discount = @Discount,
-                                    Total_Price = (SELECT SUM(Product_Price) + @Surcharge -s @Discount
+                                    Total_Price = (SELECT SUM(Product_Price) + @Surcharge - @Discount
 							                        FROM INVOICE_DETAIL
 							                        WHERE Invoice = '" + lblSerialKey.Text + @"')
                                 FROM INVOICE I
@@ -650,10 +652,21 @@ namespace PetShop.Forms
             if (txtSearch.Text.Length > 2)
             {
                 tim = tim + txtSearch.Text;
-                string SQL = @"SELECT TOP 20 * 
-                                FROM PRODUCT_INFO 
-                                WHERE Product_Name LIKE  N'%" + tim + @"%' 
-                                OR Product_Barcode LIKE  N'%" + tim + "%'";
+                string SQL = @"SELECT TOP 20 Product_Id, 
+								                Product_Name, 
+								                Product_SubUnit as subunit,
+								                Product_Unit,
+								                Product_Sale_Price as price,
+								                Product_Sale_SubPrice as subprice,
+								                Product_Barcode,
+								                Product_Status,
+								                Product_Quantity
+                                FROM PRODUCT_INFO P, PRODUCT_GROUP G
+                                WHERE P.Product_Group_Serial_Key = G.Product_Group_Serial_Key
+                                AND (Product_Name LIKE  N'%" + tim + @"%' 
+                                    OR Product_Barcode LIKE  N'%" + tim + @"%')
+                                AND Product_Type_Serial_Key = 'PT0000000000001' 
+                                AND Product_Status = '1'";
                 OleDbConnection odcConnect = new OleDbConnection(clsConnect.Connect_String);
                 OleDbCommand odcCommand = new OleDbCommand(SQL, odcConnect);
                 odcConnect.Open();
@@ -731,6 +744,10 @@ namespace PetShop.Forms
 
         private void txtSurcharge_TextChanged(object sender, EventArgs e)
         {
+            if (isUpdateBill)
+            {
+                return;
+            }
             if (txtSurcharge.Text != "")
             {
                 if (decimal.TryParse(txtSurcharge.Text, out decimal value))
@@ -745,6 +762,7 @@ namespace PetShop.Forms
                 }
                 //lblTotalPrice.Text = (Convert.ToDouble(Convert.ToDouble(lblTotalPrice.Text) + Convert.ToDouble(txtSurcharge.Text.Trim())).ToString("#,##0"));
                 lblTotalPrice.Text = (Convert.ToDouble(gia + Convert.ToDouble(txtSurcharge.Text.Trim())).ToString("#,##0"));
+                isUpdateBill = false;
             }
             else
             {
@@ -801,6 +819,7 @@ namespace PetShop.Forms
         }
         private void cbxSurcharge_CheckedChanged(object sender, EventArgs e)
         {
+            isUpdateBill = false;
             if (cbxSurcharge.Checked)
             {
                 cbxSurcharge.ForeColor = Color.OrangeRed;
@@ -852,10 +871,15 @@ namespace PetShop.Forms
         private void btnSave_Click(object sender, EventArgs e)
         {
             Save_Order();
+            Show_Payment_Layout(lblSerialKey.Text);
         }
 
         private void txtDiscount_TextChanged(object sender, EventArgs e)
         {
+            if (isUpdateBill)
+            {
+                return;
+            }
             if (txtDiscount.Text != "")
             {
                 if (decimal.TryParse(txtDiscount.Text, out decimal value))
@@ -869,6 +893,7 @@ namespace PetShop.Forms
                     txtDiscount.Text = "0";
                 }
                 lblTotalPrice.Text = (Convert.ToDouble(gia - Convert.ToDouble(txtDiscount.Text.Trim())).ToString("#,##0"));
+                isUpdateBill = false;
             }
             else
             {
@@ -925,6 +950,7 @@ namespace PetShop.Forms
 
         private void cbxDiscount_CheckedChanged(object sender, EventArgs e)
         {
+            isUpdateBill = false;
             if (chxDiscount.Checked)
             {
                 lblUnitDisCount.ForeColor = Color.OliveDrab;
