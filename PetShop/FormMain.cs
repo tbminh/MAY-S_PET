@@ -212,9 +212,9 @@ namespace PetShop
         private void btnProduct_Click(object sender, EventArgs e)
         {
             //color = Color.FromArgb(128, 128, 255);
-            //OpenChildForm(new Forms.FormProduct(), sender);
-            //btnHome.Text = "Sản Phẩm";
-            //btnHome.IconChar = btnProduct.IconChar;
+            OpenChildForm(new Forms.FormProduct(), sender);
+            btnHome.Text = "Sản Phẩm";
+            btnHome.IconChar = btnProduct.IconChar;
         }
 
         private void btnSale_Click(object sender, EventArgs e)

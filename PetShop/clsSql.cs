@@ -246,103 +246,65 @@ namespace PetShop
         }
         public void Get_product(DataGridView dgv)
         {
-            string sSQL = @"SELECT  p.Product_Serial_Key,
-		                    p.Product_Id,
-		                    p.Product_Name,
-		                    p.Product_Quantity,
-		                    p.Product_Cost_Price,
-		                    p.Product_Sale_Price,
-		                    p.Product_Date_In,
-		                    c.Date_Product,
-		                    c.Consignment_ID,
-		                    pt.Product_Type_Name,
-		                    pr.Product_Group_Name,
-		                    c.Date_Expired,
-		                    p.Sup_Name,
-		                    p.Address_Sup,
-                            p.Product_Status,
-                            p.Note,
-                            p.Product_Unit,
-                            p.Product_Barcode
-                    FROM PRODUCT_INFO p
-	                    left join CONSIGNMENT c on c.Consignment_Serial_Key = p.Consignment_Serial_Key
-	                    left join PRODUCT_TYPE pt on pt.Product_Type_Serial_Key = p.Product_Type_Serial_Key
-	                    left join PRODUCT_GROUP pr on pr.Product_Group_Serial_Key = p.Product_Group_Serial_Key
-                    --ORDER BY p.Product_Quantity ASC";
+            string sSQL = @"SELECT		P.Product_Serial_Key,
+		                                P.Product_Id,
+		                                P.Product_Name,
+		                                P.Product_Quantity,
+		                                P.Product_Cost_Price,
+		                                P.Product_Sale_Price,
+		                                ISNULL(P.Date_Expired,'') as expire,
+		                                C.Consignment_ID,
+		                                PR.Product_Group_Name, --Nhóm hàng
+		                                S.Supplier_Name,
+                                        P.Product_Unit,
+                                        P.Product_Barcode,
+                                        P.Note
+                                                FROM PRODUCT_INFO P
+	                                                LEFT JOIN CONSIGNMENT C ON C.Consignment_Serial_Key = P.Consignment_Serial_Key
+	                                                LEFT JOIN PRODUCT_GROUP PR ON PR.Product_Group_Serial_Key = P.Product_Group_Serial_Key
+						                            LEFT JOIN SUPPLIER S ON S.Supplier_serial_key = C.Supplier_serial_key
+                                                WHERE  PR.Product_Type_Serial_Key = 'PT0000000000001'
+					                            ORDER BY P.Product_Quantity ASC";
             OleDbConnection odcConnect = new OleDbConnection(clsConnect.Connect_String);
             OleDbCommand odcCommand = new OleDbCommand(sSQL, odcConnect);
-
             odcConnect.Open();
             OleDbDataReader reader = odcCommand.ExecuteReader();
-            int t = 1;
-            string Status_Name = "";
+            int t = 0;
             dgv.Rows.Clear();
             while (reader.Read())
             {
-                string dateExpire = reader["Date_Expired"].ToString();
+                string dateExpire = reader["expire"].ToString();
                 string dateNow = DateTime.Now.ToString("yyyy-MM-dd");
 
                 DateTime convertDateExpired = Convert.ToDateTime(dateExpire);
                 DateTime convertDateNow = Convert.ToDateTime(dateNow);
-                //string a = (convertDateExpired - convertDateNow).ToString();
-                //MessageBox.Show((convertDateExpired - convertDateNow).ToString());
-                if (reader["Product_Status"].ToString() == "1" && DateTime.Now < convertDateNow)
-                {
-                    Status_Name = "Đang Kinh Doanh";
-                }
+
                 string cost_price = String.Format("{0:#,0 VNĐ}", reader["Product_Cost_Price"]);
-                if (convertDateNow < convertDateExpired)
-                {
-                    Status_Name = "Đang Kinh Doanh";
-                    for (int i = 0; i < dgv.RowCount; i++)
-                    {
-
-                        if (dgv.Rows[i].Cells[15].Value.ToString().Trim() == Status_Name.Trim())
-                        {
-                            dgv.Rows[i].DefaultCellStyle.ForeColor = Color.Purple;
-                        }
-                    }
-                    //string nd = reader["Name_device"].ToString().Trim();
-
-                }
-                else if (convertDateNow > convertDateExpired)
-                {
-                    Status_Name = "Ngưng Kinh Doanh";
-                    for (int i = 0; i < dgv.RowCount; i++)
-                    {
-
-                        if (dgv.Rows[i].Cells[15].Value.ToString().Trim() == Status_Name.Trim())
-                        {
-                            dgv.Rows[i].DefaultCellStyle.ForeColor = Color.Gray;
-                            dgv.Rows[i].ReadOnly = true;
-                        }
-                    }
-                }
                 dgv.Rows.Add(new object[] {
-                    t,
-                    reader["Product_Serial_Key"].ToString(),
-                    reader["Product_Id"].ToString(),
-                    reader["Product_Name"].ToString(),
-                    reader["Product_Quantity"].ToString(),
-                    String.Format("{0:#,0 VNĐ}", reader["Product_Cost_Price"]),
-                    String.Format("{0:#,0 VNĐ}", reader["Product_Sale_Price"]),
-                    reader["Product_Date_In"].ToString(),
-                    reader["Date_Product"].ToString(),
-                    reader["Date_Expired"].ToString(),
-                    reader["Consignment_ID"].ToString(),
-                    reader["Product_Group_Name"].ToString(),
-                    reader["Product_Type_Name"].ToString(),
-                    reader["Sup_Name"].ToString(),
-                    reader["Address_Sup"].ToString(),
-                    Status_Name,
-                    reader["Product_Unit"].ToString(),
-                    reader["Product_Barcode"].ToString(),
-                    reader["Note"].ToString(),
-
-
+                        true,
+                        reader["Product_Serial_Key"].ToString(),
+                        reader["Product_Id"].ToString(),
+                        reader["Product_Name"].ToString(),
+                        reader["Product_Quantity"].ToString(),
+                        String.Format("{0:#,0 VNĐ}", reader["Product_Cost_Price"]),
+                        String.Format("{0:#,0 VNĐ}", reader["Product_Sale_Price"]),
+                        reader["expire"].ToString(),
+                        reader["Consignment_ID"].ToString(),
+                        reader["Product_Group_Name"].ToString(),
+                        reader["Supplier_Name"].ToString(),
+                        reader["Product_Unit"].ToString(),
+                        reader["Product_Barcode"].ToString(),
+                        reader["Note"].ToString()
                 });
+                if (convertDateNow <= convertDateExpired)
+                {
+                    dgv.Rows[t].DefaultCellStyle.ForeColor = Color.Purple;
+                }
+                else
+                {
+                    dgv.Rows[t].DefaultCellStyle.ForeColor = Color.Gray;
+                }
                 t++;
-
             }
         }
 
@@ -362,7 +324,7 @@ namespace PetShop
 
         public void Get_Group_Product(ComboBox cbx)
         {
-            string sSql = @"SELECT Product_Group_Name from PRODUCT_GROUP";
+            string sSql = @"SELECT Product_Group_Name FROM PRODUCT_GROUP WHERE Product_Type_Serial_Key = 'PT0000000000001'";
             OleDbConnection odcConnect = new OleDbConnection(clsConnect.Connect_String);
             OleDbCommand odcCommand = new OleDbCommand(sSql, odcConnect);
             odcConnect.Open();
