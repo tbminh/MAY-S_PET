@@ -63,13 +63,15 @@ namespace PetShop.Forms
             Status,
         }
         private bool isLeavingTextbox = false;
-        private bool isUpdateBill = false;
+        private bool isShowInvoiceDetail = false; //Show phụ thu và giảm giá để không vào hàm textchange
         int i = 0;
         private static double gia, discount;
         #region Function
         //Cập Nhật Lại Tổng Tiền
-        public void Update_Total_Bill()
+        public void Reload_lblTotalPrice()
         {
+            //txtSurcharge.Text = surcharge == "" ? txtSurcharge.Text : surcharge;
+            //txtDiscount.Text = discount == "" ? txtDiscount.Text : surcharge;
             //foreach (Control control in flowLayoutPanel1.Controls)
             //{
             //    if (control is UserControl2)
@@ -79,6 +81,7 @@ namespace PetShop.Forms
             //        result = result + price;
             //    }
             //}
+            //lblTotalPrice.Text = result.ToString("#,##0");
             string SQL = $@"SELECT Total_Price,Surcharge, Discount 
                             FROM INVOICE 
                             WHERE Invoice_Serial_Key = '{lblSerialKey.Text}'";
@@ -90,21 +93,20 @@ namespace PetShop.Forms
                     OleDbDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        isUpdateBill = true;
                         txtSurcharge.Text = (Convert.ToInt32(reader["Surcharge"])).ToString("#,##0");
                         txtDiscount.Text = (Convert.ToInt32(reader["Discount"])).ToString("#,##0");
                         lblTotalPrice.Text = (Convert.ToInt32(reader["Total_Price"])).ToString("#,##0");
                     }
                 }
-            }  
+            }
         }
 
         // Cập nhật tổng tiền của từng sản phẩm
-        public void Update_Product_Total(string Serial_Key, string Qty)
+        public void Update_Invoice_Detail(string Serial_Key, string Qty)
         {
             string SQL = @"UPDATE INVOICE_DETAIL 
                             SET Product_Total = '" + Decimal.Parse(Qty) + @"',
-                                Product_Price = '"+ Decimal.Parse(Qty) + @"' * Product_Price
+                                Product_Price = '"+ Decimal.Parse(Qty) + @"' * Unit_Price
                            WHERE Invoice_Serial_Key = '" + Serial_Key + "'";
             OleDbConnection odcConnect = new OleDbConnection(clsConnect.Connect_String);
             odcConnect.Open();
@@ -119,10 +121,10 @@ namespace PetShop.Forms
             odcConnect.Open();
             OleDbCommand odcCommand = new OleDbCommand(SQL, odcConnect);
             odcCommand.ExecuteNonQuery();
-            Show_Payment_Layout(lblSerialKey.Text.Trim());
+            Show_Invoice_Detail(lblSerialKey.Text.Trim());
         }
         // Hiển thị Chi Tiết Hóa Đơn
-        public void Show_Payment_Layout(string Serial_Key)
+        public void Show_Invoice_Detail(string Serial_Key)
         {
             dgvOrder.Visible = false;
             flowLayoutPanel1.Visible = true;
@@ -142,7 +144,7 @@ namespace PetShop.Forms
             while (reader.Read())
             {
                 UserControl2 myControl = new UserControl2();
-                int number = int.Parse(reader["Product_Price"].ToString()); //Get sale price
+                int number = int.Parse(reader["Unit_Price"].ToString()); //Get sale price
                 int qty = int.Parse(reader["Product_Total"].ToString()); //Get quantity 
                 int total_price = number * qty;
                 myControl.Serial_Key = reader["Invoice_Serial_Key"].ToString();
@@ -155,7 +157,6 @@ namespace PetShop.Forms
                 flowLayoutPanel1.Controls.Add(myControl);
                 t++;
             }
-            Update_Total_Bill(); //Cập Nhật Lại Tổng Tiền
         }
         private static string MAX_Invoice_Detail_Serial_Key()
         {
@@ -224,7 +225,9 @@ namespace PetShop.Forms
                             END
                             ELSE
                             BEGIN
-                                UPDATE INVOICE_DETAIL SET Product_Total = Product_Total + 1
+                                --CẬP NHẬT SỐ LƯỢNG VÀ TỔNG TIỀN CỦA 1 SẢN PHẨM
+                                UPDATE INVOICE_DETAIL SET Product_Total = Product_Total + 1,
+                                                            Product_Price = (Product_Total + 1) * Unit_Price
                                                       WHERE Invoice = '" + Invoice_Serial_Key + @"'
 							                          AND Product_Id = '" + Product_ID + @"'
                             END";
@@ -241,7 +244,7 @@ namespace PetShop.Forms
 
             return result;
         }
-        public bool Save_Order() 
+        public bool Save_Invoice() 
         {
             bool result = false;
                 string SQL = @" DECLARE @Surcharge FLOAT = '" + Decimal.Parse(txtSurcharge.Text) + @"'
@@ -345,6 +348,21 @@ namespace PetShop.Forms
             }
         }
 
+        private void Get_Invoice(string invoice_serial_key) //Hiển thị phần tổng tiền, phụ thu, giảm giá
+        {
+            string SQL = $@"SELECT Total_Price,Discount, Surcharge
+                            FROM  INVOICE WHERE Invoice_Serial_Key = '{invoice_serial_key}'";
+            OleDbConnection conn = new OleDbConnection(clsConnect.Connect_String);
+            OleDbCommand cmd = new OleDbCommand(SQL, conn);
+            conn.Open();
+            OleDbDataReader read = cmd.ExecuteReader();
+            while (read.Read())
+            {
+                lblTotalPrice.Text = (Convert.ToInt32(read["Total_Price"])).ToString("#,##0");
+                txtSurcharge.Text = (Convert.ToInt32(read["Surcharge"])).ToString("#,##0");
+                txtDiscount.Text = (Convert.ToInt32(read["Discount"])).ToString("#,##0");
+            }
+        }
         #region In Hóa Đơn
         public void pd_PrintPage(object sender, PrintPageEventArgs ev)
         {
@@ -539,7 +557,7 @@ namespace PetShop.Forms
             {
                 clsSql get_ID_HD = new clsSql();
                 get_ID_HD = clsSql.Get_ID_INVOICE();
-                Show_Payment_Layout(FormAddOrder.order_key);
+                Show_Invoice_Detail(FormAddOrder.order_key);
                 lblName.Text = FormAddOrder.name;
                 lblPhone.Text = FormAddOrder.phone;
                 cbxSurcharge.Checked = false;
@@ -623,8 +641,9 @@ namespace PetShop.Forms
 
                 if (Add_Cart(Invoice_Serial_Key, Product_ID, Product_Name, Product_Price, Unit, Barcode))
                 {
-                    Save_Order();
-                    Show_Payment_Layout(Invoice_Serial_Key);
+                    Save_Invoice();
+                    Show_Invoice_Detail(Invoice_Serial_Key);
+                    Reload_lblTotalPrice(); //Cập Nhật Lại Tổng Tiền
                 }
             }
             else
@@ -738,37 +757,12 @@ namespace PetShop.Forms
             {
                 txtSurcharge.Text = dgvOrder.CurrentRow.Cells[(int)dgv_enum.Surcharge].Value?.ToString();
             }
-            Show_Payment_Layout(Serial_Key);
+            Show_Invoice_Detail(Serial_Key); //Hiển thị chi tiết sản phẩm trong hóa đơn
+            //isShowInvoiceDetail = true;
+            Get_Invoice(Serial_Key); //Hiển thị TỔNG TIỀN (PHỤ THU, GIẢM GIÁ nếu có)
             txtScanQR.Focus();
         }
-
-        private void txtSurcharge_TextChanged(object sender, EventArgs e)
-        {
-            if (isUpdateBill)
-            {
-                return;
-            }
-            if (txtSurcharge.Text != "")
-            {
-                if (decimal.TryParse(txtSurcharge.Text, out decimal value))
-                {
-                    txtSurcharge.Text = value.ToString("#,##0");
-                    int length = txtSurcharge.ToString().Length;
-                    txtSurcharge.SelectionStart = length;
-                }
-                else
-                {
-                    txtSurcharge.Text = "0";
-                }
-                //lblTotalPrice.Text = (Convert.ToDouble(Convert.ToDouble(lblTotalPrice.Text) + Convert.ToDouble(txtSurcharge.Text.Trim())).ToString("#,##0"));
-                lblTotalPrice.Text = (Convert.ToDouble(gia + Convert.ToDouble(txtSurcharge.Text.Trim())).ToString("#,##0"));
-                isUpdateBill = false;
-            }
-            else
-            {
-                txtSurcharge.Text = "0";
-            }
-        }
+        
         private void txtGiven_Leave(object sender, EventArgs e)
         {
             lblGiven.ForeColor = Color.Gray;
@@ -819,7 +813,7 @@ namespace PetShop.Forms
         }
         private void cbxSurcharge_CheckedChanged(object sender, EventArgs e)
         {
-            isUpdateBill = false;
+            isShowInvoiceDetail = false;
             if (cbxSurcharge.Checked)
             {
                 cbxSurcharge.ForeColor = Color.OrangeRed;
@@ -839,13 +833,11 @@ namespace PetShop.Forms
                 cbxSurcharge.Size = new Size(71, 20);
                 lblUnit.ForeColor = Color.Gray;
                 txtSurcharge.Enabled = false;
-                if (lblTotalPrice.Text == "")
-                {
-                    lblTotalPrice.Text = "0";
-                }
-                lblTotalPrice.Text = gia.ToString("#,##0");
-                //lblTotalPrice.Text = (Convert.ToDouble(Convert.ToDecimal(lblTotalPrice.Text) - Convert.ToDecimal(txtSurcharge.Text.Trim())).ToString("#,##0"));
-                txtSurcharge.Text = "0";
+                //if (lblTotalPrice.Text == "")
+                //{
+                //    lblTotalPrice.Text = "0";
+                //}
+                //lblTotalPrice.Text = gia.ToString("#,##0");
             }
         }
 
@@ -870,16 +862,13 @@ namespace PetShop.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Save_Order();
-            Show_Payment_Layout(lblSerialKey.Text);
+            Save_Invoice();
+            //Show_Invoice_Detail(lblSerialKey.Text);
+            Reload_lblTotalPrice();
         }
 
         private void txtDiscount_TextChanged(object sender, EventArgs e)
         {
-            if (isUpdateBill)
-            {
-                return;
-            }
             if (txtDiscount.Text != "")
             {
                 if (decimal.TryParse(txtDiscount.Text, out decimal value))
@@ -892,8 +881,6 @@ namespace PetShop.Forms
                 {
                     txtDiscount.Text = "0";
                 }
-                lblTotalPrice.Text = (Convert.ToDouble(gia - Convert.ToDouble(txtDiscount.Text.Trim())).ToString("#,##0"));
-                isUpdateBill = false;
             }
             else
             {
@@ -911,7 +898,7 @@ namespace PetShop.Forms
             result = MessageBox.Show("Bạn có muốn xuất hóa đơn","Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (result == DialogResult.Yes)
             {
-                Save_Order();
+                Save_Invoice();
                 clsSql ReadData_user = new clsSql();
                 ReadData_user = clsSql.Get_Data_User();
                 string phuthu = "";
@@ -948,9 +935,50 @@ namespace PetShop.Forms
             }
         }
 
+        private void txtSurcharge_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                lblTotalPrice.Text = (Convert.ToDouble(gia + Convert.ToDouble(txtSurcharge.Text.Trim())).ToString("#,##0"));
+                Save_Invoice();
+                Get_Invoice(lblSerialKey.Text.Trim());
+            }
+        }
+
+        private void txtDiscount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                lblTotalPrice.Text = (Convert.ToDouble(gia - Convert.ToDouble(txtDiscount.Text.Trim())).ToString("#,##0"));
+                Save_Invoice();
+                Get_Invoice(lblSerialKey.Text.Trim());
+            }
+        }
+
+        private void txtSurcharge_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSurcharge.Text != "")
+            {
+                if (decimal.TryParse(txtSurcharge.Text, out decimal value))
+                {
+                    txtSurcharge.Text = value.ToString("#,##0");
+                    int length = txtSurcharge.ToString().Length;
+                    txtSurcharge.SelectionStart = length;
+                }
+                else
+                {
+                    txtSurcharge.Text = "0";
+                }
+            }
+            else
+            {
+                txtSurcharge.Text = "0";
+            }
+        }
+
         private void cbxDiscount_CheckedChanged(object sender, EventArgs e)
         {
-            isUpdateBill = false;
+            isShowInvoiceDetail = false;
             if (chxDiscount.Checked)
             {
                 lblUnitDisCount.ForeColor = Color.OliveDrab;
@@ -968,8 +996,8 @@ namespace PetShop.Forms
                 chxDiscount.Font = new Font(chxDiscount.Font.FontFamily, chxDiscount.Font.Size, FontStyle.Regular);
                 chxDiscount.Size = new Size(71, 20);
                 lblUnitDisCount.ForeColor = Color.Gray;
-                lblTotalPrice.Text = gia.ToString("#,##0");
-                txtDiscount.Text = "0";
+                //lblTotalPrice.Text = gia.ToString("#,##0");
+                //txtDiscount.Text = "0";
                 txtDiscount.Enabled = false;
             }
         }

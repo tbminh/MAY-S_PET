@@ -87,7 +87,7 @@ namespace PetShop.Forms
         public void NumToTal_ValueChanged(object sender, EventArgs e)
         {
             NumToTal.Text = NumToTal.Value.ToString();
-            if (isFirstTime)
+            if (isFirstTime) //Khi lần đầu double click mở usercontrol sẽ vào đây để tránh valuechanged
             {
                 isFirstTime = false;
                 return;
@@ -100,8 +100,9 @@ namespace PetShop.Forms
                 result = qty * price;
                 Sum_Price = result.ToString("#,##0");
                 FormSelling frm = this.ParentForm as FormSelling;
-                frm.Update_Product_Total(Serial_Key, NumToTal.Text.Trim());
-                frm.Update_Total_Bill();
+                frm.Update_Invoice_Detail(Serial_Key,NumToTal.Text.Trim());
+                frm.Save_Invoice();
+                frm.Reload_lblTotalPrice();
             }
             else
             {
@@ -114,6 +115,8 @@ namespace PetShop.Forms
             if (checkout != null)
             {
                 checkout.Delete_Product(Serial_Key);
+                checkout.Save_Invoice();
+                checkout.Reload_lblTotalPrice();
                 this.Visible = false;
             }
         }

@@ -120,7 +120,7 @@ namespace PetShop.Forms
             if (txt_sdt.Text.Length >= 10)
             {
                 OleDbConnection conn = new OleDbConnection(clsConnect.Connect_String);
-                string SQL = $"SELECT Customer_Full_Name FROM CUSTOMER_INFO WHERE Customer_Phone_Number = '{txt_sdt.Text}'";
+                string SQL = $"SELECT Customer_Full_Name FROM CUSTOMER_INFO WHERE Customer_Phone_Number = '{txt_sdt.Text.Trim()}'";
                 OleDbCommand cmd = new OleDbCommand(SQL, conn);
                 conn.Open();
                 object result = cmd.ExecuteScalar();

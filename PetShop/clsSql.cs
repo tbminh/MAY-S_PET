@@ -530,6 +530,7 @@ namespace PetShop
             //if (name != "")
             //{
                 sql = @"INSERT INTO INVOICE (Invoice_Serial_Key,
+                                                Total_Price,
                                                 Invoice_Date,
                                                 Name,
                                                 Phone,
@@ -539,6 +540,7 @@ namespace PetShop
                                                 Discount,
                                                 Surcharge)
                     VALUES ('" + MAX_Invoice_Serial() + @"',
+                            0, --Total_Price
                             '"+ invoice_date + @"',
                                 N'" + name + @"',
                                 '" + sdt + @"',

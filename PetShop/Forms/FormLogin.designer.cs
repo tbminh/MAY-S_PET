@@ -34,14 +34,10 @@ namespace PetShop.Forms
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
             this.btnQuenMK = new System.Windows.Forms.Button();
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -50,6 +46,10 @@ namespace PetShop.Forms
             this.txtTaiKhoan = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -118,15 +118,6 @@ namespace PetShop.Forms
             this.label4.TabIndex = 6;
             this.label4.Text = "WELCOME";
             // 
-            // panel4
-            // 
-            this.panel4.BackgroundImage = global::PetShop.Properties.Resources.disgusting;
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel4.Location = new System.Drawing.Point(12, 28);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(84, 71);
-            this.panel4.TabIndex = 5;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -160,15 +151,6 @@ namespace PetShop.Forms
             this.label1.TabIndex = 2;
             this.label1.Text = "Chào mừng bạn";
             // 
-            // panel3
-            // 
-            this.panel3.BackgroundImage = global::PetShop.Properties.Resources.logo1;
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Location = new System.Drawing.Point(188, 310);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(97, 89);
-            this.panel3.TabIndex = 1;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel7);
@@ -184,24 +166,6 @@ namespace PetShop.Forms
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(467, 475);
             this.panel2.TabIndex = 1;
-            // 
-            // panel7
-            // 
-            this.panel7.BackgroundImage = global::PetShop.Properties.Resources.user;
-            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel7.Location = new System.Drawing.Point(6, 167);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(45, 42);
-            this.panel7.TabIndex = 6;
-            // 
-            // panel8
-            // 
-            this.panel8.BackgroundImage = global::PetShop.Properties.Resources.key1;
-            this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel8.Location = new System.Drawing.Point(6, 228);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(45, 42);
-            this.panel8.TabIndex = 7;
             // 
             // btnQuenMK
             // 
@@ -292,7 +256,7 @@ namespace PetShop.Forms
             this.btnThoat.FlatAppearance.BorderSize = 0;
             this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThoat.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.btnThoat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(177)))), ((int)(((byte)(44)))));
             this.btnThoat.Location = new System.Drawing.Point(438, 0);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(29, 34);
@@ -300,6 +264,42 @@ namespace PetShop.Forms
             this.btnThoat.Text = "X";
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
+            // panel7
+            // 
+            this.panel7.BackgroundImage = global::PetShop.Properties.Resources.freelancer;
+            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel7.Location = new System.Drawing.Point(6, 167);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(45, 42);
+            this.panel7.TabIndex = 6;
+            // 
+            // panel8
+            // 
+            this.panel8.BackgroundImage = global::PetShop.Properties.Resources.padlock;
+            this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel8.Location = new System.Drawing.Point(6, 228);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(45, 42);
+            this.panel8.TabIndex = 7;
+            // 
+            // panel4
+            // 
+            this.panel4.BackgroundImage = global::PetShop.Properties.Resources.disgusting;
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel4.Location = new System.Drawing.Point(12, 28);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(84, 71);
+            this.panel4.TabIndex = 5;
+            // 
+            // panel3
+            // 
+            this.panel3.BackgroundImage = global::PetShop.Properties.Resources.logo1;
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.Location = new System.Drawing.Point(188, 310);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(97, 89);
+            this.panel3.TabIndex = 1;
             // 
             // FormLogin
             // 
