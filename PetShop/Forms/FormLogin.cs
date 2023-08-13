@@ -16,6 +16,7 @@ namespace PetShop.Forms
         public FormLogin()
         {
             InitializeComponent();
+            this.Icon = Properties.Resources.icon; // Set icon in title bar
         }
         private void FormLogin_Shown(object sender, EventArgs e)
         {
