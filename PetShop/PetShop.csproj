@@ -35,9 +35,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>icon.ico</ApplicationIcon>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BarcodeLib, Version=1.0.0.13, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -252,6 +249,12 @@
     <Compile Include="FormMenu.designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormAddConsignment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAddConsignment.Designer.cs">
+      <DependentUpon>FormAddConsignment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormAddOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,6 +303,12 @@
     <Compile Include="Forms\FormSelling.Designer.cs">
       <DependentUpon>FormSelling.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSupplier.Designer.cs">
+      <DependentUpon>FormSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmAlert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,6 +348,9 @@
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormAddConsignment.resx">
+      <DependentUpon>FormAddConsignment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAddOrder.resx">
       <DependentUpon>FormAddOrder.cs</DependentUpon>
     </EmbeddedResource>
@@ -362,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormSelling.resx">
       <DependentUpon>FormSelling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSupplier.resx">
+      <DependentUpon>FormSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmAlert.resx">
       <DependentUpon>frmAlert.cs</DependentUpon>
@@ -509,12 +524,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\padlock.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="icon.ico" />
-    <Content Include="pawprint.ico" />
-    <None Include="Resources\icon.ico" />
-    <None Include="Resources\pawprint.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.4.0.2\build\Fody.targets" Condition="Exists('..\packages\Fody.4.0.2\build\Fody.targets')" />
