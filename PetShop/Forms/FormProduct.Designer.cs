@@ -29,12 +29,12 @@ namespace PetShop.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProduct));
             this.dgvProduct = new Guna.UI.WinForms.GunaDataGridView();
             this.dcpChoose = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -67,16 +67,14 @@ namespace PetShop.Forms
             this.guna2TileButton1 = new Guna.UI2.WinForms.Guna2TileButton();
             this.guna2TileButton2 = new Guna.UI2.WinForms.Guna2TileButton();
             this.guna2GradientPanel3 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.guna2GradientPanel10 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.btnPrint = new Bunifu.Framework.UI.BunifuImageButton();
             this.guna2GradientPanel6 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.btnPrint = new Bunifu.Framework.UI.BunifuImageButton();
             this.txtFindProduct = new Bunifu.Framework.UI.BunifuTextbox();
             this.guna2GradientPanel9 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.chxExpiry = new Guna.UI.WinForms.GunaCheckBox();
+            this.cbxGroup = new System.Windows.Forms.ComboBox();
             this.chxExpire = new Guna.UI.WinForms.GunaCheckBox();
             this.guna2GradientPanel5 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.cbxGroup = new System.Windows.Forms.ComboBox();
-            this.guna2GradientPanel4 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.btnNhap = new FontAwesome.Sharp.IconButton();
             this.printDialog = new System.Windows.Forms.PrintDialog();
             this.printReview = new System.Drawing.Printing.PrintDocument();
@@ -91,12 +89,10 @@ namespace PetShop.Forms
             this.guna2GradientPanel12.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.guna2GradientPanel3.SuspendLayout();
-            this.guna2GradientPanel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnPrint)).BeginInit();
             this.guna2GradientPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrint)).BeginInit();
             this.guna2GradientPanel9.SuspendLayout();
             this.guna2GradientPanel5.SuspendLayout();
-            this.guna2GradientPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvProduct
@@ -104,21 +100,21 @@ namespace PetShop.Forms
             this.dgvProduct.AllowUserToAddRows = false;
             this.dgvProduct.AllowUserToDeleteRows = false;
             this.dgvProduct.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.dgvProduct.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvProduct.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvProduct.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.dgvProduct.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvProduct.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvProduct.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(84)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(84)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProduct.ColumnHeadersHeight = 40;
             this.dgvProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dcpChoose,
@@ -135,14 +131,14 @@ namespace PetShop.Forms
             this.Product_Unit,
             this.Product_Barcode,
             this.Note});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProduct.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProduct.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProduct.EnableHeadersVisualStyles = false;
             this.dgvProduct.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -353,21 +349,21 @@ namespace PetShop.Forms
             // 
             this.dgvListProductSaleMax.AllowUserToAddRows = false;
             this.dgvListProductSaleMax.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.dgvListProductSaleMax.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvListProductSaleMax.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvListProductSaleMax.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvListProductSaleMax.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.dgvListProductSaleMax.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListProductSaleMax.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvListProductSaleMax.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(84)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListProductSaleMax.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(84)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListProductSaleMax.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvListProductSaleMax.ColumnHeadersHeight = 40;
             this.dgvListProductSaleMax.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -375,14 +371,14 @@ namespace PetShop.Forms
             this.Quantity_Sale,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListProductSaleMax.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListProductSaleMax.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvListProductSaleMax.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvListProductSaleMax.EnableHeadersVisualStyles = false;
             this.dgvListProductSaleMax.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -527,11 +523,9 @@ namespace PetShop.Forms
             // 
             // guna2GradientPanel3
             // 
-            this.guna2GradientPanel3.Controls.Add(this.guna2GradientPanel10);
             this.guna2GradientPanel3.Controls.Add(this.guna2GradientPanel6);
             this.guna2GradientPanel3.Controls.Add(this.guna2GradientPanel9);
             this.guna2GradientPanel3.Controls.Add(this.guna2GradientPanel5);
-            this.guna2GradientPanel3.Controls.Add(this.guna2GradientPanel4);
             this.guna2GradientPanel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2GradientPanel3.Location = new System.Drawing.Point(0, 0);
             this.guna2GradientPanel3.Margin = new System.Windows.Forms.Padding(4);
@@ -540,61 +534,47 @@ namespace PetShop.Forms
             this.guna2GradientPanel3.Size = new System.Drawing.Size(1415, 66);
             this.guna2GradientPanel3.TabIndex = 8;
             // 
-            // guna2GradientPanel10
+            // guna2GradientPanel6
             // 
-            this.guna2GradientPanel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(15)))));
-            this.guna2GradientPanel10.Controls.Add(this.btnPrint);
-            this.guna2GradientPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2GradientPanel10.Location = new System.Drawing.Point(1293, 0);
-            this.guna2GradientPanel10.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2GradientPanel10.Name = "guna2GradientPanel10";
-            this.guna2GradientPanel10.ShadowDecoration.Parent = this.guna2GradientPanel10;
-            this.guna2GradientPanel10.Size = new System.Drawing.Size(122, 66);
-            this.guna2GradientPanel10.TabIndex = 1;
+            this.guna2GradientPanel6.Controls.Add(this.btnPrint);
+            this.guna2GradientPanel6.Controls.Add(this.txtFindProduct);
+            this.guna2GradientPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2GradientPanel6.Location = new System.Drawing.Point(927, 0);
+            this.guna2GradientPanel6.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2GradientPanel6.Name = "guna2GradientPanel6";
+            this.guna2GradientPanel6.ShadowDecoration.Parent = this.guna2GradientPanel6;
+            this.guna2GradientPanel6.Size = new System.Drawing.Size(488, 66);
+            this.guna2GradientPanel6.TabIndex = 8;
             // 
             // btnPrint
             // 
             this.btnPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
-            this.btnPrint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPrint.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnPrint.Image = global::PetShop.Properties.Resources.printer;
             this.btnPrint.ImageActive = null;
-            this.btnPrint.Location = new System.Drawing.Point(0, 0);
+            this.btnPrint.Location = new System.Drawing.Point(318, 0);
             this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(122, 66);
+            this.btnPrint.Size = new System.Drawing.Size(170, 66);
             this.btnPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnPrint.TabIndex = 0;
             this.btnPrint.TabStop = false;
             this.btnPrint.Zoom = 10;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // guna2GradientPanel6
-            // 
-            this.guna2GradientPanel6.Controls.Add(this.txtFindProduct);
-            this.guna2GradientPanel6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.guna2GradientPanel6.Location = new System.Drawing.Point(1024, 0);
-            this.guna2GradientPanel6.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2GradientPanel6.Name = "guna2GradientPanel6";
-            this.guna2GradientPanel6.ShadowDecoration.Parent = this.guna2GradientPanel6;
-            this.guna2GradientPanel6.Size = new System.Drawing.Size(269, 66);
-            this.guna2GradientPanel6.TabIndex = 0;
             // 
             // txtFindProduct
             // 
             this.txtFindProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.txtFindProduct.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtFindProduct.BackgroundImage")));
             this.txtFindProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.txtFindProduct.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtFindProduct.ForeColor = System.Drawing.Color.Black;
+            this.txtFindProduct.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtFindProduct.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtFindProduct.Icon = ((System.Drawing.Image)(resources.GetObject("txtFindProduct.Icon")));
             this.txtFindProduct.Location = new System.Drawing.Point(0, 0);
             this.txtFindProduct.Margin = new System.Windows.Forms.Padding(5);
             this.txtFindProduct.Name = "txtFindProduct";
-            this.txtFindProduct.Size = new System.Drawing.Size(269, 66);
+            this.txtFindProduct.Size = new System.Drawing.Size(319, 66);
             this.txtFindProduct.TabIndex = 2;
-            this.txtFindProduct.text = "";
-            this.txtFindProduct.OnTextChange += new System.EventHandler(this.txtFindProduct_OnTextChange);
-            this.txtFindProduct.Enter += new System.EventHandler(this.txtFindProduct_Enter);
+            this.txtFindProduct.text = "Tìm Kiếm Sản Phẩm...";
             // 
             // guna2GradientPanel9
             // 
@@ -602,29 +582,44 @@ namespace PetShop.Forms
             this.guna2GradientPanel9.Controls.Add(this.chxExpiry);
             this.guna2GradientPanel9.Controls.Add(this.chxExpire);
             this.guna2GradientPanel9.Dock = System.Windows.Forms.DockStyle.Left;
-            this.guna2GradientPanel9.Location = new System.Drawing.Point(520, 0);
+            this.guna2GradientPanel9.Location = new System.Drawing.Point(527, 0);
             this.guna2GradientPanel9.Margin = new System.Windows.Forms.Padding(4);
             this.guna2GradientPanel9.Name = "guna2GradientPanel9";
             this.guna2GradientPanel9.ShadowDecoration.Parent = this.guna2GradientPanel9;
-            this.guna2GradientPanel9.Size = new System.Drawing.Size(504, 66);
-            this.guna2GradientPanel9.TabIndex = 0;
+            this.guna2GradientPanel9.Size = new System.Drawing.Size(400, 66);
+            this.guna2GradientPanel9.TabIndex = 9;
             // 
             // chxExpiry
             // 
+            this.chxExpiry.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.chxExpiry.BaseColor = System.Drawing.Color.White;
             this.chxExpiry.CheckedOffColor = System.Drawing.Color.Gray;
             this.chxExpiry.CheckedOnColor = System.Drawing.Color.OrangeRed;
             this.chxExpiry.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
             this.chxExpiry.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.chxExpiry.ForeColor = System.Drawing.Color.DimGray;
-            this.chxExpiry.Location = new System.Drawing.Point(336, 23);
+            this.chxExpiry.Location = new System.Drawing.Point(270, 25);
             this.chxExpiry.Margin = new System.Windows.Forms.Padding(4);
             this.chxExpiry.Name = "chxExpiry";
             this.chxExpiry.Padding = new System.Windows.Forms.Padding(10);
             this.chxExpiry.Size = new System.Drawing.Size(104, 22);
             this.chxExpiry.TabIndex = 29;
             this.chxExpiry.Text = "Còn HSD";
-            this.chxExpiry.CheckedChanged += new System.EventHandler(this.chxExpiry_CheckedChanged);
+            // 
+            // cbxGroup
+            // 
+            this.cbxGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
+            this.cbxGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxGroup.Font = new System.Drawing.Font("Times New Roman", 20F);
+            this.cbxGroup.ForeColor = System.Drawing.Color.White;
+            this.cbxGroup.FormattingEnabled = true;
+            this.cbxGroup.Location = new System.Drawing.Point(258, 13);
+            this.cbxGroup.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxGroup.Name = "cbxGroup";
+            this.cbxGroup.Size = new System.Drawing.Size(216, 45);
+            this.cbxGroup.TabIndex = 0;
+            this.cbxGroup.Visible = false;
             // 
             // chxExpire
             // 
@@ -634,56 +629,31 @@ namespace PetShop.Forms
             this.chxExpire.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
             this.chxExpire.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.chxExpire.ForeColor = System.Drawing.Color.DimGray;
-            this.chxExpire.Location = new System.Drawing.Point(59, 25);
+            this.chxExpire.Location = new System.Drawing.Point(130, 25);
             this.chxExpire.Margin = new System.Windows.Forms.Padding(4);
             this.chxExpire.Name = "chxExpire";
             this.chxExpire.Padding = new System.Windows.Forms.Padding(10);
             this.chxExpire.Size = new System.Drawing.Size(99, 22);
             this.chxExpire.TabIndex = 30;
             this.chxExpire.Text = "Hết HSD";
-            this.chxExpire.CheckedChanged += new System.EventHandler(this.chxExpire_CheckedChanged);
             // 
             // guna2GradientPanel5
             // 
             this.guna2GradientPanel5.BackColor = System.Drawing.Color.White;
+            this.guna2GradientPanel5.Controls.Add(this.btnNhap);
             this.guna2GradientPanel5.Controls.Add(this.cbxGroup);
             this.guna2GradientPanel5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.guna2GradientPanel5.Location = new System.Drawing.Point(207, 0);
+            this.guna2GradientPanel5.Location = new System.Drawing.Point(0, 0);
             this.guna2GradientPanel5.Margin = new System.Windows.Forms.Padding(4);
             this.guna2GradientPanel5.Name = "guna2GradientPanel5";
             this.guna2GradientPanel5.ShadowDecoration.Parent = this.guna2GradientPanel5;
-            this.guna2GradientPanel5.Size = new System.Drawing.Size(313, 66);
-            this.guna2GradientPanel5.TabIndex = 0;
-            // 
-            // cbxGroup
-            // 
-            this.cbxGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
-            this.cbxGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxGroup.Font = new System.Drawing.Font("Times New Roman", 20F);
-            this.cbxGroup.ForeColor = System.Drawing.Color.White;
-            this.cbxGroup.FormattingEnabled = true;
-            this.cbxGroup.Location = new System.Drawing.Point(23, 11);
-            this.cbxGroup.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxGroup.Name = "cbxGroup";
-            this.cbxGroup.Size = new System.Drawing.Size(279, 45);
-            this.cbxGroup.TabIndex = 0;
-            this.cbxGroup.SelectedIndexChanged += new System.EventHandler(this.cbxGroup_SelectedIndexChanged_1);
-            // 
-            // guna2GradientPanel4
-            // 
-            this.guna2GradientPanel4.Controls.Add(this.btnNhap);
-            this.guna2GradientPanel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.guna2GradientPanel4.Location = new System.Drawing.Point(0, 0);
-            this.guna2GradientPanel4.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2GradientPanel4.Name = "guna2GradientPanel4";
-            this.guna2GradientPanel4.ShadowDecoration.Parent = this.guna2GradientPanel4;
-            this.guna2GradientPanel4.Size = new System.Drawing.Size(207, 66);
-            this.guna2GradientPanel4.TabIndex = 0;
+            this.guna2GradientPanel5.Size = new System.Drawing.Size(527, 66);
+            this.guna2GradientPanel5.TabIndex = 10;
             // 
             // btnNhap
             // 
             this.btnNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
-            this.btnNhap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnNhap.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNhap.ForeColor = System.Drawing.Color.White;
             this.btnNhap.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
@@ -694,11 +664,10 @@ namespace PetShop.Forms
             this.btnNhap.Location = new System.Drawing.Point(0, 0);
             this.btnNhap.Margin = new System.Windows.Forms.Padding(4);
             this.btnNhap.Name = "btnNhap";
-            this.btnNhap.Size = new System.Drawing.Size(207, 66);
-            this.btnNhap.TabIndex = 7;
+            this.btnNhap.Size = new System.Drawing.Size(211, 66);
+            this.btnNhap.TabIndex = 12;
             this.btnNhap.Text = "     Nhập Hàng";
             this.btnNhap.UseVisualStyleBackColor = false;
-            this.btnNhap.Click += new System.EventHandler(this.btnNhap_Click);
             // 
             // printDialog
             // 
@@ -744,13 +713,11 @@ namespace PetShop.Forms
             this.guna2GradientPanel12.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.guna2GradientPanel3.ResumeLayout(false);
-            this.guna2GradientPanel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnPrint)).EndInit();
             this.guna2GradientPanel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrint)).EndInit();
             this.guna2GradientPanel9.ResumeLayout(false);
             this.guna2GradientPanel9.PerformLayout();
             this.guna2GradientPanel5.ResumeLayout(false);
-            this.guna2GradientPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -759,18 +726,11 @@ namespace PetShop.Forms
         private Guna.UI.WinForms.GunaDataGridView dgvProduct;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel3;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel11;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel12;
         private Guna.UI2.WinForms.Guna2TileButton guna2TileButton1;
         private Guna.UI2.WinForms.Guna2TileButton guna2TileButton2;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel10;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel6;
-        private Bunifu.Framework.UI.BunifuTextbox txtFindProduct;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel9;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel4;
-        private FontAwesome.Sharp.IconButton btnNhap;
         private Guna.UI.WinForms.GunaDataGridView dgvListProductSaleMax;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -779,7 +739,6 @@ namespace PetShop.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private Bunifu.Framework.UI.BunifuImageButton btnPrint;
         private System.Windows.Forms.PrintDialog printDialog;
         private System.Drawing.Printing.PrintDocument printReview;
         private System.Windows.Forms.PrintPreviewDialog pvdCORPrint;
@@ -798,9 +757,15 @@ namespace PetShop.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Product_Unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Product_Barcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
-        private Guna.UI.WinForms.GunaCheckBox chxExpire;
+        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel3;
+        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel6;
+        private Bunifu.Framework.UI.BunifuImageButton btnPrint;
+        private Bunifu.Framework.UI.BunifuTextbox txtFindProduct;
+        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel9;
         private Guna.UI.WinForms.GunaCheckBox chxExpiry;
+        private Guna.UI.WinForms.GunaCheckBox chxExpire;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel5;
+        private FontAwesome.Sharp.IconButton btnNhap;
         private System.Windows.Forms.ComboBox cbxGroup;
     }
 }
