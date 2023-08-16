@@ -118,6 +118,7 @@ namespace PetShop.Forms
             this.NumToTal.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.NumToTal.UpDownButtonForeColor = System.Drawing.Color.White;
             this.NumToTal.ValueChanged += new System.EventHandler(this.NumToTal_ValueChanged);
+            this.NumToTal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumToTal_KeyPress);
             // 
             // lblSerialKey
             // 

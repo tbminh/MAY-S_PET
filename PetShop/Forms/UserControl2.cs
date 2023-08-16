@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Globalization;
 
 namespace PetShop.Forms
 {
@@ -47,7 +48,7 @@ namespace PetShop.Forms
         public string Product_Total_Qty
         {
             get { return NumToTal.Text; }
-            set { NumToTal.Value = long.Parse(value); }
+            set { NumToTal.Value = Convert.ToDecimal(value); }
         }
         public string Serial_Key
         {
@@ -56,37 +57,29 @@ namespace PetShop.Forms
         }
         private void UserControl2_Load(object sender, EventArgs e)
         {
-            //string SQL = $@"SELECT I.*,P.Product_Unit as unit, P.Product_SubUnit as subunit 
-            //                FROM INVOICE_DETAIL I, PRODUCT_INFO P
-            //                WHERE I.Product_Id = P.Product_Id
-            //                AND Invoice_Serial_Key = '{Serial_Key}'
-            //                ORDER BY Invoice_Serial_Key DESC";
-            //using (OleDbConnection conn = new OleDbConnection(clsConnect.Connect_String))
-            //{
-            //    using (OleDbCommand cmd = new OleDbCommand(SQL, conn))
-            //    {
-            //        conn.Open();
-            //        OleDbDataReader reader = cmd.ExecuteReader();
-            //        while (reader.Read())
-            //        {
-            //            //Product_Sale_Price = reader["Product_Sale_Price"].ToString();
-            //            //Product_Sale_SubPrice = reader["Product_Sale_SubPrice"].ToString();
-            //            cbxUnit.Items.Add(reader["unit"].ToString());
-            //            cbxUnit.Items.Add(reader["subunit"].ToString());
-            //            cbxUnit.SelectedItem = reader["Product_Unit"].ToString();
-            //            //if (reader["subunit"].ToString() != "")
-            //            //{
-            //            //    cbxUnit.Items.Add(reader["subunit"].ToString());
-            //            //    //cbxUnit.SelectedItem = reader["Sub_Unit"].ToString();
-            //            //    isSubUnit = true; //Có đơn vị chi tiết
-            //            //}
-            //        }
-            //    }
-            //}
         }
         public void NumToTal_ValueChanged(object sender, EventArgs e)
         {
-            NumToTal.Text = NumToTal.Value.ToString();
+            NumToTal.DecimalPlaces = 1;
+            NumToTal.Text = NumToTal.Value.ToString("0.0");
+            if (NumToTal.Text.Contains(".") || NumToTal.Text.Contains(","))
+            {
+                // Xử lý khi có dấu phân tách thập phân (dấu chấm hoặc dấu phẩy)
+                float floatValue;
+
+                if (CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalSeparator == ",")
+                {
+                    // Định dạng region sử dụng dấu phẩy làm phân tách thập phân
+                    floatValue = float.Parse(NumToTal.Text, new CultureInfo("vi-VN"));
+                }
+                else
+                {
+                    // Định dạng region sử dụng dấu chấm làm phân tách thập phân
+                    floatValue = float.Parse(NumToTal.Text, CultureInfo.InvariantCulture);
+                }
+                NumToTal.Value = (decimal)floatValue;
+            }
+
             if (isFirstTime) //Khi lần đầu double click mở usercontrol sẽ vào đây để tránh valuechanged
             {
                 isFirstTime = false;
@@ -95,12 +88,12 @@ namespace PetShop.Forms
             if (NumToTal.Value > 0)
             {
                 float result;
-                int qty = int.Parse(NumToTal.Text);
-                int price = int.Parse(lblPriceSale.Text.Replace(",", "").Replace(".", ""));
+                float qty = float.Parse(NumToTal.Text);
+                float price = float.Parse(lblPriceSale.Text.Replace(",", "").Replace(".", ""));
                 result = qty * price;
                 Sum_Price = result.ToString("#,##0");
                 FormSelling frm = this.ParentForm as FormSelling;
-                frm.Update_Invoice_Detail(Serial_Key,NumToTal.Text.Trim());
+                frm.Update_Invoice_Detail(Serial_Key, NumToTal.Text.Trim());
                 frm.Save_Invoice();
                 frm.Reload_lblTotalPrice();
             }
@@ -118,6 +111,27 @@ namespace PetShop.Forms
                 checkout.Save_Invoice();
                 checkout.Reload_lblTotalPrice();
                 this.Visible = false;
+            }
+        }
+
+        private void NumToTal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Kiểm tra xem ký tự nhập vào có phải là số hoặc dấu chấm không
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true; // Ngăn chặn ký tự không hợp lệ
+            }
+            // Kiểm tra xem đã có dấu chấm trong Guna2NumericUpDown chưa
+            if (e.KeyChar == '.' && (sender as Guna.UI2.WinForms.Guna2NumericUpDown).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true; // Ngăn chặn ký tự dấu chấm thứ hai
+            }
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (int.TryParse(NumToTal.Text, out _) || float.TryParse(NumToTal.Text, out _))
+                {
+                    float qty = float.Parse(NumToTal.Text);
+                }
             }
         }
     }

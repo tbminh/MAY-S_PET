@@ -927,27 +927,28 @@ namespace PetShop
                     check_sl = false;
                 }
             }
-            if (check_sl == true)
-            {
-                string sql_update = @"UPDATE PRODUCT_INFO SET Product_Quantity = (pr.Product_Quantity - id.Product_Total) 
-                                        FROM PRODUCT_INFO Pr 
-                                        LEFT JOIN INVOICE_DETAIL id ON
-                                        id.Product_Id = pr.Product_Id 
-                                        WHERE id.Invoice = '" + MHD + "'";
-                OleDbConnection sqlConnect_update = new OleDbConnection(clsConnect.Connect_String);
-                OleDbCommand sqlCommand_update = new OleDbCommand(sql_update, sqlConnect);
-                sqlConnect_update.Open();
-                sqlCommand_update.ExecuteNonQuery();
-                sqlConnect_update.Close();
-                check = true;
-                return check;
-            }
-            else
-            {
-                MessageBox.Show("Số lượng trong kho của: " + ten + " còn lại là " + soluongkho);
-                check = false;
-                return check;
-            }
+            //if (check_sl == true)
+            //{
+            //    string sql_update = @"UPDATE PRODUCT_INFO SET Product_Quantity = (pr.Product_Quantity - id.Product_Total) 
+            //                            FROM PRODUCT_INFO Pr 
+            //                            LEFT JOIN INVOICE_DETAIL id ON
+            //                            id.Product_Id = pr.Product_Id 
+            //                            WHERE id.Invoice = '" + MHD + "'";
+            //    OleDbConnection sqlConnect_update = new OleDbConnection(clsConnect.Connect_String);
+            //    OleDbCommand sqlCommand_update = new OleDbCommand(sql_update, sqlConnect);
+            //    sqlConnect_update.Open();
+            //    sqlCommand_update.ExecuteNonQuery();
+            //    sqlConnect_update.Close();
+            //    check = true;
+            //    return check;
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Số lượng trong kho của: " + ten + " còn lại là " + soluongkho);
+            //    check = false;
+            //    return check;
+            //}
+            return check;
         }
         public void update_invoid(string MHD, string user, string gia, string phuthu)
         {

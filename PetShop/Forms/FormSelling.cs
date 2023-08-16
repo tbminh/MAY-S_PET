@@ -104,9 +104,10 @@ namespace PetShop.Forms
         // Cập nhật tổng tiền của từng sản phẩm
         public void Update_Invoice_Detail(string Serial_Key, string Qty)
         {
-            string SQL = @"UPDATE INVOICE_DETAIL 
-                            SET Product_Total = '" + Decimal.Parse(Qty) + @"',
-                                Product_Price = '"+ Decimal.Parse(Qty) + @"' * Unit_Price
+            Qty = Qty.Replace(",", ".");
+            string SQL = $@"UPDATE INVOICE_DETAIL 
+                            SET Product_Total = '{Qty}',
+                                Product_Price =  CONVERT(FLOAT,'{Qty}') * Unit_Price
                            WHERE Invoice_Serial_Key = '" + Serial_Key + "'";
             OleDbConnection odcConnect = new OleDbConnection(clsConnect.Connect_String);
             odcConnect.Open();
@@ -144,9 +145,9 @@ namespace PetShop.Forms
             while (reader.Read())
             {
                 UserControl2 myControl = new UserControl2();
-                int number = int.Parse(reader["Unit_Price"].ToString()); //Get sale price
-                int qty = int.Parse(reader["Product_Total"].ToString()); //Get quantity 
-                int total_price = number * qty;
+                float number = float.Parse(reader["Unit_Price"].ToString()); //Get sale price
+                float qty = float.Parse(reader["Product_Total"].ToString()); //Get quantity 
+                float total_price = number * qty;
                 myControl.Serial_Key = reader["Invoice_Serial_Key"].ToString();
                 myControl.Product_ID = reader["Product_Id"].ToString();
                 myControl.Product_Total_Qty = reader["Product_Total"].ToString();
@@ -285,7 +286,8 @@ namespace PetShop.Forms
                             WHERE I.Product_Group_Serial_Key = P.Product_Group_Serial_Key
                             AND P.Product_Type_Serial_Key = 'PT0000000000001' 
                             AND Product_Status = '1'
-                            AND Product_Quantity > 0";
+                            AND P.Product_Quantity > 0
+                            AND P.Product_Total_Quantity > 0";
             OleDbConnection odcConnect = new OleDbConnection(clsConnect.Connect_String);
             OleDbCommand odcCommand = new OleDbCommand(SQL, odcConnect);
             odcConnect.Open();
@@ -341,13 +343,69 @@ namespace PetShop.Forms
                 string Product_Price = reader["Product_Sale_Price"].ToString();
                 string Unit = reader["Product_Unit"].ToString();
                 string Invoice_Serial_Key = lblSerialKey.Text;
-                //if (Add_Cart(Invoice_Serial_Key, Product_ID, Product_Name, Product_Price, Unit))
-                //{
-                //    txtScanQR.Text = "";
-                //}
+                if (Add_Cart(Invoice_Serial_Key, Product_ID, Product_Name, Product_Price, Unit, keyword))
+                {
+                    Save_Invoice();
+                    Show_Invoice_Detail(Invoice_Serial_Key);
+                    Reload_lblTotalPrice(); //Cập Nhật Lại Tổng Tiền
+                }
             }
         }
-
+        private bool CheckOut_Invoice(string serial_key)
+        {
+            bool result = false;
+            float total_remain = 0;
+            string old_barcode = "";
+            string new_barcode = "";
+            string SQL = $@"SELECT I.Product_Barcode,D.Product_Total as SLBan,D.Product_Unit as DonViMua,I.Product_Unit,Product_SubUnit,Product_Quantity,Product_SubQuantity,Product_Total_Quantity
+                            FROM PRODUCT_INFO I JOIN INVOICE_DETAIL D
+                            ON I.Product_Barcode = D.Product_Barcode
+                            WHERE Invoice = '{serial_key}'
+                            ORDER BY I.Product_Barcode";
+            OleDbConnection conn = new OleDbConnection(clsConnect.Connect_String);
+            conn.Open();
+            OleDbCommand cmd = new OleDbCommand(SQL, conn);
+            OleDbDataReader read = cmd.ExecuteReader();
+            while (read.Read())
+            {
+                new_barcode = read["Product_Barcode"].ToString();
+                if (old_barcode == read["Product_Barcode"].ToString())
+                {
+                    if (read["DonViMua"].ToString() == read["Product_SubUnit"].ToString())
+                    {
+                        total_remain = total_remain - float.Parse(read["SLBan"].ToString());
+                    }
+                    else
+                    {
+                        total_remain = total_remain - (float.Parse(read["SLBan"].ToString()) * float.Parse(read["Product_SubQuantity"].ToString()));
+                    }
+                }
+                else
+                {
+                    if (read["DonViMua"].ToString() == read["Product_SubUnit"].ToString())
+                    {
+                        total_remain = float.Parse(read["Product_Total_Quantity"].ToString()) - float.Parse(read["SLBan"].ToString());
+                        old_barcode = read["Product_Barcode"].ToString();
+                    }
+                    else
+                    {
+                        total_remain = float.Parse(read["Product_Total_Quantity"].ToString()) - (float.Parse(read["SLBan"].ToString()) * float.Parse(read["Product_SubQuantity"].ToString()));
+                    }
+                }
+                string SQL_Total = $@"UPDATE PRODUCT_INFO
+							            SET Product_Total_Quantity = '{total_remain}'
+							            WHERE Product_Barcode = '{new_barcode}'";
+                using (OleDbConnection con = new OleDbConnection(clsConnect.Connect_String))
+                {
+                    con.Open();
+                    using (OleDbCommand command = new OleDbCommand(SQL_Total, con))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            return result;
+        }
         private void Get_Invoice(string invoice_serial_key) //Hiển thị phần tổng tiền, phụ thu, giảm giá
         {
             string SQL = $@"SELECT Total_Price,Discount, Surcharge
@@ -506,6 +564,12 @@ namespace PetShop.Forms
         private void printReview_PrintPage(object sender, PrintPageEventArgs e)
         {
             pd_PrintPage(sender, e);
+        }
+        private bool Check_Order(string serial_key)
+        {
+            bool result = false;
+
+            return result;
         }
         #endregion
 
@@ -685,7 +749,8 @@ namespace PetShop.Forms
                                 AND (Product_Name LIKE  N'%" + tim + @"%' 
                                     OR Product_Barcode LIKE  N'%" + tim + @"%')
                                 AND Product_Type_Serial_Key = 'PT0000000000001' 
-                                AND Product_Status = '1'";
+                                AND Product_Status = '1'
+                                AND P.Product_Total_Quantity > 0";
                 OleDbConnection odcConnect = new OleDbConnection(clsConnect.Connect_String);
                 OleDbCommand odcCommand = new OleDbCommand(SQL, odcConnect);
                 odcConnect.Open();
@@ -727,15 +792,7 @@ namespace PetShop.Forms
             {
                 return;
             }
-            ScanQR_Product(txtScanQR.Text);
-            //if (i == 0)
-            //{
-            //    Searching_Order(txtScanQR.Text);
-            //}
-            //else
-            //{
-            //    ScanQR_Product(txtScanQR.Text);
-            //}            
+            ScanQR_Product(txtScanQR.Text);  
         }
 
         private void dgvOrder_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -899,13 +956,9 @@ namespace PetShop.Forms
             if (result == DialogResult.Yes)
             {
                 Save_Invoice();
-                clsSql ReadData_user = new clsSql();
-                ReadData_user = clsSql.Get_Data_User();
-                string phuthu = "";
-                clsSql sql = new clsSql();
-                if (sql.Thanh_toan(lblSerialKey.Text))
+                //Check_Order(lblSerialKey.Text);
+                if (CheckOut_Invoice(lblSerialKey.Text))
                 {
-                    //sql.update_invoid(lblSerialKey.Text, clsSql.User_Login, lblTotalPrice.Text.Replace(".", "").Replace(",", ""), phuthu);
                     btnOrder_Click(sender, e);
                     flowLayoutPanel1.Controls.Clear();
                     key_order = lblSerialKey.Text;
@@ -916,25 +969,36 @@ namespace PetShop.Forms
                     lblTotalPrice.Text = "0";
                     txtGiven.Text = "";
                     lblRemain.Text = "";
-
                     //PrintDocument pd = new PrintDocument();
                     //pd.PrinterSettings.PrinterName = @"\\192.168.30.70\EPSON L310 Series";
                     //pd.PrinterSettings.PrinterName = @"POS-80C";
                     //pd.PrintPage += new PrintPageEventHandler(pd_PrintPage);
                     //pd.Print();
-
                     //pvdCORPrint.Document = printReview;
                     //string a = ((ToolStrip)(pvdCORPrint.Controls[1])).Items.Count.ToString();
                     //((ToolStrip)(pvdCORPrint.Controls[1])).Items.RemoveByKey("printToolStripButton");
                     //pvdCORPrint.ShowDialog();
-                    }
+                }
             }
             else
             {
-
+                Save_Invoice();
+                clsSql sql = new clsSql();
+                if (CheckOut_Invoice(lblSerialKey.Text.Trim()))
+                {
+                    btnOrder_Click(sender, e);
+                    flowLayoutPanel1.Controls.Clear();
+                    key_order = lblSerialKey.Text;
+                    tien_khach_dua = txtGiven.Text.Replace(".", "");
+                    lblSerialKey.Text = "";
+                    txtSurcharge.Text = "0";
+                    txtDiscount.Text = "0";
+                    lblTotalPrice.Text = "0";
+                    txtGiven.Text = "";
+                    lblRemain.Text = "";
+                }
             }
         }
-
         private void txtSurcharge_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
