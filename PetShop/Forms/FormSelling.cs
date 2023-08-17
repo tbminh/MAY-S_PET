@@ -565,11 +565,22 @@ namespace PetShop.Forms
         {
             pd_PrintPage(sender, e);
         }
-        private bool Check_Order(string serial_key)
+        private bool Check_Order(string serial_key, string barcode, string qty)
         {
             bool result = false;
-
-            return result;
+            string SQL = $@"SELECT Invoice_Serial_Key 
+				            FROM INVOICE_DETAIL 
+				            WHERE Invoice = '{serial_key.Trim()}' 
+				            AND Product_Barcode = ''";
+            using (OleDbConnection connection = new OleDbConnection(clsConnect.Connect_String))
+            {
+                connection.Open();
+                using (OleDbCommand command = new OleDbCommand(SQL, connection))
+                using (OleDbDataReader reader = command.ExecuteReader())
+                {
+                    return reader.HasRows;
+                }
+            }
         }
         #endregion
 
@@ -702,7 +713,6 @@ namespace PetShop.Forms
                 string Product_Price = dgvList.CurrentRow.Cells[(int)dgv_list_enum.Product_Sale_Price].Value?.ToString();
                 string Unit = dgvList.CurrentRow.Cells[(int)dgv_list_enum.Product_Unit].Value?.ToString();
                 string Barcode = dgvList.CurrentRow.Cells[(int)dgv_list_enum.Product_Barcode].Value?.ToString();
-
                 if (Add_Cart(Invoice_Serial_Key, Product_ID, Product_Name, Product_Price, Unit, Barcode))
                 {
                     Save_Invoice();
