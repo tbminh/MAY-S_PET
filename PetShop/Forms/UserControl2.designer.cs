@@ -41,6 +41,7 @@ namespace PetShop.Forms
             this.lblPriceSale = new Guna.UI.WinForms.GunaLabel();
             this.lblProductName = new Guna.UI.WinForms.GunaLabel();
             this.btnDelete = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.lblBarcode = new Guna.UI.WinForms.GunaLabel();
             this.gunaLinePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumToTal)).BeginInit();
             this.SuspendLayout();
@@ -50,6 +51,7 @@ namespace PetShop.Forms
             this.gunaLinePanel1.AutoSize = true;
             this.gunaLinePanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.gunaLinePanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
+            this.gunaLinePanel1.Controls.Add(this.lblBarcode);
             this.gunaLinePanel1.Controls.Add(this.lblUnit);
             this.gunaLinePanel1.Controls.Add(this.lblProductID);
             this.gunaLinePanel1.Controls.Add(this.NumToTal);
@@ -87,7 +89,7 @@ namespace PetShop.Forms
             this.lblProductID.AutoSize = true;
             this.lblProductID.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lblProductID.ForeColor = System.Drawing.Color.Gray;
-            this.lblProductID.Location = new System.Drawing.Point(90, 30);
+            this.lblProductID.Location = new System.Drawing.Point(193, 30);
             this.lblProductID.Name = "lblProductID";
             this.lblProductID.Size = new System.Drawing.Size(58, 13);
             this.lblProductID.TabIndex = 11;
@@ -125,7 +127,7 @@ namespace PetShop.Forms
             this.lblSerialKey.AutoSize = true;
             this.lblSerialKey.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lblSerialKey.ForeColor = System.Drawing.Color.Gray;
-            this.lblSerialKey.Location = new System.Drawing.Point(153, 30);
+            this.lblSerialKey.Location = new System.Drawing.Point(257, 30);
             this.lblSerialKey.Name = "lblSerialKey";
             this.lblSerialKey.Size = new System.Drawing.Size(57, 13);
             this.lblSerialKey.TabIndex = 7;
@@ -218,6 +220,17 @@ namespace PetShop.Forms
             this.btnDelete.Text = "gunaAdvenceButton1";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // lblBarcode
+            // 
+            this.lblBarcode.AutoSize = true;
+            this.lblBarcode.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.lblBarcode.ForeColor = System.Drawing.Color.Gray;
+            this.lblBarcode.Location = new System.Drawing.Point(90, 30);
+            this.lblBarcode.Name = "lblBarcode";
+            this.lblBarcode.Size = new System.Drawing.Size(48, 13);
+            this.lblBarcode.TabIndex = 13;
+            this.lblBarcode.Text = "Barcode";
+            // 
             // UserControl2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -251,5 +264,6 @@ namespace PetShop.Forms
         private Guna.UI2.WinForms.Guna2NumericUpDown NumToTal;
         private Guna.UI.WinForms.GunaLabel lblProductID;
         private Guna.UI.WinForms.GunaLabel lblUnit;
+        private Guna.UI.WinForms.GunaLabel lblBarcode;
     }
 }

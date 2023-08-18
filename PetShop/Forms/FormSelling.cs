@@ -153,6 +153,7 @@ namespace PetShop.Forms
                 myControl.Product_Total_Qty = reader["Product_Total"].ToString();
                 myControl.Product_Name = reader["Product_Name"].ToString();
                 myControl.Unit = reader["Product_Unit"].ToString();
+                myControl.Barcode = reader["Product_Barcode"].ToString();
                 myControl.Price_Sale = number.ToString("#,##0");
                 myControl.Sum_Price = total_price.ToString("#,##0");
                 flowLayoutPanel1.Controls.Add(myControl);
@@ -201,7 +202,7 @@ namespace PetShop.Forms
             bool result = false;
             string sql = @"IF NOT EXISTS(SELECT TOP 1 * FROM INVOICE_DETAIL O 
                             WHERE Invoice = '" + Invoice_Serial_Key + @"'
-							AND Product_Id = '" + Product_ID + @"'
+							AND Product_Barcode = '" + Barcode + @"'
                             AND Product_Unit = '" + Unit + @"')
                             BEGIN
                                 INSERT INTO INVOICE_DETAIL(
@@ -230,7 +231,7 @@ namespace PetShop.Forms
                                 UPDATE INVOICE_DETAIL SET Product_Total = Product_Total + 1,
                                                             Product_Price = (Product_Total + 1) * Unit_Price
                                                       WHERE Invoice = '" + Invoice_Serial_Key + @"'
-							                          AND Product_Id = '" + Product_ID + @"'
+							                          AND Product_Barcode = '" + Barcode + @"'
                             END";
             OleDbConnection sqlConnect = new OleDbConnection(clsConnect.Connect_String);
             OleDbCommand sqlCommand = new OleDbCommand(sql, sqlConnect);
@@ -393,8 +394,14 @@ namespace PetShop.Forms
                     }
                 }
                 string SQL_Total = $@"UPDATE PRODUCT_INFO
-							            SET Product_Total_Quantity = '{total_remain}'
-							            WHERE Product_Barcode = '{new_barcode}'";
+							            SET Product_Total_Quantity = '{total_remain}' ";
+                if (total_remain == 0)
+                {
+                    SQL_Total += @",Product_Status = '0' ";
+                }
+                SQL_Total += $@"WHERE Product_Barcode = '{new_barcode}'";
+
+
                 using (OleDbConnection con = new OleDbConnection(clsConnect.Connect_String))
                 {
                     con.Open();
@@ -402,6 +409,18 @@ namespace PetShop.Forms
                     {
                         command.ExecuteNonQuery();
                     }
+                }
+            }
+            clsSql.Get_Data_User();
+            string SQL_Invoice = $@"UPDATE INVOICE SET Status = 'Done', Emp_Name= N'{clsSql.User_FullName}' 
+                                    WHERE Invoice_Serial_Key = '{lblSerialKey.Text}'";
+            //Update Invoice status
+            using (OleDbConnection connect = new OleDbConnection(clsConnect.Connect_String))
+            {
+                connect.Open();
+                using (OleDbCommand command = new OleDbCommand(SQL_Invoice, connect))
+                {
+                    command.ExecuteNonQuery();
                 }
             }
             return result;
@@ -565,7 +584,7 @@ namespace PetShop.Forms
         {
             pd_PrintPage(sender, e);
         }
-        private bool Check_Order(string serial_key, string barcode, string qty)
+        public bool Check_Order(string serial_key, string barcode, string qty)
         {
             bool result = false;
             string SQL = $@"SELECT Invoice_Serial_Key 
@@ -581,6 +600,7 @@ namespace PetShop.Forms
                     return reader.HasRows;
                 }
             }
+            return result;
         }
         #endregion
 
@@ -966,7 +986,6 @@ namespace PetShop.Forms
             if (result == DialogResult.Yes)
             {
                 Save_Invoice();
-                //Check_Order(lblSerialKey.Text);
                 if (CheckOut_Invoice(lblSerialKey.Text))
                 {
                     btnOrder_Click(sender, e);
@@ -1008,6 +1027,7 @@ namespace PetShop.Forms
                     lblRemain.Text = "";
                 }
             }
+            MessageBox.Show("Thanh Toán Thành Công");
         }
         private void txtSurcharge_KeyPress(object sender, KeyPressEventArgs e)
         {

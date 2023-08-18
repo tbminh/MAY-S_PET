@@ -40,6 +40,11 @@ namespace PetShop.Forms
             get { return lblUnit.Text; }
             set { lblUnit.Text = value; }
         }
+        public string Barcode
+        {
+            get { return lblBarcode.Text; }
+            set { lblBarcode.Text = value; }
+        }
         public string Product_Name
         {
             get { return lblProductName.Text; }
@@ -58,6 +63,28 @@ namespace PetShop.Forms
         private void UserControl2_Load(object sender, EventArgs e)
         {
         }
+        public bool Check_Order(float qty)
+        {
+            bool result = false;
+            string SQL = $@"SELECT P.Product_Total_Quantity as total
+		                    FROM INVOICE_DETAIL I, PRODUCT_INFO P
+		                    WHERE I.Product_Id = P.Product_Id
+		                    AND Invoice = '{Serial_Key}' 
+		                    AND I.Product_Id = '{Product_ID}'";
+            using (OleDbConnection connection = new OleDbConnection(clsConnect.Connect_String))
+            {
+                connection.Open();
+                using (OleDbCommand command = new OleDbCommand(SQL, connection))
+                using (OleDbDataReader reader = command.ExecuteReader())
+                {
+                    if (qty > float.Parse(reader["total"].ToString()))
+                    {
+                        MessageBox.Show("Số lượng không đủ");
+                    }
+                }
+            }
+            return result;
+        }
         public void NumToTal_ValueChanged(object sender, EventArgs e)
         {
             NumToTal.DecimalPlaces = 1;
@@ -66,7 +93,6 @@ namespace PetShop.Forms
             {
                 // Xử lý khi có dấu phân tách thập phân (dấu chấm hoặc dấu phẩy)
                 float floatValue;
-
                 if (CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalSeparator == ",")
                 {
                     // Định dạng region sử dụng dấu phẩy làm phân tách thập phân
@@ -79,7 +105,6 @@ namespace PetShop.Forms
                 }
                 NumToTal.Value = (decimal)floatValue;
             }
-
             if (isFirstTime) //Khi lần đầu double click mở usercontrol sẽ vào đây để tránh valuechanged
             {
                 isFirstTime = false;
@@ -93,6 +118,7 @@ namespace PetShop.Forms
                 result = qty * price;
                 Sum_Price = result.ToString("#,##0");
                 FormSelling frm = this.ParentForm as FormSelling;
+                Check_Order(qty);
                 frm.Update_Invoice_Detail(Serial_Key, NumToTal.Text.Trim());
                 frm.Save_Invoice();
                 frm.Reload_lblTotalPrice();
