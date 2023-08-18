@@ -132,10 +132,14 @@ namespace PetShop.Forms
             pnInfoOrder.Visible = true;
             lblSerialKey.Text = Serial_Key;
 
-            string SQL = @"SELECT * 
-                            FROM INVOICE_DETAIL 
+            string SQL = @"SELECT C.Consignment_ID as Consignment,I.*
+                            FROM INVOICE_DETAIL I
+							JOIN PRODUCT_INFO P
+							ON I.Product_Barcode = P.Product_Barcode
+							JOIN CONSIGNMENT C
+							ON P.Consignment_Serial_Key = C.Consignment_Serial_Key
                             WHERE Invoice = '" + Serial_Key + @"'
-                            ORDER BY Invoice_Serial_Key DESC";
+                            ORDER BY Invoice_Serial_Key DESC ";
             OleDbConnection odcConnect = new OleDbConnection(clsConnect.Connect_String);
             OleDbCommand odcCommand = new OleDbCommand(SQL, odcConnect);
             odcConnect.Open();
@@ -153,7 +157,7 @@ namespace PetShop.Forms
                 myControl.Product_Total_Qty = reader["Product_Total"].ToString();
                 myControl.Product_Name = reader["Product_Name"].ToString();
                 myControl.Unit = reader["Product_Unit"].ToString();
-                myControl.Barcode = reader["Product_Barcode"].ToString();
+                myControl.Consignment = reader["Consignment"].ToString();
                 myControl.Price_Sale = number.ToString("#,##0");
                 myControl.Sum_Price = total_price.ToString("#,##0");
                 flowLayoutPanel1.Controls.Add(myControl);
@@ -295,6 +299,7 @@ namespace PetShop.Forms
             OleDbDataReader reader = odcCommand.ExecuteReader();
             int t = 1;
             dgvList.Rows.Clear();
+            bindComboboxColumn();
             while (reader.Read())
             {
                 decimal price = Convert.ToDecimal(reader["subunit"].ToString() == "" ? reader["price"] : reader["subprice"]);
@@ -440,8 +445,19 @@ namespace PetShop.Forms
                 txtDiscount.Text = (Convert.ToInt32(read["Discount"])).ToString("#,##0");
             }
         }
-        #region In Hóa Đơn
-        public void pd_PrintPage(object sender, PrintPageEventArgs ev)
+        private void bindComboboxColumn()
+        {
+            DataTable dt = LoadsqlFromDatabase("SELECT [Unit_Name] FROM [PRODUCT_INFO] WHERE ");
+            DataGridViewComboBoxColumn cbc = (dgvList.Columns["dcmDonVi"] as DataGridViewComboBoxColumn);
+            dgvList.ReadOnly = false;
+            cbc.ReadOnly = false;
+            cbc.DataSource = dt;
+            cbc.DisplayMember = "Unit_Name";
+            cbc.ValueMember = "Unit_Name";
+            cbc.DataPropertyName = "Product_Unit";
+        }
+            #region In Hóa Đơn
+            public void pd_PrintPage(object sender, PrintPageEventArgs ev)
         {
             //BarcodeLib.Barcode code128;
             //code128 = new Barcode();
@@ -757,53 +773,7 @@ namespace PetShop.Forms
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            string tim = "";
-            if (isLeaving)
-            {
-                return;
-            }
-            if (txtSearch.Text.Length > 2)
-            {
-                tim = tim + txtSearch.Text;
-                string SQL = @"SELECT TOP 20 Product_Id, 
-								                Product_Name, 
-								                Product_SubUnit as subunit,
-								                Product_Unit,
-								                Product_Sale_Price as price,
-								                Product_Sale_SubPrice as subprice,
-								                Product_Barcode,
-								                Product_Status,
-								                Product_Quantity
-                                FROM PRODUCT_INFO P, PRODUCT_GROUP G
-                                WHERE P.Product_Group_Serial_Key = G.Product_Group_Serial_Key
-                                AND (Product_Name LIKE  N'%" + tim + @"%' 
-                                    OR Product_Barcode LIKE  N'%" + tim + @"%')
-                                AND Product_Type_Serial_Key = 'PT0000000000001' 
-                                AND Product_Status = '1'
-                                AND P.Product_Total_Quantity > 0";
-                OleDbConnection odcConnect = new OleDbConnection(clsConnect.Connect_String);
-                OleDbCommand odcCommand = new OleDbCommand(SQL, odcConnect);
-                odcConnect.Open();
-                OleDbDataReader reader = odcCommand.ExecuteReader();
-                int t = 1;
-                dgvList.Rows.Clear();
-                while (reader.Read())
-                {
-                    decimal price = Convert.ToDecimal(reader["subunit"].ToString() == "" ? reader["price"] : reader["subprice"]);
-                    dgvList.Rows.Add(new object[]
-                    {
-                        reader["Product_Id"].ToString(),
-                        t,
-                        reader["Product_Name"].ToString(),
-                        price.ToString("#,##0"),
-                        reader["Product_Quantity"].ToString(),
-                        reader["subunit"].ToString() == "" ?  reader["Product_Unit"].ToString() :  reader["subunit"].ToString(),
-                        reader["Product_Barcode"].ToString(),
-                        reader["Product_Status"].ToString(),
-                    });
-                    t++;
-                }
-            }
+
         }
 
         private void txtScanQR_Enter(object sender, EventArgs e)

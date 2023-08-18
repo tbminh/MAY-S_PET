@@ -29,12 +29,12 @@ namespace PetShop.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -107,8 +107,9 @@ namespace PetShop.Forms
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1167, 718);
+            this.panel1.Size = new System.Drawing.Size(1556, 884);
             this.panel1.TabIndex = 1;
             // 
             // panel4
@@ -117,20 +118,21 @@ namespace PetShop.Forms
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 67);
+            this.panel4.Location = new System.Drawing.Point(0, 82);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.panel4.Size = new System.Drawing.Size(1167, 651);
+            this.panel4.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.panel4.Size = new System.Drawing.Size(1556, 802);
             this.panel4.TabIndex = 2;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.tableLayoutPanel1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(3, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.panel5.Location = new System.Drawing.Point(4, 0);
+            this.panel5.Margin = new System.Windows.Forms.Padding(7, 4, 7, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1161, 254);
+            this.panel5.Size = new System.Drawing.Size(1548, 313);
             this.panel5.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -171,6 +173,7 @@ namespace PetShop.Forms
             this.tableLayoutPanel1.Controls.Add(this.dtpkNgayHH, 7, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.60784F));
@@ -178,7 +181,7 @@ namespace PetShop.Forms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.60784F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.60784F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.56863F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1161, 254);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1548, 313);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // txtTensp
@@ -188,7 +191,7 @@ namespace PetShop.Forms
             this.txtTensp.AutoRoundedCorners = true;
             this.txtTensp.BackColor = System.Drawing.Color.Transparent;
             this.txtTensp.BorderColor = System.Drawing.Color.Honeydew;
-            this.txtTensp.BorderRadius = 18;
+            this.txtTensp.BorderRadius = 23;
             this.txtTensp.BorderThickness = 2;
             this.tableLayoutPanel1.SetColumnSpan(this.txtTensp, 3);
             this.txtTensp.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -206,15 +209,15 @@ namespace PetShop.Forms
             this.txtTensp.ForeColor = System.Drawing.Color.DarkRed;
             this.txtTensp.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTensp.HoverState.Parent = this.txtTensp;
-            this.txtTensp.Location = new System.Drawing.Point(639, 5);
-            this.txtTensp.Margin = new System.Windows.Forms.Padding(5);
+            this.txtTensp.Location = new System.Drawing.Point(853, 6);
+            this.txtTensp.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtTensp.Name = "txtTensp";
             this.txtTensp.PasswordChar = '\0';
             this.txtTensp.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtTensp.PlaceholderText = "";
             this.txtTensp.SelectedText = "";
             this.txtTensp.ShadowDecoration.Parent = this.txtTensp;
-            this.txtTensp.Size = new System.Drawing.Size(475, 39);
+            this.txtTensp.Size = new System.Drawing.Size(634, 49);
             this.txtTensp.TabIndex = 37;
             this.txtTensp.TextChanged += new System.EventHandler(this.txtTensp_TextChanged);
             // 
@@ -224,10 +227,10 @@ namespace PetShop.Forms
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(154, 98);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 0, 5, 0);
+            this.label4.Location = new System.Drawing.Point(215, 122);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 7, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 49);
+            this.label4.Size = new System.Drawing.Size(161, 61);
             this.label4.TabIndex = 3;
             this.label4.Text = "Số lượng nhập(*)";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -238,10 +241,10 @@ namespace PetShop.Forms
             this.label5.Dock = System.Windows.Forms.DockStyle.Right;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(160, 147);
-            this.label5.Margin = new System.Windows.Forms.Padding(3, 0, 5, 0);
+            this.label5.Location = new System.Drawing.Point(226, 183);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 7, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(122, 49);
+            this.label5.Size = new System.Drawing.Size(150, 61);
             this.label5.TabIndex = 4;
             this.label5.Text = "Số lượng chi tiết";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -253,10 +256,10 @@ namespace PetShop.Forms
             this.label7.Dock = System.Windows.Forms.DockStyle.Right;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(36, 0);
-            this.label7.Margin = new System.Windows.Forms.Padding(3, 0, 5, 0);
+            this.label7.Location = new System.Drawing.Point(53, 0);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 7, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 49);
+            this.label7.Size = new System.Drawing.Size(115, 61);
             this.label7.TabIndex = 6;
             this.label7.Text = "Phân loại(*)";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -267,10 +270,10 @@ namespace PetShop.Forms
             this.label8.Dock = System.Windows.Forms.DockStyle.Right;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(42, 49);
-            this.label8.Margin = new System.Windows.Forms.Padding(3, 0, 5, 0);
+            this.label8.Location = new System.Drawing.Point(59, 61);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 7, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 49);
+            this.label8.Size = new System.Drawing.Size(109, 61);
             this.label8.TabIndex = 7;
             this.label8.Text = "Mã vạch(*)";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -281,10 +284,10 @@ namespace PetShop.Forms
             this.label9.Dock = System.Windows.Forms.DockStyle.Right;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label9.Location = new System.Drawing.Point(503, 0);
-            this.label9.Margin = new System.Windows.Forms.Padding(3, 0, 5, 0);
+            this.label9.Location = new System.Drawing.Point(679, 0);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 7, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(126, 49);
+            this.label9.Size = new System.Drawing.Size(160, 61);
             this.label9.TabIndex = 8;
             this.label9.Text = "Tên sản phẩm(*)";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -295,10 +298,10 @@ namespace PetShop.Forms
             this.label10.Dock = System.Windows.Forms.DockStyle.Right;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label10.Location = new System.Drawing.Point(549, 98);
-            this.label10.Margin = new System.Windows.Forms.Padding(3, 0, 5, 0);
+            this.label10.Location = new System.Drawing.Point(738, 122);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 7, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(80, 49);
+            this.label10.Size = new System.Drawing.Size(101, 61);
             this.label10.TabIndex = 9;
             this.label10.Text = "Đơn giá(*)";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -309,10 +312,10 @@ namespace PetShop.Forms
             this.label11.Dock = System.Windows.Forms.DockStyle.Right;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label11.Location = new System.Drawing.Point(515, 147);
-            this.label11.Margin = new System.Windows.Forms.Padding(3, 0, 5, 0);
+            this.label11.Location = new System.Drawing.Point(700, 183);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 7, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(114, 49);
+            this.label11.Size = new System.Drawing.Size(139, 61);
             this.label11.TabIndex = 10;
             this.label11.Text = "Đơn giá chi tiết";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -323,10 +326,10 @@ namespace PetShop.Forms
             this.label13.Dock = System.Windows.Forms.DockStyle.Right;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label13.Location = new System.Drawing.Point(539, 49);
-            this.label13.Margin = new System.Windows.Forms.Padding(3, 0, 5, 0);
+            this.label13.Location = new System.Drawing.Point(726, 61);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 7, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(90, 49);
+            this.label13.Size = new System.Drawing.Size(113, 61);
             this.label13.TabIndex = 12;
             this.label13.Text = "Giá nhập(*)";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -337,10 +340,10 @@ namespace PetShop.Forms
             this.label14.Dock = System.Windows.Forms.DockStyle.Right;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label14.Location = new System.Drawing.Point(864, 98);
-            this.label14.Margin = new System.Windows.Forms.Padding(3, 0, 5, 0);
+            this.label14.Location = new System.Drawing.Point(1156, 122);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 7, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(69, 49);
+            this.label14.Size = new System.Drawing.Size(89, 61);
             this.label14.TabIndex = 13;
             this.label14.Text = "Đơn vị(*)";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -351,10 +354,10 @@ namespace PetShop.Forms
             this.label15.Dock = System.Windows.Forms.DockStyle.Right;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label15.Location = new System.Drawing.Point(861, 49);
-            this.label15.Margin = new System.Windows.Forms.Padding(3, 0, 5, 0);
+            this.label15.Location = new System.Drawing.Point(1155, 61);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 7, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(72, 49);
+            this.label15.Size = new System.Drawing.Size(90, 61);
             this.label15.TabIndex = 14;
             this.label15.Text = "Ngày hết hạn(*)";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -365,10 +368,10 @@ namespace PetShop.Forms
             this.label16.Dock = System.Windows.Forms.DockStyle.Right;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label16.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label16.Location = new System.Drawing.Point(830, 147);
-            this.label16.Margin = new System.Windows.Forms.Padding(3, 0, 5, 0);
+            this.label16.Location = new System.Drawing.Point(1118, 183);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 7, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(103, 49);
+            this.label16.Size = new System.Drawing.Size(127, 61);
             this.label16.TabIndex = 15;
             this.label16.Text = "Đơn vị chi tiết";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -391,11 +394,11 @@ namespace PetShop.Forms
             this.cbxDonvi.HoverState.Parent = this.cbxDonvi;
             this.cbxDonvi.ItemHeight = 30;
             this.cbxDonvi.ItemsAppearance.Parent = this.cbxDonvi;
-            this.cbxDonvi.Location = new System.Drawing.Point(943, 103);
-            this.cbxDonvi.Margin = new System.Windows.Forms.Padding(5);
+            this.cbxDonvi.Location = new System.Drawing.Point(1259, 128);
+            this.cbxDonvi.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.cbxDonvi.Name = "cbxDonvi";
             this.cbxDonvi.ShadowDecoration.Parent = this.cbxDonvi;
-            this.cbxDonvi.Size = new System.Drawing.Size(171, 36);
+            this.cbxDonvi.Size = new System.Drawing.Size(228, 36);
             this.cbxDonvi.TabIndex = 18;
             this.cbxDonvi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -417,11 +420,11 @@ namespace PetShop.Forms
             this.cbxDonvichitiet.HoverState.Parent = this.cbxDonvichitiet;
             this.cbxDonvichitiet.ItemHeight = 30;
             this.cbxDonvichitiet.ItemsAppearance.Parent = this.cbxDonvichitiet;
-            this.cbxDonvichitiet.Location = new System.Drawing.Point(943, 152);
-            this.cbxDonvichitiet.Margin = new System.Windows.Forms.Padding(5);
+            this.cbxDonvichitiet.Location = new System.Drawing.Point(1259, 189);
+            this.cbxDonvichitiet.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.cbxDonvichitiet.Name = "cbxDonvichitiet";
             this.cbxDonvichitiet.ShadowDecoration.Parent = this.cbxDonvichitiet;
-            this.cbxDonvichitiet.Size = new System.Drawing.Size(171, 36);
+            this.cbxDonvichitiet.Size = new System.Drawing.Size(228, 36);
             this.cbxDonvichitiet.TabIndex = 19;
             this.cbxDonvichitiet.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -444,11 +447,11 @@ namespace PetShop.Forms
             this.cbxLoaisp.HoverState.Parent = this.cbxLoaisp;
             this.cbxLoaisp.ItemHeight = 30;
             this.cbxLoaisp.ItemsAppearance.Parent = this.cbxLoaisp;
-            this.cbxLoaisp.Location = new System.Drawing.Point(136, 3);
-            this.cbxLoaisp.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.cbxLoaisp.Location = new System.Drawing.Point(182, 4);
+            this.cbxLoaisp.Margin = new System.Windows.Forms.Padding(7, 4, 7, 4);
             this.cbxLoaisp.Name = "cbxLoaisp";
             this.cbxLoaisp.ShadowDecoration.Parent = this.cbxLoaisp;
-            this.cbxLoaisp.Size = new System.Drawing.Size(357, 36);
+            this.cbxLoaisp.Size = new System.Drawing.Size(476, 36);
             this.cbxLoaisp.TabIndex = 20;
             this.cbxLoaisp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cbxLoaisp.SelectedIndexChanged += new System.EventHandler(this.cbxLoaisp_SelectedIndexChanged);
@@ -474,14 +477,14 @@ namespace PetShop.Forms
             this.txtSLnhap.ForeColor = System.Drawing.Color.DarkRed;
             this.txtSLnhap.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSLnhap.HoverState.Parent = this.txtSLnhap;
-            this.txtSLnhap.Location = new System.Drawing.Point(292, 103);
-            this.txtSLnhap.Margin = new System.Windows.Forms.Padding(5);
+            this.txtSLnhap.Location = new System.Drawing.Point(390, 128);
+            this.txtSLnhap.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtSLnhap.Name = "txtSLnhap";
             this.txtSLnhap.PasswordChar = '\0';
             this.txtSLnhap.PlaceholderText = "";
             this.txtSLnhap.SelectedText = "";
             this.txtSLnhap.ShadowDecoration.Parent = this.txtSLnhap;
-            this.txtSLnhap.Size = new System.Drawing.Size(201, 39);
+            this.txtSLnhap.Size = new System.Drawing.Size(268, 49);
             this.txtSLnhap.TabIndex = 23;
             // 
             // txtSLchitiet
@@ -505,14 +508,14 @@ namespace PetShop.Forms
             this.txtSLchitiet.ForeColor = System.Drawing.Color.DarkRed;
             this.txtSLchitiet.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSLchitiet.HoverState.Parent = this.txtSLchitiet;
-            this.txtSLchitiet.Location = new System.Drawing.Point(292, 152);
-            this.txtSLchitiet.Margin = new System.Windows.Forms.Padding(5);
+            this.txtSLchitiet.Location = new System.Drawing.Point(390, 189);
+            this.txtSLchitiet.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtSLchitiet.Name = "txtSLchitiet";
             this.txtSLchitiet.PasswordChar = '\0';
             this.txtSLchitiet.PlaceholderText = "";
             this.txtSLchitiet.SelectedText = "";
             this.txtSLchitiet.ShadowDecoration.Parent = this.txtSLchitiet;
-            this.txtSLchitiet.Size = new System.Drawing.Size(201, 39);
+            this.txtSLchitiet.Size = new System.Drawing.Size(268, 49);
             this.txtSLchitiet.TabIndex = 24;
             // 
             // txtBarcode
@@ -537,14 +540,14 @@ namespace PetShop.Forms
             this.txtBarcode.ForeColor = System.Drawing.Color.DarkRed;
             this.txtBarcode.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBarcode.HoverState.Parent = this.txtBarcode;
-            this.txtBarcode.Location = new System.Drawing.Point(136, 54);
-            this.txtBarcode.Margin = new System.Windows.Forms.Padding(5);
+            this.txtBarcode.Location = new System.Drawing.Point(182, 67);
+            this.txtBarcode.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.PasswordChar = '\0';
             this.txtBarcode.PlaceholderText = "";
             this.txtBarcode.SelectedText = "";
             this.txtBarcode.ShadowDecoration.Parent = this.txtBarcode;
-            this.txtBarcode.Size = new System.Drawing.Size(357, 39);
+            this.txtBarcode.Size = new System.Drawing.Size(476, 49);
             this.txtBarcode.TabIndex = 25;
             this.txtBarcode.TextChanged += new System.EventHandler(this.txtBarcode_TextChanged);
             // 
@@ -569,14 +572,14 @@ namespace PetShop.Forms
             this.txtDongiachitiet.ForeColor = System.Drawing.Color.DarkRed;
             this.txtDongiachitiet.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDongiachitiet.HoverState.Parent = this.txtDongiachitiet;
-            this.txtDongiachitiet.Location = new System.Drawing.Point(639, 152);
-            this.txtDongiachitiet.Margin = new System.Windows.Forms.Padding(5);
+            this.txtDongiachitiet.Location = new System.Drawing.Point(853, 189);
+            this.txtDongiachitiet.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtDongiachitiet.Name = "txtDongiachitiet";
             this.txtDongiachitiet.PasswordChar = '\0';
             this.txtDongiachitiet.PlaceholderText = "";
             this.txtDongiachitiet.SelectedText = "";
             this.txtDongiachitiet.ShadowDecoration.Parent = this.txtDongiachitiet;
-            this.txtDongiachitiet.Size = new System.Drawing.Size(178, 39);
+            this.txtDongiachitiet.Size = new System.Drawing.Size(237, 49);
             this.txtDongiachitiet.TabIndex = 27;
             // 
             // txtGianhap
@@ -600,14 +603,14 @@ namespace PetShop.Forms
             this.txtGianhap.ForeColor = System.Drawing.Color.DarkRed;
             this.txtGianhap.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtGianhap.HoverState.Parent = this.txtGianhap;
-            this.txtGianhap.Location = new System.Drawing.Point(639, 54);
-            this.txtGianhap.Margin = new System.Windows.Forms.Padding(5);
+            this.txtGianhap.Location = new System.Drawing.Point(853, 67);
+            this.txtGianhap.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtGianhap.Name = "txtGianhap";
             this.txtGianhap.PasswordChar = '\0';
             this.txtGianhap.PlaceholderText = "";
             this.txtGianhap.SelectedText = "";
             this.txtGianhap.ShadowDecoration.Parent = this.txtGianhap;
-            this.txtGianhap.Size = new System.Drawing.Size(178, 39);
+            this.txtGianhap.Size = new System.Drawing.Size(237, 49);
             this.txtGianhap.TabIndex = 29;
             // 
             // txtDongia
@@ -631,14 +634,14 @@ namespace PetShop.Forms
             this.txtDongia.ForeColor = System.Drawing.Color.DarkRed;
             this.txtDongia.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDongia.HoverState.Parent = this.txtDongia;
-            this.txtDongia.Location = new System.Drawing.Point(639, 103);
-            this.txtDongia.Margin = new System.Windows.Forms.Padding(5);
+            this.txtDongia.Location = new System.Drawing.Point(853, 128);
+            this.txtDongia.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtDongia.Name = "txtDongia";
             this.txtDongia.PasswordChar = '\0';
             this.txtDongia.PlaceholderText = "";
             this.txtDongia.SelectedText = "";
             this.txtDongia.ShadowDecoration.Parent = this.txtDongia;
-            this.txtDongia.Size = new System.Drawing.Size(178, 39);
+            this.txtDongia.Size = new System.Drawing.Size(237, 49);
             this.txtDongia.TabIndex = 31;
             // 
             // btnAdd
@@ -654,11 +657,11 @@ namespace PetShop.Forms
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.HoverState.Parent = this.btnAdd;
-            this.btnAdd.Location = new System.Drawing.Point(290, 203);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
+            this.btnAdd.Location = new System.Drawing.Point(387, 253);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 9, 4, 4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.ShadowDecoration.Parent = this.btnAdd;
-            this.btnAdd.Size = new System.Drawing.Size(205, 48);
+            this.btnAdd.Size = new System.Drawing.Size(274, 56);
             this.btnAdd.TabIndex = 32;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -676,11 +679,11 @@ namespace PetShop.Forms
             this.btnReset.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.ForeColor = System.Drawing.Color.White;
             this.btnReset.HoverState.Parent = this.btnReset;
-            this.btnReset.Location = new System.Drawing.Point(637, 203);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
+            this.btnReset.Location = new System.Drawing.Point(850, 253);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(4, 9, 4, 4);
             this.btnReset.Name = "btnReset";
             this.btnReset.ShadowDecoration.Parent = this.btnReset;
-            this.btnReset.Size = new System.Drawing.Size(182, 48);
+            this.btnReset.Size = new System.Drawing.Size(243, 56);
             this.btnReset.TabIndex = 33;
             this.btnReset.Text = "Làm mới";
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -698,13 +701,13 @@ namespace PetShop.Forms
             this.dtpkNgayHH.ForeColor = System.Drawing.Color.DarkRed;
             this.dtpkNgayHH.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpkNgayHH.HoverState.Parent = this.dtpkNgayHH;
-            this.dtpkNgayHH.Location = new System.Drawing.Point(943, 54);
-            this.dtpkNgayHH.Margin = new System.Windows.Forms.Padding(5);
+            this.dtpkNgayHH.Location = new System.Drawing.Point(1259, 67);
+            this.dtpkNgayHH.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.dtpkNgayHH.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
             this.dtpkNgayHH.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpkNgayHH.Name = "dtpkNgayHH";
             this.dtpkNgayHH.ShadowDecoration.Parent = this.dtpkNgayHH;
-            this.dtpkNgayHH.Size = new System.Drawing.Size(171, 39);
+            this.dtpkNgayHH.Size = new System.Drawing.Size(228, 49);
             this.dtpkNgayHH.TabIndex = 35;
             this.dtpkNgayHH.Value = new System.DateTime(2023, 8, 13, 0, 0, 0, 0);
             // 
@@ -712,29 +715,30 @@ namespace PetShop.Forms
             // 
             this.panel6.Controls.Add(this.dgvVatTu);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(3, 257);
+            this.panel6.Location = new System.Drawing.Point(4, 317);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1161, 394);
+            this.panel6.Size = new System.Drawing.Size(1548, 485);
             this.panel6.TabIndex = 1;
             // 
             // dgvVatTu
             // 
             this.dgvVatTu.AllowUserToAddRows = false;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
-            this.dgvVatTu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvVatTu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvVatTu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvVatTu.BackgroundColor = System.Drawing.Color.White;
             this.dgvVatTu.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvVatTu.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvVatTu.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(92)))), ((int)(((byte)(13)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.Coral;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVatTu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(92)))), ((int)(((byte)(13)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Coral;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVatTu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvVatTu.ColumnHeadersHeight = 35;
             this.dgvVatTu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dcmCheck,
@@ -752,32 +756,33 @@ namespace PetShop.Forms
             this.dcmNgayHH,
             this.dcmNgayNhap,
             this.dcmTongSL});
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVatTu.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVatTu.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvVatTu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvVatTu.EnableHeadersVisualStyles = false;
             this.dgvVatTu.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvVatTu.Location = new System.Drawing.Point(0, 0);
+            this.dgvVatTu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvVatTu.Name = "dgvVatTu";
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(92)))), ((int)(((byte)(13)))));
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.Coral;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVatTu.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(92)))), ((int)(((byte)(13)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Coral;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVatTu.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvVatTu.RowHeadersVisible = false;
             this.dgvVatTu.RowHeadersWidth = 51;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVatTu.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVatTu.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvVatTu.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.dgvVatTu.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvVatTu.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Gainsboro;
@@ -785,7 +790,7 @@ namespace PetShop.Forms
             this.dgvVatTu.RowTemplate.Height = 35;
             this.dgvVatTu.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvVatTu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVatTu.Size = new System.Drawing.Size(1161, 394);
+            this.dgvVatTu.Size = new System.Drawing.Size(1548, 485);
             this.dgvVatTu.TabIndex = 0;
             this.dgvVatTu.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgvVatTu.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -826,7 +831,7 @@ namespace PetShop.Forms
             this.dcmNum.MinimumWidth = 6;
             this.dcmNum.Name = "dcmNum";
             this.dcmNum.ReadOnly = true;
-            this.dcmNum.Width = 53;
+            this.dcmNum.Width = 67;
             // 
             // dcmBarCode
             // 
@@ -836,7 +841,7 @@ namespace PetShop.Forms
             this.dcmBarCode.MinimumWidth = 6;
             this.dcmBarCode.Name = "dcmBarCode";
             this.dcmBarCode.ReadOnly = true;
-            this.dcmBarCode.Width = 86;
+            this.dcmBarCode.Width = 107;
             // 
             // dcmTenSP
             // 
@@ -848,9 +853,9 @@ namespace PetShop.Forms
             // dcmLoaiSP
             // 
             this.dcmLoaiSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Maroon;
-            this.dcmLoaiSP.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Maroon;
+            this.dcmLoaiSP.DefaultCellStyle = dataGridViewCellStyle3;
             this.dcmLoaiSP.FillWeight = 33.84462F;
             this.dcmLoaiSP.HeaderText = "Loại";
             this.dcmLoaiSP.MinimumWidth = 6;
@@ -858,7 +863,7 @@ namespace PetShop.Forms
             this.dcmLoaiSP.ReadOnly = true;
             this.dcmLoaiSP.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dcmLoaiSP.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dcmLoaiSP.Width = 57;
+            this.dcmLoaiSP.Width = 71;
             // 
             // dcmGiaNhap
             // 
@@ -867,7 +872,7 @@ namespace PetShop.Forms
             this.dcmGiaNhap.HeaderText = "Giá Nhập";
             this.dcmGiaNhap.MinimumWidth = 6;
             this.dcmGiaNhap.Name = "dcmGiaNhap";
-            this.dcmGiaNhap.Width = 89;
+            this.dcmGiaNhap.Width = 112;
             // 
             // dcmSL
             // 
@@ -876,7 +881,7 @@ namespace PetShop.Forms
             this.dcmSL.HeaderText = "Số lượng";
             this.dcmSL.MinimumWidth = 6;
             this.dcmSL.Name = "dcmSL";
-            this.dcmSL.Width = 86;
+            this.dcmSL.Width = 112;
             // 
             // dcmDonGia
             // 
@@ -885,7 +890,7 @@ namespace PetShop.Forms
             this.dcmDonGia.HeaderText = "Đơn giá";
             this.dcmDonGia.MinimumWidth = 20;
             this.dcmDonGia.Name = "dcmDonGia";
-            this.dcmDonGia.Width = 80;
+            this.dcmDonGia.Width = 102;
             // 
             // dcmDonVi
             // 
@@ -896,7 +901,7 @@ namespace PetShop.Forms
             this.dcmDonVi.Name = "dcmDonVi";
             this.dcmDonVi.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dcmDonVi.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dcmDonVi.Width = 72;
+            this.dcmDonVi.Width = 91;
             // 
             // dcmSLchitiet
             // 
@@ -905,7 +910,7 @@ namespace PetShop.Forms
             this.dcmSLchitiet.HeaderText = "Số lượng chi tiết";
             this.dcmSLchitiet.MinimumWidth = 20;
             this.dcmSLchitiet.Name = "dcmSLchitiet";
-            this.dcmSLchitiet.Width = 131;
+            this.dcmSLchitiet.Width = 169;
             // 
             // dcmDonGiachitiet
             // 
@@ -915,7 +920,7 @@ namespace PetShop.Forms
             this.dcmDonGiachitiet.MinimumWidth = 20;
             this.dcmDonGiachitiet.Name = "dcmDonGiachitiet";
             this.dcmDonGiachitiet.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dcmDonGiachitiet.Width = 125;
+            this.dcmDonGiachitiet.Width = 159;
             // 
             // dcmDonVichitiet
             // 
@@ -926,7 +931,7 @@ namespace PetShop.Forms
             this.dcmDonVichitiet.Name = "dcmDonVichitiet";
             this.dcmDonVichitiet.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dcmDonVichitiet.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dcmDonVichitiet.Width = 117;
+            this.dcmDonVichitiet.Width = 148;
             // 
             // dcmNgayHH
             // 
@@ -935,7 +940,7 @@ namespace PetShop.Forms
             this.dcmNgayHH.HeaderText = "Ngày hết hàng";
             this.dcmNgayHH.MinimumWidth = 20;
             this.dcmNgayHH.Name = "dcmNgayHH";
-            this.dcmNgayHH.Width = 123;
+            this.dcmNgayHH.Width = 156;
             // 
             // dcmNgayNhap
             // 
@@ -945,7 +950,7 @@ namespace PetShop.Forms
             this.dcmNgayNhap.MinimumWidth = 6;
             this.dcmNgayNhap.Name = "dcmNgayNhap";
             this.dcmNgayNhap.ReadOnly = true;
-            this.dcmNgayNhap.Width = 99;
+            this.dcmNgayNhap.Width = 126;
             // 
             // dcmTongSL
             // 
@@ -955,7 +960,7 @@ namespace PetShop.Forms
             this.dcmTongSL.MinimumWidth = 6;
             this.dcmTongSL.Name = "dcmTongSL";
             this.dcmTongSL.ReadOnly = true;
-            this.dcmTongSL.Width = 63;
+            this.dcmTongSL.Width = 80;
             // 
             // panel2
             // 
@@ -963,8 +968,9 @@ namespace PetShop.Forms
             this.panel2.Controls.Add(this.tableLayoutPanel2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1167, 67);
+            this.panel2.Size = new System.Drawing.Size(1556, 82);
             this.panel2.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -979,26 +985,29 @@ namespace PetShop.Forms
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1167, 67);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1556, 82);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // panel8
             // 
-            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Location = new System.Drawing.Point(4, 4);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(147, 61);
+            this.panel8.Size = new System.Drawing.Size(196, 74);
             this.panel8.TabIndex = 2;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.lblNVTtitle);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(178, 3);
+            this.panel3.Location = new System.Drawing.Point(237, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(810, 61);
+            this.panel3.Size = new System.Drawing.Size(1081, 74);
             this.panel3.TabIndex = 0;
             // 
             // lblNVTtitle
@@ -1006,9 +1015,10 @@ namespace PetShop.Forms
             this.lblNVTtitle.BackColor = System.Drawing.Color.Transparent;
             this.lblNVTtitle.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNVTtitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblNVTtitle.Location = new System.Drawing.Point(115, 3);
+            this.lblNVTtitle.Location = new System.Drawing.Point(153, 4);
+            this.lblNVTtitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblNVTtitle.Name = "lblNVTtitle";
-            this.lblNVTtitle.Size = new System.Drawing.Size(547, 47);
+            this.lblNVTtitle.Size = new System.Drawing.Size(703, 59);
             this.lblNVTtitle.TabIndex = 0;
             this.lblNVTtitle.Text = "NHẬP VẬT TƯ LÔ HÀNG PG000000 ";
             this.lblNVTtitle.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1018,15 +1028,16 @@ namespace PetShop.Forms
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.46809F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.53192F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
             this.tableLayoutPanel3.Controls.Add(this.btnCloseForm, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.btnMaximun, 1, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(994, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(1326, 4);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(170, 61);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 58F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(226, 74);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
             // btnCloseForm
@@ -1043,11 +1054,12 @@ namespace PetShop.Forms
             this.btnCloseForm.ForeColor = System.Drawing.Color.White;
             this.btnCloseForm.HoverState.Parent = this.btnCloseForm;
             this.btnCloseForm.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnCloseForm.Location = new System.Drawing.Point(134, 17);
+            this.btnCloseForm.Location = new System.Drawing.Point(178, 20);
+            this.btnCloseForm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCloseForm.Name = "btnCloseForm";
             this.btnCloseForm.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btnCloseForm.ShadowDecoration.Parent = this.btnCloseForm;
-            this.btnCloseForm.Size = new System.Drawing.Size(25, 25);
+            this.btnCloseForm.Size = new System.Drawing.Size(33, 31);
             this.btnCloseForm.TabIndex = 0;
             this.btnCloseForm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnCloseForm.Click += new System.EventHandler(this.btnCloseForm_Click);
@@ -1065,20 +1077,22 @@ namespace PetShop.Forms
             this.btnMaximun.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnMaximun.ForeColor = System.Drawing.Color.White;
             this.btnMaximun.HoverState.Parent = this.btnMaximun;
-            this.btnMaximun.Location = new System.Drawing.Point(101, 17);
+            this.btnMaximun.Location = new System.Drawing.Point(134, 20);
+            this.btnMaximun.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMaximun.Name = "btnMaximun";
             this.btnMaximun.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btnMaximun.ShadowDecoration.Parent = this.btnMaximun;
-            this.btnMaximun.Size = new System.Drawing.Size(25, 25);
+            this.btnMaximun.Size = new System.Drawing.Size(33, 31);
             this.btnMaximun.TabIndex = 1;
             // 
             // FormAddConsignment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1167, 718);
+            this.ClientSize = new System.Drawing.Size(1556, 884);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormAddConsignment";
             this.Text = "FormAddConsignment";
             this.Load += new System.EventHandler(this.FormAddConsignment_Load);

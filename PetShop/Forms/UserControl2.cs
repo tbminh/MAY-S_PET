@@ -40,10 +40,10 @@ namespace PetShop.Forms
             get { return lblUnit.Text; }
             set { lblUnit.Text = value; }
         }
-        public string Barcode
+        public string Consignment
         {
-            get { return lblBarcode.Text; }
-            set { lblBarcode.Text = value; }
+            get { return lblConsignment.Text; }
+            set { lblConsignment.Text = value; }
         }
         public string Product_Name
         {

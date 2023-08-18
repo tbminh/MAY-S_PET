@@ -601,3 +601,5 @@ C:\Users\Raymond\Desktop\PETSHOP PERFECT\MAY-S_PET\PetShop\obj\Debug\PetShop.csp
 C:\Users\Raymond\Desktop\PETSHOP PERFECT\MAY-S_PET\PetShop\obj\Debug\PetShop.csproj.CopyComplete
 C:\Users\Raymond\Desktop\PETSHOP PERFECT\MAY-S_PET\PetShop\obj\Debug\PetShop.exe
 C:\Users\Raymond\Desktop\PETSHOP PERFECT\MAY-S_PET\PetShop\obj\Debug\PetShop.pdb
+C:\Users\Raymond\Desktop\MAY-S_PET\PetShop\obj\Debug\PetShop.Forms.FormAddConsignment.resources
+C:\Users\Raymond\Desktop\MAY-S_PET\PetShop\obj\Debug\PetShop.Forms.FormSupplier.resources
