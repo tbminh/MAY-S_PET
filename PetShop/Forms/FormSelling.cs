@@ -40,8 +40,8 @@ namespace PetShop.Forms
         }
         private bool isLeaving = false;
         private string key_order;
-        private string tien_khach_dua;
-        private string phu_thu;
+        private string tien_khach_dua = "100000";
+        private string phu_thu = "20000";
         enum dgv_enum : int
         {
             STT,
@@ -291,17 +291,18 @@ namespace PetShop.Forms
                             WHERE I.Product_Group_Serial_Key = P.Product_Group_Serial_Key
                             AND P.Product_Type_Serial_Key = 'PT0000000000001' 
                             AND Product_Status = '1'
-                            AND P.Product_Quantity > 0
-                            AND P.Product_Total_Quantity > 0";
+                            AND I.Product_Quantity > 0
+                            AND I.Product_Total_Quantity > 0";
             OleDbConnection odcConnect = new OleDbConnection(clsConnect.Connect_String);
             OleDbCommand odcCommand = new OleDbCommand(SQL, odcConnect);
             odcConnect.Open();
             OleDbDataReader reader = odcCommand.ExecuteReader();
             int t = 1;
+            int index = 0;
             dgvList.Rows.Clear();
-            bindComboboxColumn();
             while (reader.Read())
             {
+                bindComboboxColumn(reader["Product_Barcode"].ToString(), index);
                 decimal price = Convert.ToDecimal(reader["subunit"].ToString() == "" ? reader["price"] : reader["subprice"]);
                 dgvList.Rows.Add(new object[]
                 {
@@ -310,11 +311,13 @@ namespace PetShop.Forms
                     reader["Product_Name"].ToString(),
                     price.ToString("#,##0"),
                     reader["Product_Quantity"].ToString(),
-                    reader["subunit"].ToString() == "" ?  reader["Product_Unit"].ToString() :  reader["subunit"].ToString(),
+                    "", //Sub unit
                     reader["Product_Barcode"].ToString(),
                     reader["Product_Status"].ToString(),
                 });
+                dgvList.Rows[index].Cells["dcpUnit"].Value = reader["subunit"].ToString() == "" ? reader["Product_Unit"].ToString() : reader["subunit"].ToString();
                 t++;
+                index++;
             }
         }
         private void Searching_Order(string keyword)
@@ -405,8 +408,6 @@ namespace PetShop.Forms
                     SQL_Total += @",Product_Status = '0' ";
                 }
                 SQL_Total += $@"WHERE Product_Barcode = '{new_barcode}'";
-
-
                 using (OleDbConnection con = new OleDbConnection(clsConnect.Connect_String))
                 {
                     con.Open();
@@ -445,19 +446,64 @@ namespace PetShop.Forms
                 txtDiscount.Text = (Convert.ToInt32(read["Discount"])).ToString("#,##0");
             }
         }
-        private void bindComboboxColumn()
+        private DataTable LoadsqlFromDatabase(string sql)
         {
-            DataTable dt = LoadsqlFromDatabase("SELECT [Unit_Name] FROM [PRODUCT_INFO] WHERE ");
-            DataGridViewComboBoxColumn cbc = (dgvList.Columns["dcmDonVi"] as DataGridViewComboBoxColumn);
-            dgvList.ReadOnly = false;
-            cbc.ReadOnly = false;
-            cbc.DataSource = dt;
-            cbc.DisplayMember = "Unit_Name";
-            cbc.ValueMember = "Unit_Name";
-            cbc.DataPropertyName = "Product_Unit";
+            OleDbConnection odcConnect = new OleDbConnection(clsConnect.Connect_String);
+            DataTable dt = new DataTable();
+            odcConnect.Open();
+            try
+            {
+                using (OleDbDataAdapter myDataAdapter = new OleDbDataAdapter(sql, odcConnect))
+                {
+                    myDataAdapter.Fill(dt);
+                }
+                DataRow dtR = dt.NewRow();
+                dtR[0] = " ";
+                int columnIndex = 1; // Đây là chỉ số của cột mà bạn muốn gán giá trị
+                if (columnIndex >= 0 && columnIndex < dtR.ItemArray.Length)
+                {
+                    dtR[columnIndex] = " ";
+                }
+                dt.Rows.InsertAt(dtR, 0);
+            }
+            catch (Exception exMsg)
+            {
+                MessageBox.Show("Lỗi truy vấn " + exMsg);
+            }
+            finally
+            {
+                if (odcConnect != null) odcConnect.Dispose();
+            }
+            return dt;
         }
-            #region In Hóa Đơn
-            public void pd_PrintPage(object sender, PrintPageEventArgs ev)
+        private void bindComboboxColumn(string Barcode, int rowIndex)
+        {
+            if (rowIndex < 0)
+            {
+                string sql = $@"SELECT Merged_Unit
+                                FROM (
+                                    SELECT [Product_Unit] AS Merged_Unit
+                                    FROM [PRODUCT_INFO]
+                                    WHERE [Product_Barcode] = '{Barcode}'
+                                    UNION ALL
+                                    SELECT ISNULL([Product_SubUnit],'') AS Merged_Unit
+                                    FROM [PRODUCT_INFO]
+                                    WHERE [Product_Barcode] = '{Barcode}'
+                                          AND [Product_SubUnit] IS NOT NULL
+                                ) AS UnionResults
+                                WHERE '{Barcode}' IS NOT NULL";
+                DataTable dt = LoadsqlFromDatabase(sql);
+                DataGridViewComboBoxCell cbc = dgvList.Rows[rowIndex-1].Cells["dcpUnit"] as DataGridViewComboBoxCell;
+                dgvList.ReadOnly = false;
+                cbc.ReadOnly = false;
+                cbc.DataSource = dt;
+                cbc.DisplayMember = "Merged_Unit";
+                cbc.ValueMember = "Merged_Unit";
+                //cbc.DataPropertyName = "Product_Unit";
+                //dt.Rows.Clear();
+            }
+        }
+        public void pd_PrintPage(object sender, PrintPageEventArgs ev)
         {
             //BarcodeLib.Barcode code128;
             //code128 = new Barcode();
@@ -491,10 +537,10 @@ namespace PetShop.Forms
             //g.DrawRectangle(pen, new Rectangle(1, 192, 302, 40));
             ////Tiêu đề hóa đơn
             string sql_invoice_key = @"SELECT top 1 I.Invoice_Serial_Key
-                            FROM PRODUCT_INFO P, INVOICE I, INVOICE_DETAIL ID, USER_AD U
+                            FROM PRODUCT_INFO P, INVOICE I, INVOICE_DETAIL ID--, USER_AD U
                             WHERE P.Product_Id = ID.Product_Id
                             and I.Invoice_Serial_Key = ID.Invoice
-                            and U.User_Login = I.User_id
+                            --and U.User_Login = I.User_id
                             and ID.Invoice = '" + key_order + "'";
             string sql_user_name = @"SELECT top 1 U.User_Full_Name
                             FROM PRODUCT_INFO P, INVOICE I, INVOICE_DETAIL ID, USER_AD U
@@ -503,17 +549,17 @@ namespace PetShop.Forms
                             and U.User_Login = I.User_id
                             and ID.Invoice = '" + key_order + "'";
             string sql_Total_Price = @"SELECT top 1 I.Total_Price
-                            FROM PRODUCT_INFO P, INVOICE I, INVOICE_DETAIL ID, USER_AD U
+                            FROM PRODUCT_INFO P, INVOICE I, INVOICE_DETAIL ID--, USER_AD U
                             WHERE P.Product_Id = ID.Product_Id
                             and I.Invoice_Serial_Key = ID.Invoice
-                            and U.User_Login = I.User_id
+                            --and U.User_Login = I.User_id
                             and ID.Invoice = '" + key_order + "'";
 
             string sSQL = @"SELECT P.Product_Name,P.Product_Sale_Price, ID.Product_Total,I.Total_Price
-                            FROM PRODUCT_INFO P, INVOICE I, INVOICE_DETAIL ID, USER_AD U
+                            FROM PRODUCT_INFO P, INVOICE I, INVOICE_DETAIL ID--, USER_AD U
                             WHERE P.Product_Id = ID.Product_Id
                             and I.Invoice_Serial_Key = ID.Invoice
-                            and U.User_Login = I.User_id
+                            --and U.User_Login = I.User_id
                             and ID.Invoice = '" + key_order + "'";
 
             OleDbConnection conn = new OleDbConnection(clsConnect.Connect_String);
@@ -524,7 +570,8 @@ namespace PetShop.Forms
             OleDbCommand cmd_SP = new OleDbCommand(sSQL, conn);
             OleDbDataReader read = cmd_SP.ExecuteReader();
             string Invoice_key = cmd.ExecuteScalar().ToString();
-            string User_Name = cmd1.ExecuteScalar().ToString();
+            //string User_Name = cmd1.ExecuteScalar().ToString();
+            string User_Name = "Bao Minh";
             string totalPrice = cmd2.ExecuteScalar().ToString();
             ////Số hóa đơn
             g.DrawString("Số HĐ: ", font2, brush, new Rectangle(10, 240, 302, 30));
@@ -600,25 +647,6 @@ namespace PetShop.Forms
         {
             pd_PrintPage(sender, e);
         }
-        public bool Check_Order(string serial_key, string barcode, string qty)
-        {
-            bool result = false;
-            string SQL = $@"SELECT Invoice_Serial_Key 
-				            FROM INVOICE_DETAIL 
-				            WHERE Invoice = '{serial_key.Trim()}' 
-				            AND Product_Barcode = ''";
-            using (OleDbConnection connection = new OleDbConnection(clsConnect.Connect_String))
-            {
-                connection.Open();
-                using (OleDbCommand command = new OleDbCommand(SQL, connection))
-                using (OleDbDataReader reader = command.ExecuteReader())
-                {
-                    return reader.HasRows;
-                }
-            }
-            return result;
-        }
-        #endregion
 
         #endregion
 
@@ -674,7 +702,6 @@ namespace PetShop.Forms
                 cbxSurcharge.Checked = false;
             }
         }
-
         private void btnProduct_Click(object sender, EventArgs e)
         {
             Show_List_Product();
@@ -738,30 +765,6 @@ namespace PetShop.Forms
             }
         }
 
-        private void dgvList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (lblSerialKey.Text != "")
-            {
-                cbxSurcharge.Checked = false;
-                string Invoice_Serial_Key = lblSerialKey.Text;
-                string Product_ID = dgvList.CurrentRow.Cells[(int)dgv_list_enum.Product_ID].Value?.ToString();
-                string Product_Name = dgvList.CurrentRow.Cells[(int)dgv_list_enum.Product_Name].Value?.ToString();
-                string Product_Price = dgvList.CurrentRow.Cells[(int)dgv_list_enum.Product_Sale_Price].Value?.ToString();
-                string Unit = dgvList.CurrentRow.Cells[(int)dgv_list_enum.Product_Unit].Value?.ToString();
-                string Barcode = dgvList.CurrentRow.Cells[(int)dgv_list_enum.Product_Barcode].Value?.ToString();
-                if (Add_Cart(Invoice_Serial_Key, Product_ID, Product_Name, Product_Price, Unit, Barcode))
-                {
-                    Save_Invoice();
-                    Show_Invoice_Detail(Invoice_Serial_Key);
-                    Reload_lblTotalPrice(); //Cập Nhật Lại Tổng Tiền
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui Lòng Chọn Đơn Hàng");
-            }
-        }
-        
         private void txtSearch_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtSearch.Text))
@@ -770,12 +773,65 @@ namespace PetShop.Forms
                 txtSearch.Text = "Tìm Kiếm Sản Phẩm ...";
             }
         }
-
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-
+            string tim = "";
+            if (isLeaving)
+            {
+                return;
+            }
+            if (txtSearch.Text.Length > 1)
+            {
+                tim = txtSearch.Text;
+                string SQL = @"SELECT  Product_Id, 
+								                Product_Name, 
+								                isnull(Product_SubUnit,'') as subunit,
+								                Product_Unit,
+								                 ISNULL(Product_Sale_Price,'') as price,
+								                ISNULL(Product_Sale_SubPrice,'') as subprice,
+								                Product_Barcode,
+								                Product_Status,
+								                Product_Quantity
+                                FROM PRODUCT_INFO P, PRODUCT_GROUP G
+                                WHERE P.Product_Group_Serial_Key = G.Product_Group_Serial_Key
+                                AND (Product_Name LIKE  N'%" + tim + @"%' 
+                                    OR Product_Barcode LIKE  N'%" + tim + @"%')
+                                AND Product_Type_Serial_Key = 'PT0000000000001' 
+                                AND Product_Status = '1'    
+                                AND P.Product_Total_Quantity > 0";
+                OleDbConnection odcConnect = new OleDbConnection(clsConnect.Connect_String);
+                OleDbCommand odcCommand = new OleDbCommand(SQL, odcConnect);
+                odcConnect.Open();
+                OleDbDataReader reader = odcCommand.ExecuteReader();
+              
+                dgvList.Rows.Clear();
+                if (!reader.HasRows)
+                {
+                    return; // or do something else
+                }
+                int t = 1;
+                int index = 0;
+                while (reader.Read())
+                {
+                    bindComboboxColumn(reader["Product_Barcode"].ToString(), index);
+                    decimal price = Convert.ToDecimal(reader["subunit"].ToString() == "" ? reader["price"] : reader["subprice"]);
+                    dgvList.Rows.Add(new object[]
+                    {
+                    reader["Product_Id"].ToString(),
+                    t,
+                    reader["Product_Name"].ToString(),
+                    price.ToString("#,##0"),
+                    reader["Product_Quantity"].ToString(),
+                    "",
+                    reader["Product_Barcode"].ToString(),
+                    reader["Product_Status"].ToString(),
+                    });
+                    t++;
+                    dgvList.Rows[index].Cells["dcpUnit"].Value = reader["subunit"].ToString() == "" ? reader["Product_Unit"].ToString() : reader["subunit"].ToString();
+                    index++;
+                }
+            }
         }
-
         private void txtScanQR_Enter(object sender, EventArgs e)
         {
             if (!ReferenceEquals(sender, txtScanQR))//|| !(sender is Guna.UI.WinForms.GunaTextBox)
@@ -956,29 +1012,29 @@ namespace PetShop.Forms
             if (result == DialogResult.Yes)
             {
                 Save_Invoice();
-                if (CheckOut_Invoice(lblSerialKey.Text))
-                {
-                    btnOrder_Click(sender, e);
+                //if (CheckOut_Invoice(lblSerialKey.Text))
+                //{
+                    //btnOrder_Click(sender, e);
                     flowLayoutPanel1.Controls.Clear();
                     key_order = lblSerialKey.Text;
-                    tien_khach_dua = txtGiven.Text.Replace(".", "");
+                    //tien_khach_dua = txtGiven.Text.Replace(".", "");
                     lblSerialKey.Text = "";
                     txtSurcharge.Text = "0";
                     txtDiscount.Text = "0";
                     lblTotalPrice.Text = "0";
                     txtGiven.Text = "";
                     lblRemain.Text = "";
-                    //PrintDocument pd = new PrintDocument();
+                    PrintDocument pd = new PrintDocument();
                     //pd.PrinterSettings.PrinterName = @"\\192.168.30.70\EPSON L310 Series";
-                    //pd.PrinterSettings.PrinterName = @"POS-80C";
-                    //pd.PrintPage += new PrintPageEventHandler(pd_PrintPage);
-                    //pd.Print();
+                    pd.PrinterSettings.PrinterName = @"POS-80C";
+                    pd.PrintPage += new PrintPageEventHandler(pd_PrintPage);
+                    pd.Print();
                     //pvdCORPrint.Document = printReview;
                     //string a = ((ToolStrip)(pvdCORPrint.Controls[1])).Items.Count.ToString();
                     //((ToolStrip)(pvdCORPrint.Controls[1])).Items.RemoveByKey("printToolStripButton");
                     //pvdCORPrint.ShowDialog();
                 }
-            }
+            //}
             else
             {
                 Save_Invoice();
@@ -988,7 +1044,7 @@ namespace PetShop.Forms
                     btnOrder_Click(sender, e);
                     flowLayoutPanel1.Controls.Clear();
                     key_order = lblSerialKey.Text;
-                    tien_khach_dua = txtGiven.Text.Replace(".", "");
+                    //tien_khach_dua = txtGiven.Text.Replace(".", "");
                     lblSerialKey.Text = "";
                     txtSurcharge.Text = "0";
                     txtDiscount.Text = "0";
@@ -1037,6 +1093,48 @@ namespace PetShop.Forms
             else
             {
                 txtSurcharge.Text = "0";
+            }
+        }
+
+        private void DataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (e.Control is ComboBox comboBox)
+            {
+                comboBox.SelectedIndexChanged -= ComboBox_SelectedIndexChanged;
+                comboBox.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
+            }
+        }
+        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var comboBox = (ComboBox)sender;
+            string newValue = comboBox.SelectedItem.ToString(); // hoặc comboBox.Text; 
+
+            DataGridView dataGridView = (DataGridView)comboBox.Parent.Parent;
+            //int rowIndex = dataGridView.CurrentCell.RowIndex;
+            //int columnIndex = dataGridView.CurrentCell.ColumnIndex;
+        }
+
+        private void dgvList_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (lblSerialKey.Text != "")
+            {
+                cbxSurcharge.Checked = false;
+                string Invoice_Serial_Key = lblSerialKey.Text;
+                string Product_ID = dgvList.CurrentRow.Cells[(int)dgv_list_enum.Product_ID].Value?.ToString();
+                string Product_Name = dgvList.CurrentRow.Cells[(int)dgv_list_enum.Product_Name].Value?.ToString();
+                string Product_Price = dgvList.CurrentRow.Cells[(int)dgv_list_enum.Product_Sale_Price].Value?.ToString();
+                string Unit = dgvList.CurrentRow.Cells[(int)dgv_list_enum.Product_Unit].Value?.ToString();
+                string Barcode = dgvList.CurrentRow.Cells[(int)dgv_list_enum.Product_Barcode].Value?.ToString();
+                if (Add_Cart(Invoice_Serial_Key, Product_ID, Product_Name, Product_Price, Unit, Barcode))
+                {
+                    Save_Invoice();
+                    Show_Invoice_Detail(Invoice_Serial_Key);
+                    Reload_lblTotalPrice(); //Cập Nhật Lại Tổng Tiền
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui Lòng Chọn Đơn Hàng");
             }
         }
 

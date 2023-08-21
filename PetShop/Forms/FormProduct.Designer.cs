@@ -72,10 +72,10 @@ namespace PetShop.Forms
             this.txtFindProduct = new Bunifu.Framework.UI.BunifuTextbox();
             this.guna2GradientPanel9 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.chxExpiry = new Guna.UI.WinForms.GunaCheckBox();
-            this.cbxGroup = new System.Windows.Forms.ComboBox();
             this.chxExpire = new Guna.UI.WinForms.GunaCheckBox();
             this.guna2GradientPanel5 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.btnNhap = new FontAwesome.Sharp.IconButton();
+            this.cbxGroup = new System.Windows.Forms.ComboBox();
             this.printDialog = new System.Windows.Forms.PrintDialog();
             this.printReview = new System.Drawing.Printing.PrintDocument();
             this.pvdCORPrint = new System.Windows.Forms.PrintPreviewDialog();
@@ -574,7 +574,8 @@ namespace PetShop.Forms
             this.txtFindProduct.Name = "txtFindProduct";
             this.txtFindProduct.Size = new System.Drawing.Size(319, 66);
             this.txtFindProduct.TabIndex = 2;
-            this.txtFindProduct.text = "Tìm Kiếm Sản Phẩm...";
+            this.txtFindProduct.text = "";
+            this.txtFindProduct.OnTextChange += new System.EventHandler(this.txtFindProduct_OnTextChange);
             // 
             // guna2GradientPanel9
             // 
@@ -606,20 +607,6 @@ namespace PetShop.Forms
             this.chxExpiry.Size = new System.Drawing.Size(104, 22);
             this.chxExpiry.TabIndex = 29;
             this.chxExpiry.Text = "Còn HSD";
-            // 
-            // cbxGroup
-            // 
-            this.cbxGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
-            this.cbxGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxGroup.Font = new System.Drawing.Font("Times New Roman", 20F);
-            this.cbxGroup.ForeColor = System.Drawing.Color.White;
-            this.cbxGroup.FormattingEnabled = true;
-            this.cbxGroup.Location = new System.Drawing.Point(258, 13);
-            this.cbxGroup.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxGroup.Name = "cbxGroup";
-            this.cbxGroup.Size = new System.Drawing.Size(216, 45);
-            this.cbxGroup.TabIndex = 0;
-            this.cbxGroup.Visible = false;
             // 
             // chxExpire
             // 
@@ -668,6 +655,20 @@ namespace PetShop.Forms
             this.btnNhap.TabIndex = 12;
             this.btnNhap.Text = "     Nhập Hàng";
             this.btnNhap.UseVisualStyleBackColor = false;
+            // 
+            // cbxGroup
+            // 
+            this.cbxGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
+            this.cbxGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxGroup.Font = new System.Drawing.Font("Times New Roman", 20F);
+            this.cbxGroup.ForeColor = System.Drawing.Color.White;
+            this.cbxGroup.FormattingEnabled = true;
+            this.cbxGroup.Location = new System.Drawing.Point(258, 13);
+            this.cbxGroup.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxGroup.Name = "cbxGroup";
+            this.cbxGroup.Size = new System.Drawing.Size(216, 45);
+            this.cbxGroup.TabIndex = 0;
+            this.cbxGroup.Visible = false;
             // 
             // printDialog
             // 

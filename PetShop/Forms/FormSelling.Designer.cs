@@ -30,14 +30,14 @@ namespace PetShop.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSelling));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.gunaPanel2 = new Guna.UI.WinForms.GunaPanel();
@@ -80,6 +80,14 @@ namespace PetShop.Forms
             this.btnOrder = new Guna.UI.WinForms.GunaAdvenceButton();
             this.gunaGradient2Panel4 = new Guna.UI.WinForms.GunaGradient2Panel();
             this.dgvList = new Guna.UI.WinForms.GunaDataGridView();
+            this.Product_Seiral_Key = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product_Sale_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dcpUnit = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dcpBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gunaGradient2Panel3 = new Guna.UI.WinForms.GunaGradient2Panel();
             this.lblEmployeeName = new Guna.UI.WinForms.GunaLabel();
             this.gunaCirclePictureBox1 = new Guna.UI.WinForms.GunaCirclePictureBox();
@@ -93,14 +101,6 @@ namespace PetShop.Forms
             this.btnHotel = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnService = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnProduct = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.Product_Seiral_Key = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_Sale_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dcpUnit = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dcpBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.gunaPanel2.SuspendLayout();
             this.pnInfoOrder.SuspendLayout();
@@ -124,7 +124,7 @@ namespace PetShop.Forms
             this.panel1.Controls.Add(this.gunaShadowPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1600, 788);
             this.panel1.TabIndex = 0;
@@ -134,7 +134,7 @@ namespace PetShop.Forms
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(764, 315);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(740, 265);
             this.flowLayoutPanel1.TabIndex = 49;
@@ -159,10 +159,10 @@ namespace PetShop.Forms
             this.gunaPanel2.Controls.Add(this.lblGiven);
             this.gunaPanel2.Controls.Add(this.btnSave);
             this.gunaPanel2.Controls.Add(this.btnCheckOut);
-            this.gunaPanel2.Location = new System.Drawing.Point(732, 588);
-            this.gunaPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaPanel2.Location = new System.Drawing.Point(764, 588);
+            this.gunaPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.gunaPanel2.Name = "gunaPanel2";
-            this.gunaPanel2.Size = new System.Drawing.Size(771, 286);
+            this.gunaPanel2.Size = new System.Drawing.Size(739, 286);
             this.gunaPanel2.TabIndex = 41;
             // 
             // lblUnitDisCount
@@ -186,7 +186,7 @@ namespace PetShop.Forms
             this.txtDiscount.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.txtDiscount.LineColor = System.Drawing.Color.Gainsboro;
             this.txtDiscount.Location = new System.Drawing.Point(458, 46);
-            this.txtDiscount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDiscount.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.PasswordChar = '\0';
             this.txtDiscount.SelectedText = "";
@@ -206,7 +206,7 @@ namespace PetShop.Forms
             this.chxDiscount.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chxDiscount.ForeColor = System.Drawing.Color.Gray;
             this.chxDiscount.Location = new System.Drawing.Point(39, 51);
-            this.chxDiscount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chxDiscount.Margin = new System.Windows.Forms.Padding(4);
             this.chxDiscount.Name = "chxDiscount";
             this.chxDiscount.Size = new System.Drawing.Size(88, 20);
             this.chxDiscount.TabIndex = 39;
@@ -269,7 +269,7 @@ namespace PetShop.Forms
             this.txtGiven.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
             this.txtGiven.LineColor = System.Drawing.Color.Gainsboro;
             this.txtGiven.Location = new System.Drawing.Point(458, 119);
-            this.txtGiven.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtGiven.Margin = new System.Windows.Forms.Padding(4);
             this.txtGiven.Name = "txtGiven";
             this.txtGiven.PasswordChar = '\0';
             this.txtGiven.SelectedText = "";
@@ -301,7 +301,7 @@ namespace PetShop.Forms
             this.txtSurcharge.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.txtSurcharge.LineColor = System.Drawing.Color.Gainsboro;
             this.txtSurcharge.Location = new System.Drawing.Point(458, 4);
-            this.txtSurcharge.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSurcharge.Margin = new System.Windows.Forms.Padding(4);
             this.txtSurcharge.Name = "txtSurcharge";
             this.txtSurcharge.PasswordChar = '\0';
             this.txtSurcharge.SelectedText = "";
@@ -346,7 +346,7 @@ namespace PetShop.Forms
             this.cbxSurcharge.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxSurcharge.ForeColor = System.Drawing.Color.Gray;
             this.cbxSurcharge.Location = new System.Drawing.Point(39, 16);
-            this.cbxSurcharge.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxSurcharge.Margin = new System.Windows.Forms.Padding(4);
             this.cbxSurcharge.Name = "cbxSurcharge";
             this.cbxSurcharge.Size = new System.Drawing.Size(82, 20);
             this.cbxSurcharge.TabIndex = 26;
@@ -399,7 +399,7 @@ namespace PetShop.Forms
             this.btnSave.ImageSize = new System.Drawing.Size(20, 20);
             this.btnSave.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
             this.btnSave.Location = new System.Drawing.Point(144, 201);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.OnHoverBaseColor = System.Drawing.Color.Tomato;
             this.btnSave.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -436,7 +436,7 @@ namespace PetShop.Forms
             this.btnCheckOut.ImageSize = new System.Drawing.Size(24, 24);
             this.btnCheckOut.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
             this.btnCheckOut.Location = new System.Drawing.Point(376, 201);
-            this.btnCheckOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCheckOut.Margin = new System.Windows.Forms.Padding(4);
             this.btnCheckOut.Name = "btnCheckOut";
             this.btnCheckOut.OnHoverBaseColor = System.Drawing.Color.Coral;
             this.btnCheckOut.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -464,7 +464,7 @@ namespace PetShop.Forms
             this.pnInfoOrder.GradientColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.pnInfoOrder.GradientColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
             this.pnInfoOrder.Location = new System.Drawing.Point(764, 204);
-            this.pnInfoOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnInfoOrder.Margin = new System.Windows.Forms.Padding(4);
             this.pnInfoOrder.Name = "pnInfoOrder";
             this.pnInfoOrder.Radius = 8;
             this.pnInfoOrder.Size = new System.Drawing.Size(740, 102);
@@ -472,21 +472,21 @@ namespace PetShop.Forms
             // 
             // dgvOrder
             // 
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            this.dgvOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvOrder.BackgroundColor = System.Drawing.Color.White;
             this.dgvOrder.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvOrder.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvOrder.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvOrder.ColumnHeadersHeight = 30;
             this.dgvOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.STT,
@@ -496,18 +496,18 @@ namespace PetShop.Forms
             this.Invoice_Date,
             this.Order_Status,
             this.Surcharge});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOrder.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOrder.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvOrder.EnableHeadersVisualStyles = false;
             this.dgvOrder.GridColor = System.Drawing.Color.White;
             this.dgvOrder.Location = new System.Drawing.Point(0, 0);
-            this.dgvOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvOrder.Margin = new System.Windows.Forms.Padding(4);
             this.dgvOrder.Name = "dgvOrder";
             this.dgvOrder.ReadOnly = true;
             this.dgvOrder.RowHeadersVisible = false;
@@ -681,7 +681,7 @@ namespace PetShop.Forms
             this.gunaShadowPanel1.Controls.Add(this.gunaGradient2Panel1);
             this.gunaShadowPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gunaShadowPanel1.Location = new System.Drawing.Point(0, 0);
-            this.gunaShadowPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaShadowPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.gunaShadowPanel1.Name = "gunaShadowPanel1";
             this.gunaShadowPanel1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.gunaShadowPanel1.Size = new System.Drawing.Size(1600, 788);
@@ -696,7 +696,7 @@ namespace PetShop.Forms
             this.txtScanQR.ForeColor = System.Drawing.Color.Gray;
             this.txtScanQR.LineColor = System.Drawing.Color.Gainsboro;
             this.txtScanQR.Location = new System.Drawing.Point(1342, 154);
-            this.txtScanQR.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtScanQR.Margin = new System.Windows.Forms.Padding(4);
             this.txtScanQR.Name = "txtScanQR";
             this.txtScanQR.PasswordChar = '\0';
             this.txtScanQR.SelectedText = "";
@@ -712,7 +712,7 @@ namespace PetShop.Forms
             this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
             this.gunaPictureBox1.Image = global::PetShop.Properties.Resources._6556924;
             this.gunaPictureBox1.Location = new System.Drawing.Point(1262, 154);
-            this.gunaPictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaPictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.gunaPictureBox1.Name = "gunaPictureBox1";
             this.gunaPictureBox1.Size = new System.Drawing.Size(58, 42);
             this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -739,7 +739,7 @@ namespace PetShop.Forms
             this.btnAddOrder.ImageSize = new System.Drawing.Size(24, 24);
             this.btnAddOrder.LineColor = System.Drawing.Color.Transparent;
             this.btnAddOrder.Location = new System.Drawing.Point(1088, 146);
-            this.btnAddOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddOrder.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddOrder.Name = "btnAddOrder";
             this.btnAddOrder.OnHoverBaseColor = System.Drawing.Color.Transparent;
             this.btnAddOrder.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -772,7 +772,7 @@ namespace PetShop.Forms
             this.btnOrder.ImageSize = new System.Drawing.Size(32, 32);
             this.btnOrder.LineColor = System.Drawing.Color.Transparent;
             this.btnOrder.Location = new System.Drawing.Point(932, 145);
-            this.btnOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOrder.Margin = new System.Windows.Forms.Padding(4);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.OnHoverBaseColor = System.Drawing.Color.Transparent;
             this.btnOrder.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -792,28 +792,29 @@ namespace PetShop.Forms
             this.gunaGradient2Panel4.GradientColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
             this.gunaGradient2Panel4.GradientColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.gunaGradient2Panel4.Location = new System.Drawing.Point(28, 204);
-            this.gunaGradient2Panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaGradient2Panel4.Margin = new System.Windows.Forms.Padding(4);
             this.gunaGradient2Panel4.Name = "gunaGradient2Panel4";
             this.gunaGradient2Panel4.Size = new System.Drawing.Size(660, 646);
             this.gunaGradient2Panel4.TabIndex = 43;
             // 
             // dgvList
             // 
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            this.dgvList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvList.AllowUserToAddRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvList.BackgroundColor = System.Drawing.Color.White;
             this.dgvList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvList.ColumnHeadersHeight = 30;
             this.dgvList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Product_Seiral_Key,
@@ -824,18 +825,18 @@ namespace PetShop.Forms
             this.dcpUnit,
             this.dcpBarcode,
             this.Status});
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvList.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvList.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvList.EnableHeadersVisualStyles = false;
             this.dgvList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvList.Location = new System.Drawing.Point(0, 0);
-            this.dgvList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvList.Margin = new System.Windows.Forms.Padding(4);
             this.dgvList.Name = "dgvList";
             this.dgvList.ReadOnly = true;
             this.dgvList.RowHeadersVisible = false;
@@ -867,7 +868,81 @@ namespace PetShop.Forms
             this.dgvList.ThemeStyle.RowsStyle.Height = 30;
             this.dgvList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
-            this.dgvList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellDoubleClick);
+            this.dgvList.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvList_CellMouseDoubleClick);
+            // 
+            // Product_Seiral_Key
+            // 
+            this.Product_Seiral_Key.HeaderText = "Serial_Key";
+            this.Product_Seiral_Key.MinimumWidth = 6;
+            this.Product_Seiral_Key.Name = "Product_Seiral_Key";
+            this.Product_Seiral_Key.ReadOnly = true;
+            this.Product_Seiral_Key.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.FillWeight = 30F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // Product_Name
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Product_Name.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Product_Name.FillWeight = 200F;
+            this.Product_Name.HeaderText = "Tên ";
+            this.Product_Name.MinimumWidth = 6;
+            this.Product_Name.Name = "Product_Name";
+            this.Product_Name.ReadOnly = true;
+            // 
+            // Product_Sale_Price
+            // 
+            dataGridViewCellStyle7.Format = "C0";
+            dataGridViewCellStyle7.NullValue = null;
+            this.Product_Sale_Price.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Product_Sale_Price.FillWeight = 70F;
+            this.Product_Sale_Price.HeaderText = "Đơn giá";
+            this.Product_Sale_Price.MinimumWidth = 6;
+            this.Product_Sale_Price.Name = "Product_Sale_Price";
+            this.Product_Sale_Price.ReadOnly = true;
+            // 
+            // Product_Quantity
+            // 
+            this.Product_Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Product_Quantity.FillWeight = 50F;
+            this.Product_Quantity.HeaderText = "Số Lượng";
+            this.Product_Quantity.MinimumWidth = 6;
+            this.Product_Quantity.Name = "Product_Quantity";
+            this.Product_Quantity.ReadOnly = true;
+            this.Product_Quantity.Width = 80;
+            // 
+            // dcpUnit
+            // 
+            this.dcpUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dcpUnit.HeaderText = "Đơn Vị";
+            this.dcpUnit.MinimumWidth = 6;
+            this.dcpUnit.Name = "dcpUnit";
+            this.dcpUnit.ReadOnly = true;
+            this.dcpUnit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dcpUnit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dcpUnit.Width = 80;
+            // 
+            // dcpBarcode
+            // 
+            this.dcpBarcode.HeaderText = "Barcode";
+            this.dcpBarcode.MinimumWidth = 6;
+            this.dcpBarcode.Name = "dcpBarcode";
+            this.dcpBarcode.ReadOnly = true;
+            this.dcpBarcode.Visible = false;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Trạng Thái";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Visible = false;
             // 
             // gunaGradient2Panel3
             // 
@@ -877,7 +952,7 @@ namespace PetShop.Forms
             this.gunaGradient2Panel3.GradientColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.gunaGradient2Panel3.GradientColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
             this.gunaGradient2Panel3.Location = new System.Drawing.Point(1176, 42);
-            this.gunaGradient2Panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaGradient2Panel3.Margin = new System.Windows.Forms.Padding(4);
             this.gunaGradient2Panel3.Name = "gunaGradient2Panel3";
             this.gunaGradient2Panel3.Radius = 8;
             this.gunaGradient2Panel3.Size = new System.Drawing.Size(269, 69);
@@ -900,7 +975,7 @@ namespace PetShop.Forms
             this.gunaCirclePictureBox1.BaseColor = System.Drawing.Color.White;
             this.gunaCirclePictureBox1.Image = global::PetShop.Properties.Resources._12169276551941958109;
             this.gunaCirclePictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.gunaCirclePictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaCirclePictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.gunaCirclePictureBox1.Name = "gunaCirclePictureBox1";
             this.gunaCirclePictureBox1.Size = new System.Drawing.Size(65, 62);
             this.gunaCirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -913,7 +988,7 @@ namespace PetShop.Forms
             this.gunaPictureBox3.BaseColor = System.Drawing.Color.White;
             this.gunaPictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBox3.Image")));
             this.gunaPictureBox3.Location = new System.Drawing.Point(732, 42);
-            this.gunaPictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaPictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.gunaPictureBox3.Name = "gunaPictureBox3";
             this.gunaPictureBox3.Size = new System.Drawing.Size(35, 42);
             this.gunaPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -932,7 +1007,7 @@ namespace PetShop.Forms
             this.txtSearch.Font = new System.Drawing.Font("Arial", 11.25F);
             this.txtSearch.ForeColor = System.Drawing.Color.Gray;
             this.txtSearch.Location = new System.Drawing.Point(424, 42);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
             this.txtSearch.SelectedText = "";
@@ -948,7 +1023,7 @@ namespace PetShop.Forms
             this.gunaVScrollBar1.Enabled = false;
             this.gunaVScrollBar1.LargeChange = 10;
             this.gunaVScrollBar1.Location = new System.Drawing.Point(691, 204);
-            this.gunaVScrollBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaVScrollBar1.Margin = new System.Windows.Forms.Padding(4);
             this.gunaVScrollBar1.Maximum = 100;
             this.gunaVScrollBar1.Name = "gunaVScrollBar1";
             this.gunaVScrollBar1.ScrollIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(226)))), ((int)(((byte)(230)))));
@@ -1004,7 +1079,7 @@ namespace PetShop.Forms
             this.btnPayment.ImageSize = new System.Drawing.Size(30, 30);
             this.btnPayment.LineColor = System.Drawing.Color.Transparent;
             this.btnPayment.Location = new System.Drawing.Point(758, 145);
-            this.btnPayment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPayment.Margin = new System.Windows.Forms.Padding(4);
             this.btnPayment.Name = "btnPayment";
             this.btnPayment.OnHoverBaseColor = System.Drawing.Color.Transparent;
             this.btnPayment.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -1026,7 +1101,7 @@ namespace PetShop.Forms
             this.gunaGradient2Panel1.GradientColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.gunaGradient2Panel1.GradientColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
             this.gunaGradient2Panel1.Location = new System.Drawing.Point(28, 126);
-            this.gunaGradient2Panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaGradient2Panel1.Margin = new System.Windows.Forms.Padding(4);
             this.gunaGradient2Panel1.Name = "gunaGradient2Panel1";
             this.gunaGradient2Panel1.Size = new System.Drawing.Size(660, 70);
             this.gunaGradient2Panel1.TabIndex = 42;
@@ -1052,7 +1127,7 @@ namespace PetShop.Forms
             this.btnHotel.ImageSize = new System.Drawing.Size(30, 30);
             this.btnHotel.LineColor = System.Drawing.Color.Transparent;
             this.btnHotel.Location = new System.Drawing.Point(452, 0);
-            this.btnHotel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHotel.Margin = new System.Windows.Forms.Padding(4);
             this.btnHotel.Name = "btnHotel";
             this.btnHotel.OnHoverBaseColor = System.Drawing.Color.Transparent;
             this.btnHotel.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -1086,7 +1161,7 @@ namespace PetShop.Forms
             this.btnService.ImageSize = new System.Drawing.Size(30, 30);
             this.btnService.LineColor = System.Drawing.Color.Transparent;
             this.btnService.Location = new System.Drawing.Point(248, 1);
-            this.btnService.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnService.Margin = new System.Windows.Forms.Padding(4);
             this.btnService.Name = "btnService";
             this.btnService.OnHoverBaseColor = System.Drawing.Color.Transparent;
             this.btnService.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -1119,7 +1194,7 @@ namespace PetShop.Forms
             this.btnProduct.ImageSize = new System.Drawing.Size(30, 30);
             this.btnProduct.LineColor = System.Drawing.Color.Transparent;
             this.btnProduct.Location = new System.Drawing.Point(36, 1);
-            this.btnProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProduct.Margin = new System.Windows.Forms.Padding(4);
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.OnHoverBaseColor = System.Drawing.Color.Transparent;
             this.btnProduct.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -1132,80 +1207,6 @@ namespace PetShop.Forms
             this.btnProduct.Text = "Hàng Hóa";
             this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
             // 
-            // Product_Seiral_Key
-            // 
-            this.Product_Seiral_Key.HeaderText = "Serial_Key";
-            this.Product_Seiral_Key.MinimumWidth = 6;
-            this.Product_Seiral_Key.Name = "Product_Seiral_Key";
-            this.Product_Seiral_Key.ReadOnly = true;
-            this.Product_Seiral_Key.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.FillWeight = 30F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // Product_Name
-            // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Product_Name.DefaultCellStyle = dataGridViewCellStyle14;
-            this.Product_Name.FillWeight = 200F;
-            this.Product_Name.HeaderText = "Tên ";
-            this.Product_Name.MinimumWidth = 6;
-            this.Product_Name.Name = "Product_Name";
-            this.Product_Name.ReadOnly = true;
-            // 
-            // Product_Sale_Price
-            // 
-            dataGridViewCellStyle15.Format = "C0";
-            dataGridViewCellStyle15.NullValue = null;
-            this.Product_Sale_Price.DefaultCellStyle = dataGridViewCellStyle15;
-            this.Product_Sale_Price.FillWeight = 70F;
-            this.Product_Sale_Price.HeaderText = "Đơn giá";
-            this.Product_Sale_Price.MinimumWidth = 6;
-            this.Product_Sale_Price.Name = "Product_Sale_Price";
-            this.Product_Sale_Price.ReadOnly = true;
-            // 
-            // Product_Quantity
-            // 
-            this.Product_Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Product_Quantity.FillWeight = 50F;
-            this.Product_Quantity.HeaderText = "Số Lượng";
-            this.Product_Quantity.MinimumWidth = 6;
-            this.Product_Quantity.Name = "Product_Quantity";
-            this.Product_Quantity.ReadOnly = true;
-            this.Product_Quantity.Width = 80;
-            // 
-            // dcpUnit
-            // 
-            this.dcpUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dcpUnit.HeaderText = "Đơn Vị";
-            this.dcpUnit.MinimumWidth = 6;
-            this.dcpUnit.Name = "dcpUnit";
-            this.dcpUnit.ReadOnly = true;
-            this.dcpUnit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dcpUnit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dcpUnit.Width = 80;
-            // 
-            // dcpBarcode
-            // 
-            this.dcpBarcode.HeaderText = "Barcode";
-            this.dcpBarcode.MinimumWidth = 6;
-            this.dcpBarcode.Name = "dcpBarcode";
-            this.dcpBarcode.ReadOnly = true;
-            this.dcpBarcode.Visible = false;
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Trạng Thái";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Visible = false;
-            // 
             // FormSelling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -1214,7 +1215,7 @@ namespace PetShop.Forms
             this.ClientSize = new System.Drawing.Size(1600, 788);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormSelling";
             this.Text = "FormSelling";
             this.Load += new System.EventHandler(this.FormSelling_Load);
